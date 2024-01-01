@@ -1,7 +1,11 @@
 // ignore_for_file: unused_local_variable
-
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/home_screen/home_screen.dart';
 import 'package:dating_app/application/presentation/screens/login_screen/login_screen.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/dob_screen/dob_screen.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/interest/interest_screen.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/location_screen/location_add_screen.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/profile_picture/profile_picture_screen.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
 import 'package:dating_app/application/presentation/screens/number_input_screen/number_input_screen.dart';
 import 'package:dating_app/application/presentation/screens/otp_verification/otp_verification.dart';
@@ -35,6 +39,17 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const Page3());
       case Routes.userInfoPage:
         return MaterialPageRoute(builder: (ctx) => const UserInfoScreen());
+      case Routes.userDOB:
+        return MaterialPageRoute(builder: (ctx) => const DobScreen());
+      case Routes.userPictrures:
+        return MaterialPageRoute(
+            builder: (ctx) => const ProfilePictureScreen());
+      case Routes.userInterest:
+        return MaterialPageRoute(builder: (ctx) => const InterestScreen());
+      case Routes.userlocation:
+        return MaterialPageRoute(builder: (ctx) => const LocationScreen());
+      case Routes.Homepage:
+        return MaterialPageRoute(builder: (ctx) => const HomeScreen());
       default:
         return _errorScreen();
     }

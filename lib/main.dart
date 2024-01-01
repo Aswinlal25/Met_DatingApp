@@ -17,7 +17,7 @@ class DatingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter demo',
+      title: 'Met',
       theme: ThemeData(
       colorScheme: const ColorScheme.light(),
       primaryColor: Colors.red

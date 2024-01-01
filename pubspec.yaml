@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   page_view_indicators: ^2.0.0
   slide_to_act: ^2.0.2
+  dropdown_button2: ^2.3.9
+  numberpicker: ^2.1.2
+  lottie: ^2.7.0
   
 
 
