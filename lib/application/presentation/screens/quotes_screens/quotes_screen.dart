@@ -1,5 +1,3 @@
-
-
 // // ignore_for_file: must_be_immutable
 
 // import 'package:dating_app/application/presentation/screens/quotes_screen/pages/page_one.dart';
@@ -37,10 +35,10 @@
 //                 left: 170,
 //                   child: _buildDotIndicator(), )
 //               ],
-              
+
 //             ),
 //           ),
-         
+
 //         ],
 //       ),
 //     );

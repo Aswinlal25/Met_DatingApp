@@ -66,7 +66,6 @@ class Page2 extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.pushNamed(

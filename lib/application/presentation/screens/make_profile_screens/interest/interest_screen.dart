@@ -31,10 +31,18 @@ class InterestScreen extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(height: 10,),
-            Align(alignment: Alignment.centerLeft,
-              child: Text('Interests makes it easier to find who shares your\ninterests.Add some to your profile to make better\nconnections',style: TextStyle(color: Colors.white60,letterSpacing: 0.3),)),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 10,
+            ),
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Interests makes it easier to find who shares your\ninterests.Add some to your profile to make better\nconnections',
+                  style: TextStyle(color: Colors.white60, letterSpacing: 0.3),
+                )),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               children: [
                 ChoiceChips(chipname: 'Reading'),
@@ -53,75 +61,78 @@ class InterestScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 10,),
+              height: 10,
+            ),
             Row(
               children: [
                 ChoiceChips(chipname: 'Travel'),
-                 Spacer(),
+                Spacer(),
                 ChoiceChips(chipname: 'Movies and TV shows'),
               ],
             ),
-             SizedBox(
-              height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 ChoiceChips(chipname: 'Pet'),
-                 Spacer(),
+                Spacer(),
                 ChoiceChips(chipname: 'Dance'),
-                 Spacer(),
+                Spacer(),
                 ChoiceChips(chipname: 'Gardening'),
               ],
             ),
-             
-             SizedBox(
-              height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 ChoiceChips(chipname: 'Cooking and Food'),
-                 Spacer(),
+                Spacer(),
                 ChoiceChips(chipname: 'Games'),
-                
               ],
             ),
             SizedBox(
-              height: 10,),
+              height: 10,
+            ),
             Row(
               children: [
                 ChoiceChips(chipname: 'Photography'),
-                 Spacer(),
+                Spacer(),
                 ChoiceChips(chipname: 'Technology'),
-                
               ],
             ),
-            SizedBox(height: 211,),
+            SizedBox(
+              height: 211,
+            ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.userlocation);
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: kred,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.userlocation);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: kred,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: SizedBox(
-                    height: 37,
-                    width: 280,
-                    child: Center(
-                      child: Text(
-                        'Next',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: kwhite,
-                          //fontWeight: FontWeight.bold
-                        ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  height: 37,
+                  width: 280,
+                  child: Center(
+                    child: Text(
+                      'Next',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: kwhite,
+                        //fontWeight: FontWeight.bold
                       ),
                     ),
                   ),
                 ),
               ),
+            ),
           ],
         ),
       ),

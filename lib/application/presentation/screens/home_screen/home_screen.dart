@@ -1,4 +1,3 @@
-
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +12,10 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kblack,
         automaticallyImplyLeading: false,
-        leading: Icon(CupertinoIcons.bars,color: kwhite,),
+        leading: Icon(
+          CupertinoIcons.bars,
+          color: kwhite,
+        ),
       ),
     );
   }

@@ -30,8 +30,11 @@ class ProfilePictureScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Align(alignment: Alignment.bottomLeft,
-              child: Text('+ Must Upload 4 photos\n+ Pictures with minors is a big no\n+ Stay clear of inappropriate content\n+ Avoid blurry pictures',style: TextStyle(color: Colors.white60))),
+            Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                    '+ Must Upload 4 photos\n+ Pictures with minors is a big no\n+ Stay clear of inappropriate content\n+ Avoid blurry pictures',
+                    style: TextStyle(color: Colors.white60))),
             SizedBox(
               height: 40,
             ),

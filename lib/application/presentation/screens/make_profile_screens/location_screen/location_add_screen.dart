@@ -32,7 +32,9 @@ class LocationScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Text(
                 'Find Love Closer Than You Think!\nAdd your location to connect with Soulmates near you\nLet the journey to love begin!',
                 style: TextStyle(color: Colors.white60, letterSpacing: 0.3)),
@@ -47,7 +49,9 @@ class LocationScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 120,),
+            SizedBox(
+              height: 120,
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, Routes.Homepage);

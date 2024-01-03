@@ -83,7 +83,8 @@ class Page3 extends StatelessWidget {
                               ),
 
                               onSubmit: () {
-                                Navigator.pushNamed(context, Routes.userInfoPage);
+                                Navigator.pushNamed(
+                                    context, Routes.userInfoPage);
                               },
                             ),
                           ])),

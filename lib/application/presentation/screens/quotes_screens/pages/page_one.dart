@@ -104,35 +104,37 @@ class Page1 extends StatelessWidget {
                             ),
                           ])),
                 ),
-                Positioned(top: 40,right: 8,
+                Positioned(
+                  top: 40,
+                  right: 8,
                   child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, Routes.quotesScreen3);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 18, 18, 18),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(1.0),
-                              child: SizedBox(
-                                height: 20,
-                                width: 29,
-                                child: Center(
-                                  child: Text(
-                                    'SKIP',
-                                    style: TextStyle(
-                                      fontSize: 11.0,
-                                      color: kwhite,
-                                      letterSpacing: 1
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),)
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.quotesScreen3);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 18, 18, 18),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: SizedBox(
+                        height: 20,
+                        width: 29,
+                        child: Center(
+                          child: Text(
+                            'SKIP',
+                            style: TextStyle(
+                                fontSize: 11.0,
+                                color: kwhite,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             )));
   }

@@ -21,12 +21,12 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                Colors.black.withOpacity(0.9),
-                Colors.transparent,
-               // Colors.black.withOpacity(0.4),
-                Colors.black.withOpacity(0.4)
-              ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
+              gradient: LinearGradient(colors: [
+            Colors.black.withOpacity(0.9),
+            Colors.transparent,
+            // Colors.black.withOpacity(0.4),
+            Colors.black.withOpacity(0.4)
+          ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -54,8 +54,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                     // Navigator.of(context).pushNamed(phoneNoInputPage);
-                       Navigator.pushNamed(context, Routes.phoneNoInputPage);
+                      // Navigator.of(context).pushNamed(phoneNoInputPage);
+                      Navigator.pushNamed(context, Routes.phoneNoInputPage);
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kred,

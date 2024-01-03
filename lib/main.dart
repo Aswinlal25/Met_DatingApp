@@ -1,30 +1,25 @@
-
-
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/routes/routes_generator.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(DatingApp());
 }
 
 class DatingApp extends StatelessWidget {
-   DatingApp({super.key});
+  DatingApp({super.key});
 
-   final RouteGenerator routeGenerator = RouteGenerator();
+  final RouteGenerator routeGenerator = RouteGenerator();
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Met',
       theme: ThemeData(
-      colorScheme: const ColorScheme.light(),
-      primaryColor: Colors.red
-      ),
+          colorScheme: const ColorScheme.light(), primaryColor: Colors.red),
       initialRoute: Routes.loginPage,
-      onGenerateRoute:  routeGenerator.onGenerateRoute,
-      
+      onGenerateRoute: routeGenerator.onGenerateRoute,
     );
   }
 }
