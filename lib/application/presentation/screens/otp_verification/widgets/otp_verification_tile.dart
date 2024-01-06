@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OTPNumberTIle extends StatelessWidget {
-  OTPNumberTIle({
+  const OTPNumberTIle({
     super.key,
     required this.first,
     required this.last,
@@ -13,7 +13,7 @@ class OTPNumberTIle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.5),
+      padding: const EdgeInsets.all(5.6),
       child: Container(
           height: 65,
           width: 47,

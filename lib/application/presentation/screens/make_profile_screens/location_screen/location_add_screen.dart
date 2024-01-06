@@ -54,7 +54,7 @@ class LocationScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, Routes.Homepage);
+                Navigator.pushReplacementNamed(context, Routes.homePage);
               },
               style: ElevatedButton.styleFrom(
                 primary: kred,

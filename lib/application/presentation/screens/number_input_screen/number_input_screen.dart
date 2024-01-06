@@ -1,9 +1,14 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
+import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/domain/modules/phone_number_model/phone_number_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NumberScreen extends StatelessWidget {
   const NumberScreen({super.key});
@@ -100,6 +105,8 @@ class NumberScreen extends StatelessWidget {
                             ),
                             child: Center(
                               child: TextFormField(
+                                controller:
+                                    context.read<AuthBloc>().poneController,
                                 keyboardType: TextInputType.phone,
                                 style: TextStyle(
                                     color: kwhite,
@@ -123,32 +130,52 @@ class NumberScreen extends StatelessWidget {
                     SizedBox(height: 450),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, Routes.otpVerfication);
+                      child: BlocConsumer<AuthBloc, AuthState>(
+                        listener: (context, state) {
+                          if(state.otpHasError){
+                            print("there is somw error occur");
+                            showSnack(context: context, message: state.message!);
+                          }
+                          else if(state.phoneNumberResponseModel != null){
+                            print("f;unction is okey");
+                            Navigator.pushNamed(context, Routes.otpVerfication);
+                          }
                         },
-                        style: ElevatedButton.styleFrom(
-                          primary: kred,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: SizedBox(
-                            height: 30,
-                            width: 80,
-                            child: Center(
-                              child: Text(
-                                'Continue',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: kwhite,
+                        builder: (context, state) {
+                          return ElevatedButton(
+                            onPressed: () {
+                               print("button  is clicked");
+                              PhoneNumberModel model=PhoneNumberModel(phNo: context.read<AuthBloc>().poneController.text);
+                              context.read<AuthBloc>().add(AuthEvent.otpLogin(phoneNumberModel: model));
+                              //  Navigator.pushNamed(context, Routes.otpVerfication);
+                                 if(state.otpIsLoading){
+                                       LoadingAnimation(width: 50.0);
+                                 }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: kred,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: SizedBox(
+                                height: 30,
+                                width: 80,
+                                child: Center(
+                                  child: Text(
+                                    'Continue',
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      color: kwhite,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],

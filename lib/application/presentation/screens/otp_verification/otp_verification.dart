@@ -1,16 +1,40 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
+import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
-import 'package:dating_app/application/presentation/screens/otp_verification/widgets/otp_verification_tile.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
+import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/domain/modules/verify_otp_model/verify_otp_model.dart';
+import 'package:dating_app/domain/modules/verify_otp_response/verify_otp_response.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pinput/pinput.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen({super.key});
+  OTPScreen({super.key});
+
+  /// Create Controller
+
+  var otpsvalue;
 
   @override
   Widget build(BuildContext context) {
+    final defaultPinTheme = PinTheme(
+      width: 50,
+      height: 55,
+      textStyle: const TextStyle(
+        fontSize: 22,
+        color: Colors.white,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black26, width: 2),
+      ),
+    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -83,7 +107,7 @@ class OTPScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      'Chech your phone',
+                      'Check your phone',
                       style: TextStyle(
                           color: kwhite,
                           fontSize: 24,
@@ -98,81 +122,85 @@ class OTPScreen extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-
                     Row(
                       children: [
-                        Row(
-                          children: [
-                            OTPNumberTIle(
-                              first: true,
-                              last: false,
+                        Pinput(
+                          androidSmsAutofillMethod:
+                              AndroidSmsAutofillMethod.smsRetrieverApi,
+                          controller: context.read<AuthBloc>().pinController,
+                          length: 6,
+                          defaultPinTheme: defaultPinTheme,
+                          focusedPinTheme: defaultPinTheme.copyWith(
+                            decoration: defaultPinTheme.decoration!.copyWith(
+                              border: Border.all(color: Colors.red),
                             ),
-                            OTPNumberTIle(
-                              first: true,
-                              last: false,
-                            ),
-                            OTPNumberTIle(
-                              first: true,
-                              last: false,
-                            ),
-                            OTPNumberTIle(
-                              first: false,
-                              last: false,
-                            ),
-                            OTPNumberTIle(
-                              first: false,
-                              last: false,
-                            ),
-                            OTPNumberTIle(
-                              first: false,
-                              last: true,
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
-                    //  Align(alignment: Alignment.center,
-                    //  child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                    //    children: [
-                    //      Text("did't get the OTP  ",style: TextStyle(color: kwhite),),
-                    //       InkWell(onTap: () {
-
-                    //       },
-                    //         child: Text("RESEND !",style: TextStyle(color: kblack ,fontSize: 17,fontWeight: FontWeight.bold),)),
-                    //    ],
-                    //  ),
-
-                    //  ),
-
-                    SizedBox(height: 415),
+                    SizedBox(height: 470),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, Routes.quotesScreen1);
+                      child: BlocConsumer<AuthBloc, AuthState>(
+                        listener: (context, state) {
+                          if (state.verifyOtpHasError) {
+                            showSnack(
+                                context: context, message: state.message!);
+                          }
+                           else if(state.verifyOtpResponse!=null){
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                Routes.quotesScreen1, (route) => false);
+                          }
                         },
-                        style: ElevatedButton.styleFrom(
-                          primary: kred,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: SizedBox(
-                            height: 30,
-                            width: 80,
-                            child: Center(
-                              child: Text(
-                                'Continue',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: kwhite,
+                        builder: (context, state) {
+                          if (state.verifyOtpIsLoading) {
+                            return  LoadingAnimation(width: 50);
+                          }
+                           else {
+                            return ElevatedButton(
+                              onPressed: () {
+                                
+                         
+                                context.read<AuthBloc>().add(
+                                    AuthEvent.otpVerify(
+                                        verifyOtpModel: VerifyOtpModel(
+                                            phNo: context
+                                                .read<AuthBloc>()
+                                                .poneController
+                                                .text.trim(),
+                                            code: context
+                                                .read<AuthBloc>()
+                                                .pinController
+                                                .text)));
+
+                                // Navigator.pushNamed(
+                                //     context, Routes.quotesScreen1);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: kred,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
-                            ),
-                          ),
-                        ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: SizedBox(
+                                  height: 30,
+                                  width: 80,
+                                  child: Center(
+                                    child: Text(
+                                      'Continue',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        color: kwhite,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                        },
                       ),
                     ),
                   ],
@@ -192,8 +220,6 @@ class OTPScreen extends StatelessWidget {
                       SizedBox(
                         width: 5,
                       ),
-                      //Text('Go Back',style: TextStyle(fontSize: 17,color: Colors.white54),),
-                      // SizedBox(width: 150,),
                     ],
                   ))
             ],

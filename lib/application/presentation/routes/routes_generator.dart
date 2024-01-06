@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/bottom_navigation/bottom_nav.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/home_screen.dart';
 import 'package:dating_app/application/presentation/screens/login_screen/login_screen.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/dob_screen/dob_screen.dart';
@@ -28,7 +29,7 @@ class RouteGenerator {
       case Routes.phoneNoInputPage:
         return MaterialPageRoute(builder: (ctx) => const NumberScreen());
       case Routes.otpVerfication:
-        return MaterialPageRoute(builder: (ctx) => const OTPScreen());
+        return MaterialPageRoute(builder: (ctx) => OTPScreen());
       // case Routes.quotesScreen1:
       // return MaterialPageRoute(builder: (ctx)=>QuotesScreen());
       case Routes.quotesScreen1:
@@ -48,8 +49,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const InterestScreen());
       case Routes.userlocation:
         return MaterialPageRoute(builder: (ctx) => const LocationScreen());
-      case Routes.Homepage:
-        return MaterialPageRoute(builder: (ctx) => const HomeScreen());
+      case Routes.homePage:
+        return MaterialPageRoute(builder: (ctx) =>  HomeScreen());
+        case Routes.bottomNavigation:
+        return MaterialPageRoute(builder: (ctx) =>  BottomNavBar());
       default:
         return _errorScreen();
     }
