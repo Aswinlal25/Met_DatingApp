@@ -52,14 +52,17 @@ class NumberScreen extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    Text(
-                      'Mobile verification',
-                      style: TextStyle(
-                          color: kwhite,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5,
-                          wordSpacing: 2),
+                    InkWell(
+                      onTap: () => Navigator.pushNamed(context, Routes.bottomNavigation),
+                      child: Text(
+                        'Mobile verification',
+                        style: TextStyle(
+                            color: kwhite,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 0.5,
+                            wordSpacing: 2),
+                      ),
                     ),
                     Text(
                       'We will send you the 4 digit verification code',
@@ -144,7 +147,8 @@ class NumberScreen extends StatelessWidget {
                         builder: (context, state) {
                           return ElevatedButton(
                             onPressed: () {
-                               print("button  is clicked");
+                            
+                               print("buptton  is clicked");
                               PhoneNumberModel model=PhoneNumberModel(phNo: context.read<AuthBloc>().poneController.text);
                               context.read<AuthBloc>().add(AuthEvent.otpLogin(phoneNumberModel: model));
                               //  Navigator.pushNamed(context, Routes.otpVerfication);

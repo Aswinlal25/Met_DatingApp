@@ -11,9 +11,8 @@ class Routes {
   static const userPictrures = '/user_pictures_page';
   static const userInterest = '/user_interest_page';
   static const userlocation = '/user_location_page';
-    static const bottomNavigation = '/bottom_nav_bar';
+  static const bottomNavigation = '/bottom_nav_bar';
   static const homePage = '/home_page';
-
-
+  static const otherUsersScreen = '/Other_users_page';
   //static const Homepage = '/home_page';
 }

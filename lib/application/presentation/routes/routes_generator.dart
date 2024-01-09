@@ -9,6 +9,7 @@ import 'package:dating_app/application/presentation/screens/make_profile_screens
 import 'package:dating_app/application/presentation/screens/make_profile_screens/profile_picture/profile_picture_screen.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
 import 'package:dating_app/application/presentation/screens/number_input_screen/number_input_screen.dart';
+import 'package:dating_app/application/presentation/screens/other_users_Screen/other_users.dart';
 import 'package:dating_app/application/presentation/screens/otp_verification/otp_verification.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_one.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_three.dart';
@@ -53,6 +54,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) =>  HomeScreen());
         case Routes.bottomNavigation:
         return MaterialPageRoute(builder: (ctx) =>  BottomNavBar());
+         case Routes.otherUsersScreen:
+        return MaterialPageRoute(builder: (ctx) =>  OtherUsersScreen());
       default:
         return _errorScreen();
     }

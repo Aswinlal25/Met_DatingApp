@@ -7,3 +7,5 @@ const Color kgrey = Colors.grey;
 const Color kblack = Colors.black;
 
 const Color kwhite = Colors.white;
+
+const Color kblack56 = Colors.white54;
