@@ -25,8 +25,10 @@ class DatingApp extends StatelessWidget {
         ],
       child:MaterialApp(
         debugShowCheckedModeBanner: false,
+         
         title: 'Met',
         theme: ThemeData(
+           useMaterial3: false,
             colorScheme: const ColorScheme.light(), primaryColor: Colors.red),
         initialRoute: Routes.initail,
         onGenerateRoute: routeGenerator.onGenerateRoute,

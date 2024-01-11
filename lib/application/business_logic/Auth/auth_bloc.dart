@@ -70,7 +70,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<_SignOut>((event, emit) async {
+      print('signout called');
       await SharedPref.removeLogin();
+      print('object-------');
       emit(AuthState.initial());
     });
   }

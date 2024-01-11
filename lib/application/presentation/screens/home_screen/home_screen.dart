@@ -1,3 +1,4 @@
+import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/widgets/interestbutton.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/widgets/like_buttom.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/widgets/like_button2.dart';
@@ -17,25 +18,35 @@ class HomeScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/background_images/photo_2023-11-30_13-42-16.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+              GestureDetector(
+                 onVerticalDragEnd: (details) {
+                // Check if the swipe is in an upward direction
+                if (details.primaryVelocity! < 0) {
+                  // Handle swipe-up event here
+                  Navigator.pushNamed(context, Routes.otherUsersScreen);
+                  print('Swipe up detected!');
+                }
+              },
                 child: Container(
                   width: double.infinity,
-                  height: 600,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                    Colors.black,
-                    Colors.transparent,
-                    Colors.transparent,
-                    Colors.black.withOpacity(0.1),
-                  ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'assets/images/background_images/photo_2023-11-30_13-42-16.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 600,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                      Colors.black,
+                      Colors.transparent,
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.1),
+                    ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
+                  ),
                 ),
               ),
               Positioned(

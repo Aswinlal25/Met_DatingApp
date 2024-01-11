@@ -2,10 +2,13 @@
 
 // ignore_for_file: unused_element, deprecated_member_use, must_be_immutable
 
+import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
+import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -172,11 +175,17 @@ class DrawerScreen extends StatelessWidget {
               ),
               InkWell(
                   onTap: () {
-                    //                   logout() {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return CustomDialog();
+                      },
+                    );
+                    // print('button is work');  
                     //   context.read<AuthBloc>().add(const AuthEvent.signOut());
                     //   Navigator.pushNamedAndRemoveUntil(
                     //       context, Routes.loginPage, (route) => false);
-                    // }
+                     
                   },
                   child: ListTile(
                     leading: Icon(
@@ -225,15 +234,10 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return CustomDialog();
-          },
-        );
+       
 
-        // Navigator.pushNamed(
-        //     context, Routes.quotesScreen2);
+        Navigator.pushNamed(
+            context, Routes.quotesScreen2);
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.amber,
