@@ -101,14 +101,20 @@ class HomeScreen extends StatelessWidget {
                         )),
                   )),
               Positioned(
-                  bottom: 110,
-                  left: 25,
-                  child: Text(
-                    'Kochi , Kerala',
-                    style: TextStyle(
-                        color: kwhite,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 13),
+                  bottom: 105,
+                  left: 23,
+                  child: Row(
+                    children: [
+                      Icon(  CupertinoIcons.location_solid,color: kwhite,size: 17,),
+                      SizedBox(width: 5,),
+                      Text(
+                        'Kochi , Kerala',
+                        style: TextStyle(
+                            color: kwhite,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13),
+                      ),
+                    ],
                   )),
               Positioned(
                 bottom: 20,

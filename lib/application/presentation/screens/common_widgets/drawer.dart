@@ -1,14 +1,10 @@
 // drawer_screen.dart
-
 // ignore_for_file: unused_element, deprecated_member_use, must_be_immutable
-
-import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -61,7 +57,7 @@ class DrawerScreen extends StatelessWidget {
                               children: [
                                 LogoContainer(),
                                 SizedBox(
-                                  width: 5,
+                                  width: 2,
                                 ),
                                 // ConatinerText(titile: 'PREMIUM'),
 
@@ -133,7 +129,7 @@ class DrawerScreen extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(
-                  CupertinoIcons.doc,
+                  CupertinoIcons.doc_fill,
                   color: kblack56,
                 ),
                 title: Text(
@@ -232,32 +228,32 @@ class CardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-       
-
-        Navigator.pushNamed(
+    return GestureDetector(
+      onTap: () {
+          Navigator.pushNamed(
             context, Routes.quotesScreen2);
       },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.amber,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(1.0),
-        child: SizedBox(
-          height: 20,
-          width: 90,
-          child: Center(
-            child: Text(
-              'PREMIUM',
-              style: TextStyle(
-                fontSize: 16.0,
-                color: kblack,
-                //fontWeight: FontWeight.bold
+      child: Container(
+         decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.amber,
+                  Colors.amber.shade900,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+        height: 35,
+        width: 120,
+        child: Center(
+          child: Text(
+            'PREMIUM',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: kblack,
+              fontWeight: FontWeight.w500
             ),
           ),
         ),

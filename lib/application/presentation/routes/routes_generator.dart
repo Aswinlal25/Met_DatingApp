@@ -45,7 +45,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const DobScreen());
       case Routes.userPictrures:
         return MaterialPageRoute(
-            builder: (ctx) => const ProfilePictureScreen());
+            builder: (ctx) =>  ProfilePictureScreen());
       case Routes.userInterest:
         return MaterialPageRoute(builder: (ctx) => const InterestScreen());
       case Routes.userlocation:

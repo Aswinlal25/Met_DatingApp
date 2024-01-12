@@ -59,6 +59,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   image_picker: ^0.8.4+4
   geolocator: ^10.1.0
+ 
 
 
   
@@ -120,6 +121,9 @@ flutter:
     - assets\icons\Met_logo_black1-removebg-preview.png
     - assets\icons\warninglogo.png
 
+    
+    - assets\animations\ZulYJFLjsy.json
+    - assets\animations\location.json
 
     - assets\users\photo_2023-11-30_12-08-50.jpg
     - assets\users\photo_2023-11-30_14-06-05.jpg

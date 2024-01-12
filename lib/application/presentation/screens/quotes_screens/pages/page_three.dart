@@ -69,13 +69,13 @@ class Page3 extends StatelessWidget {
                               height: 65,
                               borderRadius: 42,
                               elevation: 0,
-                              innerColor: kblack,
+                              innerColor: Colors.black45,
                               outerColor: Color.fromARGB(255, 207, 64, 54),
                               sliderButtonIcon: const Icon(
                                 CupertinoIcons.heart_fill,
                                 color: kred,
                               ),
-                              text: 'Make your profile',
+                              text: 'Slide to Make profile',
                               textStyle: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
