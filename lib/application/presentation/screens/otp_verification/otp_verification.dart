@@ -5,6 +5,7 @@ import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar2.dart';
 import 'package:dating_app/domain/modules/verify_otp_model/verify_otp_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class OTPScreen extends StatelessWidget {
   /// Create Controller
 
   var otpsvalue;
+final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +52,8 @@ class OTPScreen extends StatelessWidget {
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
             Colors.black,
-            //  withOpacity(0.9),
             Colors.transparent,
-            // Colors.black.withOpacity(0.4),
             Colors.black,
-            // withOpacity(0.6)
           ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
           child: Stack(
             children: [
@@ -123,20 +122,34 @@ class OTPScreen extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Pinput(
-                          androidSmsAutofillMethod:
-                              AndroidSmsAutofillMethod.smsRetrieverApi,
-                          controller: context.read<AuthBloc>().pinController,
-                          length: 6,
-                          defaultPinTheme: defaultPinTheme,
-                          focusedPinTheme: defaultPinTheme.copyWith(
-                            decoration: defaultPinTheme.decoration!.copyWith(
-                              border: Border.all(color: Colors.red),
+                        Form(
+                          key: 
+                          context.read<AuthBloc>().
+                          OTPKey,
+                          child: Pinput(
+                            androidSmsAutofillMethod:
+                                AndroidSmsAutofillMethod.smsRetrieverApi,
+                            controller: context.read<AuthBloc>().pinController,
+                            length: 6,
+                            defaultPinTheme: defaultPinTheme,
+                            focusedPinTheme: defaultPinTheme.copyWith(
+                              decoration: defaultPinTheme.decoration!.copyWith(
+                                border: Border.all(color: Colors.red),
+                              ),
                             ),
+                            validator: (String? value) {
+                              // Add your validation logic here
+                              if (value!.isEmpty || value.length != 6) {
+                                showSnack2(context: context, message: 'Please enter a valid 6-digit OTP');
+                                return null;
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ],
                     ),
+                    
                     SizedBox(height: 470),
                     Align(
                       alignment: Alignment.centerRight,
@@ -145,35 +158,41 @@ class OTPScreen extends StatelessWidget {
                           if (state.verifyOtpHasError) {
                             showSnack(
                                 context: context, message: state.message!);
-                          }
-                           else if(state.verifyOtpResponse!=null){
+                          } else if (state.verifyOtpResponse != null) {
                             Navigator.pushNamedAndRemoveUntil(context,
                                 Routes.quotesScreen1, (route) => false);
                           }
                         },
                         builder: (context, state) {
                           if (state.verifyOtpIsLoading) {
-                            return  LoadingAnimation(width: 50);
-                          }
-                           else {
+                            return LoadingAnimation(width: 50);
+                          } else {
                             return ElevatedButton(
                               onPressed: () {
-                                
-                         
-                                context.read<AuthBloc>().add(
-                                    AuthEvent.otpVerify(
-                                        verifyOtpModel: VerifyOtpModel(
+                                // Validate the OTP input
+                                if (
+                                  context
+                                    .read<AuthBloc>()
+                                    .OTPKey
+                                    .currentState!
+                                    .validate()) {
+                                 
+                                  context.read<AuthBloc>().add(
+                                        AuthEvent.otpVerify(
+                                          verifyOtpModel: VerifyOtpModel(
                                             phNo: context
                                                 .read<AuthBloc>()
                                                 .poneController
-                                                .text.trim(),
+                                                .text
+                                                .trim(),
                                             code: context
                                                 .read<AuthBloc>()
                                                 .pinController
-                                                .text)));
-
-                                // Navigator.pushNamed(
-                                //     context, Routes.quotesScreen1);
+                                                .text,
+                                          ),
+                                        ),
+                                      );
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: kred,

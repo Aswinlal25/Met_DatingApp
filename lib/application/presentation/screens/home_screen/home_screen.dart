@@ -6,6 +6,7 @@ import 'package:dating_app/application/presentation/screens/other_users_Screen/o
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,14 +20,15 @@ class HomeScreen extends StatelessWidget {
           Stack(
             children: [
               GestureDetector(
-                 onVerticalDragEnd: (details) {
-                // Check if the swipe is in an upward direction
-                if (details.primaryVelocity! < 0) {
-                  // Handle swipe-up event here
-                  Navigator.pushNamed(context, Routes.otherUsersScreen);
-                  print('Swipe up detected!');
-                }
-              },
+                onHorizontalDragEnd: (details) {
+                  showTimedDialog(context);
+                },
+                onVerticalDragEnd: (details) {
+                  if (details.primaryVelocity! < 0) {
+                    Navigator.pushNamed(context, Routes.otherUsersScreen);
+                    print('Swipe up detected!');
+                  }
+                },
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -40,12 +42,15 @@ class HomeScreen extends StatelessWidget {
                     width: double.infinity,
                     height: 600,
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [
-                      Colors.black,
-                      Colors.transparent,
-                      Colors.transparent,
-                      Colors.black.withOpacity(0.1),
-                    ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
+                        gradient: LinearGradient(
+                            colors: [
+                          Colors.black,
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.black.withOpacity(0.1),
+                        ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter)),
                   ),
                 ),
               ),
@@ -105,8 +110,14 @@ class HomeScreen extends StatelessWidget {
                   left: 23,
                   child: Row(
                     children: [
-                      Icon(  CupertinoIcons.location_solid,color: kwhite,size: 17,),
-                      SizedBox(width: 5,),
+                      Icon(
+                        CupertinoIcons.location_solid,
+                        color: kwhite,
+                        size: 17,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Text(
                         'Kochi , Kerala',
                         style: TextStyle(
@@ -119,25 +130,32 @@ class HomeScreen extends StatelessWidget {
               Positioned(
                 bottom: 20,
                 left: 15,
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         InterestsBox(
                           chipName: 'photography',
                         ),
-                        InterestsBox( chipName: 'Reading',),
-                          InterestsBox( chipName: 'Cooking and Food',),
+                        InterestsBox(
+                          chipName: 'Reading',
+                        ),
+                        InterestsBox(
+                          chipName: 'Cooking and Food',
+                        ),
                       ],
                     ),
                     Row(
                       children: [
-                        InterestsBox( chipName: 'Movies and TV shows',),
-                        
-                        InterestsBox( chipName: 'Pet',),
+                        InterestsBox(
+                          chipName: 'Movies and TV shows',
+                        ),
+                        InterestsBox(
+                          chipName: 'Pet',
+                        ),
                       ],
                     ),
-                  
                   ],
                 ),
                 //  Text(
@@ -161,9 +179,9 @@ class HomeScreen extends StatelessWidget {
                   HeartButton(
                     icon: Icons.close,
                   ),
-                  // LikeButtonWithHeart(),
+                 
                   HeartButton(),
-                  // HeartButton(icon: CupertinoIcons.arrow_up_square_fill),
+                
                 ],
               ),
               Positioned(
@@ -176,5 +194,22 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void showTimedDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          child: AlertDialog(
+              backgroundColor: Colors.transparent,
+              content: LottieBuilder.asset('assets/animations/love.json')),
+        );
+      },
+    );
+
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.of(context).pop();
+    });
   }
 }

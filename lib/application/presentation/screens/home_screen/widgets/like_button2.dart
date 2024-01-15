@@ -1,6 +1,8 @@
-import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
+import 'package:lottie/lottie.dart';
 
 class LikeButtonWithHeart extends StatelessWidget {
   final double buttonSize = 33.0;
@@ -8,13 +10,14 @@ class LikeButtonWithHeart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LikeButton(
+      onTap: (isLiked) {
+        return showTimedDialog(context); // Return the Future<bool?> here
+      },
       size: buttonSize,
       circleColor: CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
       bubblesColor: BubblesColor(
-        dotPrimaryColor: kred,
-       //  Color(0xff33b5e5),
-        dotSecondaryColor: kred
-        // Color(0xff0099cc),
+        dotPrimaryColor: Colors.red,
+        dotSecondaryColor: Colors.red,
       ),
       likeBuilder: (bool isLiked) {
         return Icon(
@@ -23,22 +26,28 @@ class LikeButtonWithHeart extends StatelessWidget {
           size: buttonSize,
         );
       },
-    //  likeCount: 665,
-      // countBuilder: (int? count, bool isLiked, String text) {
-      //   var color = isLiked ? Colors.deepPurpleAccent : Colors.grey;
-      //   Widget result;
-      //   if (count == 0) {
-      //     result = Text(
-      //       "love",
-      //       style: TextStyle(color: color),
-      //     );
-      //   } else
-      //     result = Text(
-      //       text,
-      //       style: TextStyle(color: color),
-      //     );
-      //   return result;
-      // },
     );
+  }
+
+  Future<bool?> showTimedDialog(BuildContext context) async {
+    Completer<bool?> completer = Completer<bool?>();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.transparent,
+          content: LottieBuilder.asset('assets/animations/love.json'),
+        );
+      },
+    );
+
+    // Complete the Future after 1 second
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.of(context).pop(); // Close the dialog
+      completer.complete(true); // Complete the Future with a value
+    });
+
+    return completer.future;
   }
 }

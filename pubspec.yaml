@@ -124,6 +124,8 @@ flutter:
     
     - assets\animations\ZulYJFLjsy.json
     - assets\animations\location.json
+    - assets\animations\love.json
+    - assets\animations\colse.json
 
     - assets\users\photo_2023-11-30_12-08-50.jpg
     - assets\users\photo_2023-11-30_14-06-05.jpg

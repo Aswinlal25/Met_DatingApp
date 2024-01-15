@@ -20,7 +20,7 @@ class InterersUsersScreen extends StatelessWidget {
                   child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Text(
-                        'More Recommend',
+                        'Most Recommend',
                         style: TextStyle(
                             color: kwhite,
                             fontSize: 17,

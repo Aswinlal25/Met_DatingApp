@@ -350,6 +350,8 @@
 //   }
 // }
 
+// ignore_for_file: deprecated_member_use
+
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/interest/widgets/chip.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';

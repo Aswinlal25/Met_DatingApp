@@ -14,5 +14,6 @@ class Routes {
   static const bottomNavigation = '/bottom_nav_bar';
   static const homePage = '/home_page';
   static const otherUsersScreen = '/Other_users_page';
+  static const notificationPage = '/notification_page';
   //static const Homepage = '/home_page';
 }

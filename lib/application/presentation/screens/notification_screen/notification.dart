@@ -1,0 +1,122 @@
+import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:flutter/material.dart';
+
+class NotificationScreen extends StatelessWidget {
+  NotificationScreen({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: kblack,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Text(
+                //   'Notifications',
+                //   style: TextStyle(
+                //       color: kwhite,
+                //       fontSize: 23,
+                //       fontWeight: FontWeight.w500,
+                //       letterSpacing: 1),
+                // ),
+                // SizedBox(
+                //   height: 15,
+                // ),
+                Text(
+                  'Your profile liked by 3 peoples',
+                  style: TextStyle(
+                      color: kwhite,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 1),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'Get the Premium to see their  profiles',
+                  style: TextStyle(
+                      color: kwhite,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w200,
+                      letterSpacing: 1),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.all(8.0),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 19,
+                mainAxisSpacing: 19,
+                childAspectRatio: 0.75, // Adjust the aspect ratio as needed
+              ),
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                        image: AssetImage(loginbackground),
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 22, 22, 22),
+                            Colors.transparent,
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.4),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(
+                                    'Parvathy (24)',
+                                    style: TextStyle(
+                                        color: kwhite,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              )
+                            ],
+                          )),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

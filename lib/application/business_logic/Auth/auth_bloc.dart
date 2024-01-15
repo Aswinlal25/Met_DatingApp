@@ -17,7 +17,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController poneController = TextEditingController();
  
   final TextEditingController pinController = TextEditingController();
-  
+
+    final GlobalKey<FormState> phonekey = GlobalKey<FormState>();
+   final GlobalKey<FormState> OTPKey = GlobalKey<FormState>();
 
   final AuthRepository authRepository;
 
