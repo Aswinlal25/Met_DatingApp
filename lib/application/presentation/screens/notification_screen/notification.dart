@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:flutter/material.dart';
@@ -17,35 +18,24 @@ class NotificationScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Text(
-                //   'Notifications',
-                //   style: TextStyle(
-                //       color: kwhite,
-                //       fontSize: 23,
-                //       fontWeight: FontWeight.w500,
-                //       letterSpacing: 1),
-                // ),
-                // SizedBox(
-                //   height: 15,
-                // ),
                 Text(
                   'Your profile liked by 3 peoples',
                   style: TextStyle(
-                      color: kwhite,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 1),
+                    color: kwhite,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1,
+                  ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 5),
                 Text(
-                  'Get the Premium to see their  profiles',
+                  'Get the Premium to see their profiles',
                   style: TextStyle(
-                      color: kwhite,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w200,
-                      letterSpacing: 1),
+                    color: kwhite,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w200,
+                    letterSpacing: 1,
+                  ),
                 ),
               ],
             ),
@@ -67,48 +57,51 @@ class NotificationScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                        image: AssetImage(loginbackground),
+                        image: AssetImage(loginbackground), // Replace with your image asset path
                         filterQuality: FilterQuality.high,
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 22, 22, 22),
-                            Colors.transparent,
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.4),
-                          ],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0), // Adjust blur intensity as needed
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(255, 22, 22, 22),
+                                Colors.transparent,
+                                Colors.transparent,
+                                Colors.black.withOpacity(0.4),
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                            ),
+                          ),
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                // Row(
+                                //   children: [
+                                //     SizedBox(width: 20),
+                                //     Text(
+                                //       'Parvathy (24)',
+                                //       style: TextStyle(
+                                //         color: Colors.white60,
+                                //         fontWeight: FontWeight.w500,
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
+                                SizedBox(height: 10),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
-                      child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(
-                                    'Parvathy (24)',
-                                    style: TextStyle(
-                                        color: kwhite,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              )
-                            ],
-                          )),
                     ),
                   ),
                 );

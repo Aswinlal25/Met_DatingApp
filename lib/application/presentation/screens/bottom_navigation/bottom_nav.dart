@@ -129,11 +129,11 @@ class _HomeScreenState extends State<BottomNavBar> {
                 ),
               ),
               BottomBarItem(
-                icon: const Icon(Icons.person),
+                icon: const Icon(CupertinoIcons.person_solid),
                 title: const Text('Profile'),
                 backgroundColor: Colors.white30,
                 selectedIcon: const Icon(
-                  Icons.person,
+                  CupertinoIcons.person_solid,
                   color: Color.fromARGB(255, 195, 47, 36),
                 ),
               ),

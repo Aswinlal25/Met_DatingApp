@@ -12,6 +12,7 @@ import 'package:dating_app/application/presentation/screens/notification_screen/
 import 'package:dating_app/application/presentation/screens/number_input_screen/number_input_screen.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/other_users.dart';
 import 'package:dating_app/application/presentation/screens/otp_verification/otp_verification.dart';
+import 'package:dating_app/application/presentation/screens/preference_screen/preference_screen.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_one.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_three.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_two.dart';
@@ -59,6 +60,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) =>  OtherUsersScreen());
         case Routes.notificationPage:
         return MaterialPageRoute(builder: (ctx) => NotificationScreen());
+         case Routes.prederenceScreen:
+        return MaterialPageRoute(builder: (ctx) => PreferenceScreen());
       default:
         return _errorScreen();
     }

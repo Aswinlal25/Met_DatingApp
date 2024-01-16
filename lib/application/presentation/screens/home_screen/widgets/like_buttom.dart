@@ -51,7 +51,8 @@ class HeartButton extends StatelessWidget {
       height: 55,
       decoration: BoxDecoration(
        borderRadius: BorderRadius.circular(25),
-        color: const Color.fromARGB(255, 37, 37, 37),
+        color:Color.fromARGB(80, 59, 59, 59),
+        //  const Color.fromARGB(255, 37, 37, 37),
       ),
       child: Icon(icon,color: kgrey,size: 26),
     );

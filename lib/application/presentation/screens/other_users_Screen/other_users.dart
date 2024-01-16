@@ -16,7 +16,7 @@ class OtherUsersScreen extends StatefulWidget {
 
 class _OtherUsersScreenState extends State<OtherUsersScreen> {
   String image1 =
-      'assets/images/background_images/photo_2023-11-30_13-42-16.jpg';
+      'assets/users/photo_2023-11-30_12-08-50.jpg';
   String image2 = 'assets/users/photo_2023-11-30_14-06-05.jpg';
   String image3 = 'assets/users/photo_2023-11-30_14-06-23.jpg';
   String image4 = 'assets/users/photo_2023-11-30_14-06-26.jpg';

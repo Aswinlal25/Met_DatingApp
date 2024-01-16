@@ -15,5 +15,6 @@ class Routes {
   static const homePage = '/home_page';
   static const otherUsersScreen = '/Other_users_page';
   static const notificationPage = '/notification_page';
+  static const prederenceScreen = '/preference_screen';
   //static const Homepage = '/home_page';
 }
