@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:dating_app/application/presentation/utils/colors.dart';
-import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -57,7 +56,8 @@ class NotificationScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                        image: AssetImage(loginbackground), // Replace with your image asset path
+                        image: AssetImage(    'assets/users/WhatsApp Image 2024-01-09 at 13.21.12_4d987ed8.jpg',
+), // Replace with your image asset path
                         filterQuality: FilterQuality.high,
                         fit: BoxFit.cover,
                       ),

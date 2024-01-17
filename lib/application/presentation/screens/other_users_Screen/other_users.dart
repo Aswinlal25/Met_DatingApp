@@ -79,7 +79,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Text('Parvathy , 24',
+                        child: Text('Parvathy (24)',
                             style: TextStyle(
                                 color: kwhite,
                                 fontWeight: FontWeight.w500,

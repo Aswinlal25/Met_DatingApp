@@ -36,7 +36,7 @@ class InterersUsersScreen extends StatelessWidget {
             child: Text(
               'Most Recommend',
               style: TextStyle(
-                color: kwhite,
+                color: Colors.white60,
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 1,

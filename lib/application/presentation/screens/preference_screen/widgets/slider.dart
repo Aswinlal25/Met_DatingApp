@@ -8,8 +8,6 @@ class CustomSlider extends StatefulWidget {
 class _CustomSliderState extends State<CustomSlider> {
   int _sliderValue = 0;
 
-
-
   @override
   Widget build(BuildContext context) {
     return Row(

@@ -1,3 +1,4 @@
+import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -81,37 +82,42 @@ class _ChatScreenState extends State<ChatScreen>
         children: [
           ListView.builder(
             itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  radius: 33,
-                  backgroundImage: AssetImage('assets/users/photo_2023-11-30_14-06-05.jpg'),
-                  //  backgroundColor: Colors.blue,
-                ),
-                title: Text(
-                  'Mariam',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 1,
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.chattingScreen);
+                },
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 33,
+                    backgroundImage: AssetImage('assets/users/photo_2023-11-30_14-06-05.jpg'),
+                    //  backgroundColor: Colors.blue,
                   ),
-                ),
-                subtitle: Text(
-                  'Helloo',
-                  style: TextStyle(
-                    color: Colors.white54,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 1,
+                  title: Text(
+                    'Mariam',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 1,
+                    ),
                   ),
-                ),
-                trailing: Text(
-                  'Now',
-                  style: TextStyle(
-                    color: Colors.white54,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 1,
+                  subtitle: Text(
+                    'Helloo',
+                    style: TextStyle(
+                      color: Colors.white54,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  trailing: Text(
+                    'Now',
+                    style: TextStyle(
+                      color: Colors.white54,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 1,
+                    ),
                   ),
                 ),
               );

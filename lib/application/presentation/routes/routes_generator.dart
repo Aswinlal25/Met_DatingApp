@@ -1,6 +1,8 @@
 // ignore_for_file: unused_local_variable
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/bottom_navigation/bottom_nav.dart';
+import 'package:dating_app/application/presentation/screens/chatting_screen/chatting_screen.dart';
+import 'package:dating_app/application/presentation/screens/common_widgets/callscreen.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/home_screen.dart';
 import 'package:dating_app/application/presentation/screens/login_screen/login_screen.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/dob_screen/dob_screen.dart';
@@ -33,8 +35,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => const NumberScreen());
       case Routes.otpVerfication:
         return MaterialPageRoute(builder: (ctx) => OTPScreen());
-      // case Routes.quotesScreen1:
-      // return MaterialPageRoute(builder: (ctx)=>QuotesScreen());
       case Routes.quotesScreen1:
         return MaterialPageRoute(builder: (ctx) => const Page1());
       case Routes.quotesScreen2:
@@ -46,22 +46,25 @@ class RouteGenerator {
       case Routes.userDOB:
         return MaterialPageRoute(builder: (ctx) => const DobScreen());
       case Routes.userPictrures:
-        return MaterialPageRoute(
-            builder: (ctx) =>  ProfilePictureScreen());
+        return MaterialPageRoute(builder: (ctx) => ProfilePictureScreen());
       case Routes.userInterest:
         return MaterialPageRoute(builder: (ctx) => const InterestScreen());
       case Routes.userlocation:
         return MaterialPageRoute(builder: (ctx) => const LocationScreen());
       case Routes.homePage:
-        return MaterialPageRoute(builder: (ctx) =>  HomeScreen());
-        case Routes.bottomNavigation:
-        return MaterialPageRoute(builder: (ctx) =>  BottomNavBar());
-         case Routes.otherUsersScreen:
-        return MaterialPageRoute(builder: (ctx) =>  OtherUsersScreen());
-        case Routes.notificationPage:
+        return MaterialPageRoute(builder: (ctx) => HomeScreen());
+      case Routes.bottomNavigation:
+        return MaterialPageRoute(builder: (ctx) => BottomNavBar());
+      case Routes.otherUsersScreen:
+        return MaterialPageRoute(builder: (ctx) => OtherUsersScreen());
+      case Routes.notificationPage:
         return MaterialPageRoute(builder: (ctx) => NotificationScreen());
-         case Routes.prederenceScreen:
+      case Routes.prederenceScreen:
         return MaterialPageRoute(builder: (ctx) => PreferenceScreen());
+      case Routes.chattingScreen:
+        return MaterialPageRoute(builder: (ctx) => ChattingScreen());
+      case Routes.callingScreen:
+        return MaterialPageRoute(builder: (ctx) => CallScreen());
       default:
         return _errorScreen();
     }

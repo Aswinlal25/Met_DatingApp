@@ -42,7 +42,7 @@ class DrawerScreen extends StatelessWidget {
                 child: Container(
                   height: 112,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 51, 51, 51),
+                    color: Color.fromARGB(80, 59, 59, 59),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: Padding(

@@ -16,5 +16,7 @@ class Routes {
   static const otherUsersScreen = '/Other_users_page';
   static const notificationPage = '/notification_page';
   static const prederenceScreen = '/preference_screen';
+  static const chattingScreen = '/chatting_page';
+  static const callingScreen = '/calling_page';
   //static const Homepage = '/home_page';
 }
