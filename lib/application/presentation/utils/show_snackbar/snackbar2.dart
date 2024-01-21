@@ -8,14 +8,19 @@ void showSnack2(
     int time = 1600}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-        behavior: SnackBarBehavior.floating,
-  margin: EdgeInsets.only(bottom: 120.0),
-  //content: Text("Hello World!"),
-  dismissDirection: DismissDirection.none,
-     // dismissDirection: DismissDirection.horizontal,
+      behavior: SnackBarBehavior.floating,
+      margin: EdgeInsets.only(bottom: 120.0),
+      //content: Text("Hello World!"),
+      dismissDirection: DismissDirection.none,
+      // dismissDirection: DismissDirection.horizontal,
       content: Padding(
         padding: const EdgeInsets.all(15),
-        child: Center(child: Text(message,style: TextStyle(color: kred,fontWeight: FontWeight.w600,letterSpacing: 1),)),
+        child: Center(
+            child: Text(
+          message,
+          style: TextStyle(
+              color: kred, fontWeight: FontWeight.w600, letterSpacing: 1),
+        )),
       ),
       duration: Duration(milliseconds: time),
       backgroundColor: Colors.transparent,

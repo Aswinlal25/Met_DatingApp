@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ButtonPart extends StatelessWidget {
-   ButtonPart({
+  ButtonPart({
     super.key,
     required this.screenSize,
   });
 
   final Size screenSize;
-final formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -40,11 +40,7 @@ final formKey = GlobalKey<FormState>();
         builder: (context, state) {
           return ElevatedButton(
             onPressed: () {
-              if (context
-                  .read<AuthBloc>()
-                  .phonekey
-                  .currentState!
-                  .validate()) {
+              if (context.read<AuthBloc>().phonekey.currentState!.validate()) {
                 print("buptton  is clicked");
                 PhoneNumberModel model = PhoneNumberModel(
                   phNo: context.read<AuthBloc>().poneController.text,
@@ -52,7 +48,7 @@ final formKey = GlobalKey<FormState>();
                 context
                     .read<AuthBloc>()
                     .add(AuthEvent.otpLogin(phoneNumberModel: model));
-    
+
                 if (state.otpIsLoading) {
                   LoadingAnimation(width: 50.0);
                 }

@@ -47,8 +47,7 @@ class NumberInputpart2 extends StatelessWidget {
             ),
             child: Center(
               child: Form(
-                key: 
-                context.read<AuthBloc>().phonekey,
+                key: context.read<AuthBloc>().phonekey,
                 child: TextFormField(
                   controller: context.read<AuthBloc>().poneController,
                   keyboardType: TextInputType.phone,

@@ -11,7 +11,6 @@ class _CustomSliderState extends State<CustomSlider> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      
       children: [
         Expanded(
           child: Slider(
@@ -31,7 +30,6 @@ class _CustomSliderState extends State<CustomSlider> {
           '$_sliderValue',
           style: TextStyle(color: Colors.white),
         ),
-        
       ],
     );
   }

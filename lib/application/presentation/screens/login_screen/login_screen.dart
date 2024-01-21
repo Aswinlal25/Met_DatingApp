@@ -30,17 +30,18 @@ class LoginScreen extends StatelessWidget {
                 TextPart1(screenSize: screenSize),
                 TextPart2(screenSize: screenSize),
                 SizedBox(
-                  height: screenSize.width > 600 ? 100 : 80, 
+                  height: screenSize.width > 600 ? 100 : 80,
                 ),
-                Center(child: ButtonPart3(screenSize: screenSize,)),
-                SizedBox(height: screenSize.width > 600 ? 60 : 40),  
-              ], 
+                Center(
+                    child: ButtonPart3(
+                  screenSize: screenSize,
+                )),
+                SizedBox(height: screenSize.width > 600 ? 60 : 40),
+              ],
             ),
           ),
         ),
       ),
     );
   }
-
-  
 }

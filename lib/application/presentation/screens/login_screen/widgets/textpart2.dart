@@ -14,7 +14,8 @@ class TextPart2 extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         'Love is not about how many days,\nmonths, or years you have been together.\nLove is about how much you love each\nother every single day.',
-        style: TextStyle(fontSize: screenSize.width > 600 ? 20 : 15,  
+        style: TextStyle(
+          fontSize: screenSize.width > 600 ? 20 : 15,
           color: Colors.white54,
         ),
       ),

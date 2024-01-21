@@ -14,11 +14,9 @@ class AuthState with _$AuthState {
   }) = _Initial;
   factory AuthState.initial() => const AuthState(
         otpIsLoading: false,
-        otpHasError:  false,
+        otpHasError: false,
         isLoggedIn: false,
-        verifyOtpIsLoading:   false,
+        verifyOtpIsLoading: false,
         verifyOtpHasError: false,
       );
-
-  
 }

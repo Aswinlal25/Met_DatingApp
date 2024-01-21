@@ -306,7 +306,7 @@
 //             SizedBox(
 //               height: 211,
 //             ),
-           
+
 //             SizedBox(
 //               height: 10,
 //             ),
@@ -533,7 +533,6 @@ class _InterestScreenState extends State<InterestScreen> {
             SizedBox(
               height: screenSize.height * 0.26,
             ),
-           
             ElevatedButton(
               onPressed: () {
                 print(selectedInterests.toString());
@@ -571,7 +570,6 @@ class _InterestScreenState extends State<InterestScreen> {
                 ),
               ),
             ),
-            
           ],
         ),
       ),

@@ -177,11 +177,10 @@ class DrawerScreen extends StatelessWidget {
                         return CustomDialog();
                       },
                     );
-                    // print('button is work');  
+                    // print('button is work');
                     //   context.read<AuthBloc>().add(const AuthEvent.signOut());
                     //   Navigator.pushNamedAndRemoveUntil(
                     //       context, Routes.loginPage, (route) => false);
-                     
                   },
                   child: ListTile(
                     leading: Icon(
@@ -230,31 +229,27 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-          Navigator.pushNamed(
-            context, Routes.loginPage);
+        Navigator.pushNamed(context, Routes.loginPage);
       },
       child: Container(
-         decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.amber,
-                  Colors.amber.shade900,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.amber,
+              Colors.amber.shade900,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         height: 35,
         width: 120,
         child: Center(
           child: Text(
             'PREMIUM',
             style: TextStyle(
-              fontSize: 16.0,
-              color: kblack,
-              fontWeight: FontWeight.w500
-            ),
+                fontSize: 16.0, color: kblack, fontWeight: FontWeight.w500),
           ),
         ),
       ),

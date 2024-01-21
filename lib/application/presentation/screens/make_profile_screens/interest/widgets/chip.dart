@@ -75,7 +75,6 @@ class _ChoiceChipsState extends State<ChoiceChips> {
       backgroundColor: const Color.fromARGB(255, 51, 51, 51),
       selectedColor: Colors.red,
       shape: RoundedRectangleBorder(
-        
         borderRadius: BorderRadius.circular(30.0),
       ),
     );

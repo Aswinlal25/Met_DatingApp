@@ -6,6 +6,6 @@ class AuthEvent with _$AuthEvent {
       {required PhoneNumberModel phoneNumberModel}) = _OtpLogin;
   const factory AuthEvent.otpVerify({required VerifyOtpModel verifyOtpModel}) =
       _OtpVerify;
-      const factory AuthEvent.log() = _Log;
-       const factory AuthEvent.signOut() = _SignOut;
+  const factory AuthEvent.log() = _Log;
+  const factory AuthEvent.signOut() = _SignOut;
 }

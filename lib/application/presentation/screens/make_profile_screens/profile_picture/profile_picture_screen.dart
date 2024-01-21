@@ -105,14 +105,14 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                 ),
               ),
             ),
-            
           ],
         ),
       ),
     );
   }
 
-  Widget buildImageContainer(int index, double screenWidth, double screenHeight) {
+  Widget buildImageContainer(
+      int index, double screenWidth, double screenHeight) {
     return GestureDetector(
       onTap: () => _pickImage(index),
       child: Container(
@@ -154,7 +154,6 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
     });
   }
 }
-
 
 // import 'package:dating_app/application/presentation/routes/routes.dart';
 // import 'package:dating_app/application/presentation/utils/colors.dart';

@@ -5,7 +5,6 @@ import 'package:dating_app/data/services/auth/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 void main() {
   runApp(DatingApp());
 }
@@ -18,18 +17,18 @@ class DatingApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-           BlocProvider(
+      providers: [
+        BlocProvider(
           create: (context) => AuthBloc(AuthApi()),
         ),
-        ],
-      child:MaterialApp(
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-         
         title: 'Met',
         theme: ThemeData(
-           useMaterial3: false,
-            colorScheme: const ColorScheme.light(), primaryColor: Colors.red),
+            useMaterial3: false,
+            colorScheme: const ColorScheme.light(),
+            primaryColor: Colors.red),
         initialRoute: Routes.initail,
         onGenerateRoute: routeGenerator.onGenerateRoute,
       ),

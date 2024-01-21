@@ -24,13 +24,12 @@ class InputField extends StatelessWidget {
           ),
           Expanded(
             child: TextField(
-                keyboardType: TextInputType.multiline,
-                      maxLines: null,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Message...',
-                hintStyle:
-                    TextStyle(color: Colors.grey),
+                hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none,
               ),
             ),

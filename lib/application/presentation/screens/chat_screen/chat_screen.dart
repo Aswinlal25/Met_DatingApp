@@ -66,7 +66,8 @@ class _ChatScreenState extends State<ChatScreen>
                       padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
                         radius: 33,
-                        backgroundImage: AssetImage('assets/users/photo_2023-11-30_12-08-50.jpg'),
+                        backgroundImage: AssetImage(
+                            'assets/users/photo_2023-11-30_12-08-50.jpg'),
                         //  backgroundColor: Colors.blue,
                       ),
                     );
@@ -89,7 +90,8 @@ class _ChatScreenState extends State<ChatScreen>
                 child: ListTile(
                   leading: CircleAvatar(
                     radius: 33,
-                    backgroundImage: AssetImage('assets/users/photo_2023-11-30_14-06-05.jpg'),
+                    backgroundImage: AssetImage(
+                        'assets/users/photo_2023-11-30_14-06-05.jpg'),
                     //  backgroundColor: Colors.blue,
                   ),
                   title: Text(
@@ -128,7 +130,8 @@ class _ChatScreenState extends State<ChatScreen>
               return ListTile(
                   leading: CircleAvatar(
                     radius: 33,
-                    backgroundImage: AssetImage('assets/users/photo_2023-11-30_14-06-26.jpg'),
+                    backgroundImage: AssetImage(
+                        'assets/users/photo_2023-11-30_14-06-26.jpg'),
                     //  backgroundColor: Colors.blue,
                   ),
                   title: Text(

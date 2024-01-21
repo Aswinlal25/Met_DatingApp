@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class ButtonPart3 extends StatelessWidget {
   const ButtonPart3({
-    super.key, required Size screenSize,
+    super.key,
+    required Size screenSize,
   });
 
   @override

@@ -40,7 +40,6 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            
             SizedBox(
               height: 30,
             ),
@@ -74,7 +73,6 @@ class ProfileScreen extends StatelessWidget {
               ),
               trailing: Icon(CupertinoIcons.forward, color: kwhite, size: 20),
             ),
-            
             InkWell(
               onTap: () {
                 Navigator.pushNamed(context, Routes.prederenceScreen);
@@ -100,14 +98,16 @@ class ProfileScreen extends StatelessWidget {
               ),
               trailing: Icon(CupertinoIcons.forward, color: kwhite, size: 20),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(10),
-              child: Container(                          
+              child: Container(
                 height: 112,
                 decoration: BoxDecoration(
-                  color:Color.fromARGB(80, 59, 59, 59),
-                 // const Color.fromARGB(255, 51, 51, 51),
+                  color: Color.fromARGB(80, 59, 59, 59),
+                  // const Color.fromARGB(255, 51, 51, 51),
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Padding(
@@ -125,9 +125,10 @@ class ProfileScreen extends StatelessWidget {
                                 width: 2,
                               ),
                               // ConatinerText(titile: 'PREMIUM'),
-              
+
                               Padding(
-                                padding: const EdgeInsets.only(top: 8, left: 10),
+                                padding:
+                                    const EdgeInsets.only(top: 8, left: 10),
                                 child: CardButton(),
                               ),
                             ],

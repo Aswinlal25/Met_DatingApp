@@ -15,27 +15,27 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final TextEditingController poneController = TextEditingController();
- 
+
   final TextEditingController pinController = TextEditingController();
 
-    final GlobalKey<FormState> phonekey = GlobalKey<FormState>();
-   final GlobalKey<FormState> OTPKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> phonekey = GlobalKey<FormState>();
+  final GlobalKey<FormState> OTPKey = GlobalKey<FormState>();
 
   final AuthRepository authRepository;
 
   AuthBloc(this.authRepository) : super(AuthState.initial()) {
     on<_OtpLogin>((event, emit) async {
-       print("f;unction is okey");
+      print("f;unction is okey");
       emit(state.copyWith(otpIsLoading: true));
       print("f;unction is okey${state.otpIsLoading}");
       final result = await authRepository.otpLogin(
           phoneNumberModel: event.phoneNumberModel);
-          print("f;unction is okey${result.toString()}");
+      print("f;unction is okey${result.toString()}");
       result.fold((errorMssg) {
         print("f;unction is okey${errorMssg.message}");
         emit(state.copyWith(otpIsLoading: false, message: errorMssg.message));
       }, (phoneNumberResponseModel) {
-        print("f;unction is okey${phoneNumberResponseModel.data??"data"}");
+        print("f;unction is okey${phoneNumberResponseModel.data ?? "data"}");
         emit(state.copyWith(
             otpIsLoading: false,
             phoneNumberResponseModel: phoneNumberResponseModel));
@@ -47,26 +47,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final result =
           await authRepository.otpVerify(verifyOtpModel: event.verifyOtpModel);
 
-
       result.fold((errorMssg) {
         emit(state.copyWith(
             verifyOtpIsLoading: false, message: errorMssg.message));
       }, (verifyOtpResponse) async {
         emit(state.copyWith(
-            verifyOtpIsLoading: false,
-            verifyOtpResponse: verifyOtpResponse));
+            verifyOtpIsLoading: false, verifyOtpResponse: verifyOtpResponse));
         await SharedPref.setToken(
             tokenModel: TokenModel(
                 accessToken: verifyOtpResponse.data!.accessToken!,
                 refreshToken: verifyOtpResponse.data!.refreshToken!));
         await SharedPref.setLogin();
       });
-    }
-    
-    
-    );
+    });
 
-     on<_Log>((event, emit) async {
+    on<_Log>((event, emit) async {
       final login = await SharedPref.getLogin();
       emit(state.copyWith(isLoggedIn: login));
     });

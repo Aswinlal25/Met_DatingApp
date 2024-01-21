@@ -9,16 +9,18 @@ class LikeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kblack,
-     
-      body:
-       Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-           Center(
-            child: Icon(CupertinoIcons.heart_fill,color: kred,size: 100,),
-                 ),
-         ],
-       ),
+        children: [
+          Center(
+            child: Icon(
+              CupertinoIcons.heart_fill,
+              color: kred,
+              size: 100,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

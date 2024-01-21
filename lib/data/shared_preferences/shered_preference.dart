@@ -9,13 +9,13 @@ class SharedPref {
   static Future<void> setToken({required TokenModel tokenModel}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString(token, tokenModel.accessToken);
-    preferences.setString(refresh, tokenModel.refreshToken );
+    preferences.setString(refresh, tokenModel.refreshToken);
   }
 
   static Future<TokenModel> getToken() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String accessToken = preferences.getString(token) ?? '';
-     String refeshToken = preferences.getString(token) ?? '';
+    String refeshToken = preferences.getString(token) ?? '';
     return TokenModel(accessToken: accessToken, refreshToken: refeshToken);
   }
 

@@ -56,8 +56,9 @@ class NotificationScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                        image: AssetImage(    'assets/users/WhatsApp Image 2024-01-09 at 13.21.12_4d987ed8.jpg',
-), // Replace with your image asset path
+                        image: AssetImage(
+                          'assets/users/WhatsApp Image 2024-01-09 at 13.21.12_4d987ed8.jpg',
+                        ), // Replace with your image asset path
                         filterQuality: FilterQuality.high,
                         fit: BoxFit.cover,
                       ),
@@ -65,7 +66,9 @@ class NotificationScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0), // Adjust blur intensity as needed
+                        filter: ImageFilter.blur(
+                            sigmaX: 6.0,
+                            sigmaY: 6.0), // Adjust blur intensity as needed
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(

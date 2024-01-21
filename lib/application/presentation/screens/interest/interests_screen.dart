@@ -18,8 +18,8 @@ class InterersUsersScreen extends StatelessWidget {
     'Jintu (23)',
     'Parvathy (26)',
     'Sandra (25)',
-     'Jintu (23)',
-   
+    'Jintu (23)',
+
     'Sandra (25)',
     // Add more image paths here
   ];

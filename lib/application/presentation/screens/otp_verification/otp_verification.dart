@@ -18,7 +18,7 @@ class OTPScreen extends StatelessWidget {
   /// Create Controller
 
   var otpsvalue;
-final formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -123,9 +123,7 @@ final formKey = GlobalKey<FormState>();
                     Row(
                       children: [
                         Form(
-                          key: 
-                          context.read<AuthBloc>().
-                          OTPKey,
+                          key: context.read<AuthBloc>().OTPKey,
                           child: Pinput(
                             androidSmsAutofillMethod:
                                 AndroidSmsAutofillMethod.smsRetrieverApi,
@@ -140,7 +138,10 @@ final formKey = GlobalKey<FormState>();
                             validator: (String? value) {
                               // Add your validation logic here
                               if (value!.isEmpty || value.length != 6) {
-                                showSnack2(context: context, message: 'Please enter a valid 6-digit OTP');
+                                showSnack2(
+                                    context: context,
+                                    message:
+                                        'Please enter a valid 6-digit OTP');
                                 return null;
                               }
                               return null;
@@ -149,7 +150,6 @@ final formKey = GlobalKey<FormState>();
                         ),
                       ],
                     ),
-                    
                     SizedBox(height: 470),
                     Align(
                       alignment: Alignment.centerRight,
@@ -170,13 +170,11 @@ final formKey = GlobalKey<FormState>();
                             return ElevatedButton(
                               onPressed: () {
                                 // Validate the OTP input
-                                if (
-                                  context
+                                if (context
                                     .read<AuthBloc>()
                                     .OTPKey
                                     .currentState!
                                     .validate()) {
-                                 
                                   context.read<AuthBloc>().add(
                                         AuthEvent.otpVerify(
                                           verifyOtpModel: VerifyOtpModel(

@@ -177,7 +177,6 @@ class UserInfoScreen extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(left: screenSize.width * 0.02),
                         child: TextFormField(
-                          
                           keyboardType: TextInputType.name,
                           style: TextStyle(
                             color: kwhite,
@@ -192,7 +191,8 @@ class UserInfoScreen extends StatelessWidget {
                               fontSize: screenSize.width * 0.03,
                             ),
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.all(screenSize.width * 0.02),
+                            contentPadding:
+                                EdgeInsets.all(screenSize.width * 0.02),
                           ),
                         ),
                       ),

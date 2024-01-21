@@ -16,7 +16,7 @@ class TextPart1 extends StatelessWidget {
       child: Text(
         'Dating,\nbetter than\never before',
         style: TextStyle(
-          fontSize: screenSize.width > 600 ? 60 : 40,  
+          fontSize: screenSize.width > 600 ? 60 : 40,
           fontWeight: FontWeight.bold,
           letterSpacing: 1,
           color: kwhite,

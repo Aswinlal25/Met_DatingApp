@@ -29,7 +29,7 @@ class MainCard extends StatelessWidget {
               gradient: LinearGradient(colors: [
             Colors.black,
             Colors.transparent,
-                        Colors.transparent,
+            Colors.transparent,
             Colors.transparent,
 
             // Colors.black.withOpacity(0.4),

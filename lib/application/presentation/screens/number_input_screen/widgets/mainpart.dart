@@ -28,8 +28,7 @@ class MainAllPart extends StatelessWidget {
           height: screenSize.height * 0.03,
         ),
         InkWell(
-          onTap: () =>
-              Navigator.pushNamed(context, Routes.bottomNavigation),
+          onTap: () => Navigator.pushNamed(context, Routes.bottomNavigation),
           child: Text(
             'Mobile verification',
             style: TextStyle(

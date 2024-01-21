@@ -35,13 +35,13 @@ import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class HeartButton extends StatelessWidget {
-  final IconData?icon;
+  final IconData? icon;
   final Color? iconColor;
 
   const HeartButton({
     Key? key,
-     this.icon,
-     this.iconColor,
+    this.icon,
+    this.iconColor,
   }) : super(key: key);
 
   @override
@@ -50,11 +50,11 @@ class HeartButton extends StatelessWidget {
       width: 110,
       height: 55,
       decoration: BoxDecoration(
-       borderRadius: BorderRadius.circular(25),
-        color:Color.fromARGB(80, 59, 59, 59),
+        borderRadius: BorderRadius.circular(25),
+        color: Color.fromARGB(80, 59, 59, 59),
         //  const Color.fromARGB(255, 37, 37, 37),
       ),
-      child: Icon(icon,color: kgrey,size: 26),
+      child: Icon(icon, color: kgrey, size: 26),
     );
   }
 }

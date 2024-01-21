@@ -3,7 +3,6 @@ import 'package:dating_app/application/presentation/screens/interest/widgets/mai
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-
 class MainTitleCard extends StatelessWidget {
   const MainTitleCard({
     super.key,
@@ -17,10 +16,13 @@ class MainTitleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      SizedBox(height: 10,),
+      SizedBox(
+        height: 10,
+      ),
       MainTitle(title: titletext),
-            SizedBox(height: 10,),
-
+      SizedBox(
+        height: 10,
+      ),
       LimitedBox(
         maxHeight: 240,
         child: ListView(
@@ -32,8 +34,16 @@ class MainTitleCard extends StatelessWidget {
                     child: Stack(
                       children: [
                         MainCard(image: users),
-                        Positioned(bottom: 10,left: 20,
-                          child: Text('Jintu james',style: TextStyle(color: kwhite,fontWeight: FontWeight.w500,fontSize: 15),))
+                        Positioned(
+                            bottom: 10,
+                            left: 20,
+                            child: Text(
+                              'Jintu james',
+                              style: TextStyle(
+                                  color: kwhite,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15),
+                            ))
                       ],
                     ),
                   )),

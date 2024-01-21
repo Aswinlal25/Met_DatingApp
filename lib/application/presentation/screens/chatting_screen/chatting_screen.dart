@@ -21,7 +21,7 @@ class ChattingScreen extends StatelessWidget {
     );
 
     return Scaffold(
-     // resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       backgroundColor: kblack,
       appBar: AppBar(
         backgroundColor: kblack,
@@ -58,7 +58,7 @@ class ChattingScreen extends StatelessWidget {
                 sigmaY: 5,
               ),
               child: SingleChildScrollView(
-               // reverse: true,
+                // reverse: true,
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   child: Column(

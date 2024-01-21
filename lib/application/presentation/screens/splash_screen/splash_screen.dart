@@ -25,15 +25,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         backgroundColor: kblack,
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
-           if(state.isLoggedIn){
-            Navigator.popAndPushNamed(context, Routes.bottomNavigation);
-           }else{
-            Navigator.popAndPushNamed(context, Routes.loginPage);
-           }
+            if (state.isLoggedIn) {
+              Navigator.popAndPushNamed(context, Routes.bottomNavigation);
+            } else {
+              Navigator.popAndPushNamed(context, Routes.loginPage);
+            }
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

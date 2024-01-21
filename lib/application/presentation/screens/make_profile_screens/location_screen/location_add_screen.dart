@@ -84,7 +84,7 @@
 //             ),
 //             SizedBox(
 //               height: 100,
-             
+
 //             ),
 //             ElevatedButton(
 //               onPressed: () {
@@ -193,69 +193,67 @@ class _LocationScreenState extends State<LocationScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.all(screenSize.width * 0.05),
-        child: Column(
-          children: [
-            SizedBox(
-              height: screenSize.height * 0.01,
-            ),
-            Text(
-              'Find Love Closer Than You Think!\nAdd your location to connect with Soulmates near you\nLet the journey to love begin!',
-              style: TextStyle(color: Colors.white60, letterSpacing: 0.3),
-            ),
-            SizedBox(
-              height: screenSize.height * 0.1,
-            ),
-            Container(
-              width: screenSize.width * 0.75,
-             // height: screenSize.height * 0.4,
-              child: Center(
-                child: LottieBuilder.asset(
-                  'assets/animations/location.json',
-                  fit: BoxFit.cover,
-                ),
+        child: Column(children: [
+          SizedBox(
+            height: screenSize.height * 0.01,
+          ),
+          Text(
+            'Find Love Closer Than You Think!\nAdd your location to connect with Soulmates near you\nLet the journey to love begin!',
+            style: TextStyle(color: Colors.white60, letterSpacing: 0.3),
+          ),
+          SizedBox(
+            height: screenSize.height * 0.1,
+          ),
+          Container(
+            width: screenSize.width * 0.75,
+            // height: screenSize.height * 0.4,
+            child: Center(
+              child: LottieBuilder.asset(
+                'assets/animations/location.json',
+                fit: BoxFit.cover,
               ),
             ),
-            SizedBox(
-              height: screenSize.height * 0.22,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                getCurrentPosition().then((value) {
-                  setState(() {
-                    latitude = value.latitude;
-                    longitudes = value.longitude;
-                  });
-                  print(latitude.toString());
-                  print(longitudes.toString());
-                  Navigator.pushReplacementNamed(
-                      context, Routes.bottomNavigation);
+          ),
+          SizedBox(
+            height: screenSize.height * 0.22,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              getCurrentPosition().then((value) {
+                setState(() {
+                  latitude = value.latitude;
+                  longitudes = value.longitude;
                 });
-              },
-              style: ElevatedButton.styleFrom(
-                primary: kred,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(screenSize.width * 0.1),
-                ),
+                print(latitude.toString());
+                print(longitudes.toString());
+                Navigator.pushReplacementNamed(
+                    context, Routes.bottomNavigation);
+              });
+            },
+            style: ElevatedButton.styleFrom(
+              primary: kred,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(screenSize.width * 0.1),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(screenSize.width * 0.03),
-                child: SizedBox(
-                  height: screenSize.height * 0.045,
-                  width: screenSize.width * 0.75,
-                  child: Center(
-                    child: Text(
-                      'Allow',
-                      style: TextStyle(
-                        fontSize: screenSize.width * 0.04,
-                        color: kwhite,
-                      ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(screenSize.width * 0.03),
+              child: SizedBox(
+                height: screenSize.height * 0.045,
+                width: screenSize.width * 0.75,
+                child: Center(
+                  child: Text(
+                    'Allow',
+                    style: TextStyle(
+                      fontSize: screenSize.width * 0.04,
+                      color: kwhite,
                     ),
                   ),
                 ),
               ),
             ),
-          ]
-        ),
+          ),
+        ]),
       ),
     );
   }

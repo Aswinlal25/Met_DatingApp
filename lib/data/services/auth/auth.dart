@@ -30,7 +30,7 @@ class AuthApi implements AuthRepository {
         print("the function is responce get is oky");
         log("msg ---> ${response.data['message']}");
         return right(PhoneNumberResponseModel.fromJson(response.data));
-      } else {
+      } else if (re) {
         print("the function is responce get is not oky");
         return Left(ErrorMsg(
             message:

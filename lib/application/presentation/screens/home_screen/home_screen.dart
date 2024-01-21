@@ -179,9 +179,7 @@ class HomeScreen extends StatelessWidget {
                   HeartButton(
                     icon: Icons.close,
                   ),
-                 
                   HeartButton(),
-                
                 ],
               ),
               Positioned(
