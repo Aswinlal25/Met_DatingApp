@@ -1,10 +1,17 @@
 // ignore_for_file: deprecated_member_use
+
+import 'dart:io';
+import 'package:dating_app/data/shared_preferences/shered_preference.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+import '../../../../business_logic/Profile/profile_bloc.dart';
+import '../../../utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 
 class ProfilePictureScreen extends StatefulWidget {
   const ProfilePictureScreen({Key? key}) : super(key: key);
@@ -18,8 +25,6 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
 
   double containerSize = 0.4;
   double iconSize = 0.1;
-  double buttonHeight = 0.04;
-  double buttonWidth = 0.7;
 
   @override
   Widget build(BuildContext context) {
@@ -78,9 +83,29 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
               height: screenHeight * 0.209,
             ),
             ElevatedButton(
-              onPressed: () {
-                print(images.contains);
-                Navigator.pushNamed(context, Routes.userInterest);
+              onPressed: () async {
+                if (images.every((element) => element == null)) {
+                  showSnack(context: context, message: 'Image is mandatory!');
+                } else {
+                  MultipartFile? imageFiles;
+
+                  for (var image in images) {
+                    if (image != null) {
+                      imageFiles!=await MultipartFile.fromFile(image.path);
+                    }
+                  }
+
+                  ProfileModel profileModel = ProfileModel(images: imageFiles);
+                  final tokenModel = await SharedPref.getToken();
+
+                  context
+                      .read<ProfileBloc>()
+                      .add(ProfileEvent.makeprofile(
+                        tokenModel: tokenModel,
+                        profileModel: profileModel,
+                      ));
+                  Navigator.pushNamed(context, Routes.userInterest);
+                }
               },
               style: ElevatedButton.styleFrom(
                 primary: kred,
@@ -154,6 +179,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
     });
   }
 }
+
 
 // import 'package:dating_app/application/presentation/routes/routes.dart';
 // import 'package:dating_app/application/presentation/utils/colors.dart';

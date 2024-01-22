@@ -352,11 +352,15 @@
 
 // ignore_for_file: deprecated_member_use
 
+import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/interest/widgets/chip.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/data/shared_preferences/shered_preference.dart';
+import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InterestScreen extends StatefulWidget {
   const InterestScreen({Key? key}) : super(key: key);
@@ -424,13 +428,13 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Reading',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Reading'),
+                  isSelected: selectedInterests.contains('1'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Art and creativity',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Art and creativity'),
+                  isSelected: selectedInterests.contains('2'),
                 ),
               ],
             ),
@@ -442,13 +446,13 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Fitness and Execise',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Fitness and Execise'),
+                  isSelected: selectedInterests.contains('3'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Music',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Music'),
+                  isSelected: selectedInterests.contains('4'),
                 ),
               ],
             ),
@@ -460,13 +464,13 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Travel',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Travel'),
+                  isSelected: selectedInterests.contains('7'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Movies and TV shows',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Movies and TV shows'),
+                  isSelected: selectedInterests.contains('6'),
                 ),
               ],
             ),
@@ -478,19 +482,19 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Pet',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Pet'),
+                  isSelected: selectedInterests.contains('5'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Dance',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Dance'),
+                  isSelected: selectedInterests.contains('8'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Gardening',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Gardening'),
+                  isSelected: selectedInterests.contains('9'),
                 ),
               ],
             ),
@@ -502,13 +506,13 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Cooking and Food',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Cooking and Food'),
+                  isSelected: selectedInterests.contains('10'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Games',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Games'),
+                  isSelected: selectedInterests.contains('13'),
                 ),
               ],
             ),
@@ -520,13 +524,13 @@ class _InterestScreenState extends State<InterestScreen> {
                 ChoiceChips(
                   chipLabel: 'Photography',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Photography'),
+                  isSelected: selectedInterests.contains('11'),
                 ),
                 Spacer(),
                 ChoiceChips(
                   chipLabel: 'Technology',
                   onSelected: toggleInterest,
-                  isSelected: selectedInterests.contains('Technology'),
+                  isSelected: selectedInterests.contains('12'),
                 ),
               ],
             ),
@@ -534,11 +538,18 @@ class _InterestScreenState extends State<InterestScreen> {
               height: screenSize.height * 0.26,
             ),
             ElevatedButton(
-              onPressed: () {
+              onPressed: ()async {
                 print(selectedInterests.toString());
                 if (selectedInterests.length >= 3) {
+                   
+                   ProfileModel profileModel = ProfileModel(
+                    interests: selectedInterests.toString()
+                   );
+
+                   final tokenModel = await  SharedPref.getToken();
+                      context.read<ProfileBloc>().add(ProfileEvent.makeprofile(tokenModel: tokenModel, profileModel: profileModel));
                   Navigator.pushNamed(context, Routes.userlocation);
-                } else {
+                } else { 
                   showSnack(
                     context: context,
                     message: 'Select at least 3 interests !',

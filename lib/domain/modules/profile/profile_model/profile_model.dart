@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 
 class ProfileModel {
   String? name;
-  int? dob;
+  String? dob;
   int? genderId;
   String? city;
   String? country;
   double? longitude;
-  String? lattitude;
+  double? lattitude;
   String? bio;
-  int? interests;
+  String? interests;
   MultipartFile? images;
 
   ProfileModel(
@@ -34,7 +34,6 @@ class ProfileModel {
     lattitude = json['lattitude'];
     bio = json['bio'];
     interests = json['interests'];
-
     images = json['images'];
   }
 

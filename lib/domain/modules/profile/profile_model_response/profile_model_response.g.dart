@@ -6,9 +6,9 @@ part of 'profile_model_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProfileModelResponse _$ProfileModelResponseFromJson(
+ProfileResponseModel _$ProfileModelResponseFromJson(
         Map<String, dynamic> json) =>
-    ProfileModelResponse(
+    ProfileResponseModel(
       statusCode: json['StatusCode'] as int?,
       message: json['Message'] as String?,
       data: json['Data'],
@@ -16,7 +16,7 @@ ProfileModelResponse _$ProfileModelResponseFromJson(
     );
 
 Map<String, dynamic> _$ProfileModelResponseToJson(
-        ProfileModelResponse instance) =>
+        ProfileResponseModel instance) =>
     <String, dynamic>{
       'StatusCode': instance.statusCode,
       'Message': instance.message,

@@ -21,27 +21,24 @@ class AuthApi implements AuthRepository {
   @override
   Future<Either<ErrorMsg, PhoneNumberResponseModel>> otpLogin(
       {required PhoneNumberModel phoneNumberModel}) async {
-    print("the function is oky here calling");
     try {
       final response = await dio.post(ApiEndPoints.otpLogin,
           data: phoneNumberModel.toJson());
-      print("the function is responce get");
+
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("the function is responce get is oky");
         log("msg ---> ${response.data['message']}");
         return right(PhoneNumberResponseModel.fromJson(response.data));
-      } else if (re) {
-        print("the function is responce get is not oky");
+      } else if (response.statusCode == 400) {
+        return left(ErrorMsg(message: 'server is not respond !'));
+      } else {
         return Left(ErrorMsg(
             message:
                 PhoneNumberResponseModel.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {
-      log('msg --->${dioError.message.toString()}');
       print("msg --->${dioError.message.toString()}");
       return Left(ErrorMsg(message: errorMsg));
     } catch (e) {
-      log('msg --->${e.toString()}');
       print('msg --->${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }

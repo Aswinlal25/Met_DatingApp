@@ -6,10 +6,11 @@ import 'package:dating_app/domain/modules/profile/profile_model/profile_model.da
 import 'package:dating_app/domain/modules/profile/profile_model_response/profile_model_response.dart';
 
 abstract class ProfileRepository {
-  Future<Either<Failure, ProfileModelResponse>> makeprofile(
+  Future<Either<Failure, ProfileResponseModel>> makeprofile(
       {required ProfileModel profileModel ,required TokenModel tokenModel});
 
   Future<Either<Failure,ProfileDetails>> getprofileDetails(
     {required TokenModel tokenModel}
   );
+    
 }

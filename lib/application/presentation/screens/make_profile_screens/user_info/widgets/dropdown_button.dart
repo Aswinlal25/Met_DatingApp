@@ -1,3 +1,4 @@
+import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/material.dart';
 
 class GenderDropdown extends StatefulWidget {
@@ -6,7 +7,14 @@ class GenderDropdown extends StatefulWidget {
 }
 
 class _GenderDropdownState extends State<GenderDropdown> {
-  String selectedGender = 'Male'; // Default selection
+  int selectedGender = 1; // Default selection (1 for Male)
+   
+    
+  Map<String, int> genderValueMap = {
+    'Male': 1,
+    'Female': 2,
+    'Others': 3,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +28,12 @@ class _GenderDropdownState extends State<GenderDropdown> {
       child: Padding(
         padding: const EdgeInsets.only(left: 15),
         child: DropdownButtonHideUnderline(
-          child: DropdownButton<String>(
+          child: DropdownButton<int>(
             value: selectedGender,
-            onChanged: (String? newValue) {
+            onChanged: (int? newValue) {
               setState(() {
                 selectedGender = newValue!;
+                ProfileModel(genderId: selectedGender);
               });
             },
             style: TextStyle(
@@ -37,12 +46,12 @@ class _GenderDropdownState extends State<GenderDropdown> {
               Icons.arrow_drop_down,
               color: Colors.white,
             ),
-            items: <String>['Male', 'Female', 'Others']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
+            items: genderValueMap.entries
+                .map<DropdownMenuItem<int>>((MapEntry<String, int> entry) {
+              return DropdownMenuItem<int>(
+                value: entry.value,
                 child: Text(
-                  value,
+                  entry.key,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,

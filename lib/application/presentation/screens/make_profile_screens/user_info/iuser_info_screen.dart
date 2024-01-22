@@ -1,9 +1,15 @@
 // ignore_for_file: deprecated_member_use
+import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/widgets/dropdown_button.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/data/shared_preferences/shered_preference.dart';
+import 'package:dating_app/domain/modules/Token/token_model.dart';
+import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserInfoScreen extends StatelessWidget {
   const UserInfoScreen({super.key});
@@ -62,6 +68,7 @@ class UserInfoScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: screenSize.width * 0.02),
                     child: TextFormField(
+                      controller: context.read<ProfileBloc>().nameController,
                       keyboardType: TextInputType.name,
                       style: TextStyle(
                         color: kwhite,
@@ -108,6 +115,7 @@ class UserInfoScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: screenSize.width * 0.02),
                     child: TextFormField(
+                      controller: context.read<ProfileBloc>().bioController,
                       keyboardType: TextInputType.multiline,
                       maxLines: null, // Set to null for unlimited lines
                       style: TextStyle(
@@ -177,6 +185,7 @@ class UserInfoScreen extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(left: screenSize.width * 0.02),
                         child: TextFormField(
+                          controller: context.read<ProfileBloc>().countryController,
                           keyboardType: TextInputType.name,
                           style: TextStyle(
                             color: kwhite,
@@ -205,7 +214,14 @@ class UserInfoScreen extends StatelessWidget {
                 ),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async{
+                      ProfileModel profileModel = ProfileModel(
+                        name: context.read<ProfileBloc>().nameController.toString(),
+                        bio: context.read<ProfileBloc>().bioController.toString(),
+                        country: context.read<ProfileBloc>().countryController.toString(),
+                      );
+                      final tokenModel = await  SharedPref.getToken();
+                      context.read<ProfileBloc>().add(ProfileEvent.makeprofile(tokenModel: tokenModel, profileModel: profileModel));
                       Navigator.pushNamed(context, Routes.userDOB);
                     },
                     style: ElevatedButton.styleFrom(
