@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 
 class ProfileModel {
@@ -10,7 +12,7 @@ class ProfileModel {
   double? lattitude;
   String? bio;
   String? interests;
-  MultipartFile? images;
+  File? images;
 
   ProfileModel(
       {this.name,

@@ -7,13 +7,12 @@ class ProfileState with _$ProfileState {
     required bool dataIsLoading,
     String? message,
     ProfileModel? profileModel,
-    ProfileResponseModel? profileResponseModel,
+    ProfileMakeResponseModel? profileMakeResponseModel,
     TokenModel? tokenModel,
   }) = _Initial;
 
-  factory ProfileState.initial() =>   ProfileState(
-       
+  factory ProfileState.initial() => ProfileState(
         dataHasError: false,
-         dataIsLoading: false,
+        dataIsLoading: false,
       );
 }

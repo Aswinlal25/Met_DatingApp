@@ -53,8 +53,12 @@ class AuthApi implements AuthRepository {
       if (response.statusCode == 200 || response.statusCode == 201) {
         log('msg --->${response.data['message']}');
         return right(VerifyOtpResponse.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return Left(ErrorMsg(message: 'Data is not in required format'));
+      } else if (response.statusCode == 500) {
+        return Left(ErrorMsg(message: 'Error in verifying OTP'));
       } else {
-        return left(ErrorMsg(
+        return Left(ErrorMsg(
             message: VerifyOtpResponse.fromJson(response.data).message!));
       }
     } on DioException catch (dioError) {

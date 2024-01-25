@@ -1,52 +1,15 @@
-// import 'package:dating_app/application/presentation/utils/colors.dart';
-// import 'package:flutter/material.dart';
-
-// class ChoiceChips extends StatefulWidget {
-//   final String chipname;
-//   const ChoiceChips({super.key, required this.chipname});
-
-//   @override
-//   State<ChoiceChips> createState() => _ChoiceChipsState();
-// }
-
-// class _ChoiceChipsState extends State<ChoiceChips> {
-//   var _isSelelcted = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return FilterChip(
-//       label: Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-//         child: Text(
-//           widget.chipname,
-//           style: TextStyle(color: kwhite, letterSpacing: 1.2, fontSize: 15),
-//         ),
-//       ),
-//       selected: _isSelelcted,
-//       showCheckmark: false,
-//       onSelected: (isSelelcted) {
-//         setState(() {
-//           _isSelelcted = isSelelcted;
-//         });
-//       },
-//       backgroundColor: const Color.fromARGB(255, 51, 51, 51),
-//       selectedColor: kred,
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(30.0),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 
 class ChoiceChips extends StatefulWidget {
   final String chipLabel;
   final Function(String) onSelected;
   final bool isSelected;
+  final String value;
 
   const ChoiceChips({
     Key? key,
     required this.chipLabel,
+    required this.value,
     required this.onSelected,
     required this.isSelected,
   }) : super(key: key);
@@ -63,17 +26,21 @@ class _ChoiceChipsState extends State<ChoiceChips> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         child: Text(
           widget.chipLabel,
-          style:
-              TextStyle(color: Colors.white, letterSpacing: 1.2, fontSize: 15),
+          style: TextStyle(
+            color: Colors.white,
+            letterSpacing: 1.2,
+            fontSize: 15,
+          ),
         ),
       ),
       selected: widget.isSelected,
       showCheckmark: false,
       onSelected: (isSelected) {
-        widget.onSelected(widget.chipLabel);
+        widget.onSelected(widget.value);
       },
-      backgroundColor: const Color.fromARGB(255, 51, 51, 51),
-      selectedColor: Colors.red,
+      backgroundColor: widget.isSelected
+          ? Colors.red
+          : const Color.fromARGB(255, 51, 51, 51),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),

@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
-import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _DobScreenState extends State<DobScreen> {
   var month = 01;
   var year = 2000;
 
-   ProfileModel profileModel = ProfileModel(); 
+  ProfileModel profileModel = ProfileModel();
 
   @override
   Widget build(BuildContext context) {
@@ -158,39 +158,41 @@ class _DobScreenState extends State<DobScreen> {
             height: screenSize.height * 0.23,
           ),
           Center(
-            child: ElevatedButton(
-              onPressed: ()async {
-               String formattedDob = sprintf('%04d - %02d - %02d', [year, month, date]);
-            profileModel = ProfileModel(dob: formattedDob);
-             final tokenModel = await  SharedPref.getToken();
-                      context.read<ProfileBloc>().add(ProfileEvent.makeprofile(tokenModel: tokenModel, profileModel: profileModel));
-
-                print('dob $date $month $year');
-                Navigator.pushNamed(context, Routes.userPictrures);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: kred,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SizedBox(
-                  height: screenSize.height * 0.045,
-                  width: screenSize.width * 0.75,
-                  child: Center(
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                        fontSize: screenSize.width * 0.04,
-                        color: kwhite,
-                        //fontWeight: FontWeight.bold
+            child: BlocBuilder<ProfileBloc, ProfileState>(
+              builder: (context, state) {
+                return ElevatedButton(
+                  onPressed: () async {
+                    String formattedDob =
+                        sprintf('%04d-%02d-%02d', [year, month, date]);
+                    notifier.value.dob = formattedDob;
+                    print('dob $date $month $year');
+                    Navigator.pushNamed(context, Routes.userPictrures);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: kred,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: SizedBox(
+                      height: screenSize.height * 0.045,
+                      width: screenSize.width * 0.75,
+                      child: Center(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(
+                            fontSize: screenSize.width * 0.04,
+                            color: kwhite,
+                            //fontWeight: FontWeight.bold
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
         ],

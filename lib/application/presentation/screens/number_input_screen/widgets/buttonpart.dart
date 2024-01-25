@@ -38,45 +38,53 @@ class ButtonPart extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return ElevatedButton(
-            onPressed: () {
-              if (context.read<AuthBloc>().phonekey.currentState!.validate()) {
-                print("buptton  is clicked");
-                PhoneNumberModel model = PhoneNumberModel(
-                  phNo: context.read<AuthBloc>().poneController.text,
-                );
-                context
+          if (state.otpHasError) {
+            return LoadingAnimation(width: 50);
+          } else {
+            return ElevatedButton(
+              onPressed: () {
+                if (context
                     .read<AuthBloc>()
-                    .add(AuthEvent.otpLogin(phoneNumberModel: model));
+                    .phonekey
+                    .currentState!
+                    .validate()) {
+                  print("buptton  is clicked");
+                  PhoneNumberModel model = PhoneNumberModel(
+                    phNo: context.read<AuthBloc>().poneController.text,
+                  );
+                  context
+                      .read<AuthBloc>()
+                      .add(AuthEvent.otpLogin(phoneNumberModel: model));
 
-                if (state.otpIsLoading) {
-                  LoadingAnimation(width: 50.0);
+                  if (state.otpIsLoading) {
+                    LoadingAnimation(width: 50.0);
+                  }
                 }
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              primary: kred,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
+              },
+              style: ElevatedButton.styleFrom(
+                primary: kred,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: screenSize.height * 0.04,
-                width: screenSize.width * 0.22,
-                child: Center(
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontSize: screenSize.width * 0.04,
-                      color: kwhite,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  height: screenSize.height * 0.04,
+                  width: screenSize.width * 0.22,
+                  child: Center(
+                    child: Text(
+                      'Continue',
+                      style: TextStyle(
+                        fontSize: screenSize.width * 0.04,
+                        color: kwhite,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          );
+            );
+          }
         },
       ),
     );

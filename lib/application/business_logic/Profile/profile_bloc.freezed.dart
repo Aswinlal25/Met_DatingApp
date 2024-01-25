@@ -82,14 +82,14 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   @override
   $Res call({
     Object? tokenModel = null,
-    Object? profileModel = freezed,
+    Object? profileModel = null,
   }) {
     return _then(_value.copyWith(
       tokenModel: null == tokenModel
           ? _value.tokenModel
           : tokenModel // ignore: cast_nullable_to_non_nullable
               as TokenModel,
-      profileModel: freezed == profileModel
+      profileModel: null == profileModel
           ? _value.profileModel
           : profileModel // ignore: cast_nullable_to_non_nullable
               as ProfileModel,
@@ -120,14 +120,14 @@ class __$$MakeprofileImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tokenModel = null,
-    Object? profileModel = freezed,
+    Object? profileModel = null,
   }) {
     return _then(_$MakeprofileImpl(
       tokenModel: null == tokenModel
           ? _value.tokenModel
           : tokenModel // ignore: cast_nullable_to_non_nullable
               as TokenModel,
-      profileModel: freezed == profileModel
+      profileModel: null == profileModel
           ? _value.profileModel
           : profileModel // ignore: cast_nullable_to_non_nullable
               as ProfileModel,
@@ -158,13 +158,12 @@ class _$MakeprofileImpl implements _Makeprofile {
             other is _$MakeprofileImpl &&
             (identical(other.tokenModel, tokenModel) ||
                 other.tokenModel == tokenModel) &&
-            const DeepCollectionEquality()
-                .equals(other.profileModel, profileModel));
+            (identical(other.profileModel, profileModel) ||
+                other.profileModel == profileModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tokenModel,
-      const DeepCollectionEquality().hash(profileModel));
+  int get hashCode => Object.hash(runtimeType, tokenModel, profileModel);
 
   @JsonKey(ignore: true)
   @override
@@ -253,7 +252,7 @@ mixin _$ProfileState {
   bool get dataIsLoading => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   ProfileModel? get profileModel => throw _privateConstructorUsedError;
-  ProfileResponseModel? get profileResponseModel =>
+  ProfileMakeResponseModel? get profileMakeResponseModel =>
       throw _privateConstructorUsedError;
   TokenModel? get tokenModel => throw _privateConstructorUsedError;
 
@@ -273,7 +272,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       bool dataIsLoading,
       String? message,
       ProfileModel? profileModel,
-      ProfileResponseModel? profileResponseModel,
+      ProfileMakeResponseModel? profileMakeResponseModel,
       TokenModel? tokenModel});
 }
 
@@ -294,7 +293,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? dataIsLoading = null,
     Object? message = freezed,
     Object? profileModel = freezed,
-    Object? profileResponseModel = freezed,
+    Object? profileMakeResponseModel = freezed,
     Object? tokenModel = freezed,
   }) {
     return _then(_value.copyWith(
@@ -314,10 +313,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.profileModel
           : profileModel // ignore: cast_nullable_to_non_nullable
               as ProfileModel?,
-      profileResponseModel: freezed == profileResponseModel
-          ? _value.profileResponseModel
-          : profileResponseModel // ignore: cast_nullable_to_non_nullable
-              as ProfileResponseModel?,
+      profileMakeResponseModel: freezed == profileMakeResponseModel
+          ? _value.profileMakeResponseModel
+          : profileMakeResponseModel // ignore: cast_nullable_to_non_nullable
+              as ProfileMakeResponseModel?,
       tokenModel: freezed == tokenModel
           ? _value.tokenModel
           : tokenModel // ignore: cast_nullable_to_non_nullable
@@ -339,7 +338,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool dataIsLoading,
       String? message,
       ProfileModel? profileModel,
-      ProfileResponseModel? profileResponseModel,
+      ProfileMakeResponseModel? profileMakeResponseModel,
       TokenModel? tokenModel});
 }
 
@@ -358,7 +357,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? dataIsLoading = null,
     Object? message = freezed,
     Object? profileModel = freezed,
-    Object? profileResponseModel = freezed,
+    Object? profileMakeResponseModel = freezed,
     Object? tokenModel = freezed,
   }) {
     return _then(_$InitialImpl(
@@ -378,10 +377,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.profileModel
           : profileModel // ignore: cast_nullable_to_non_nullable
               as ProfileModel?,
-      profileResponseModel: freezed == profileResponseModel
-          ? _value.profileResponseModel
-          : profileResponseModel // ignore: cast_nullable_to_non_nullable
-              as ProfileResponseModel?,
+      profileMakeResponseModel: freezed == profileMakeResponseModel
+          ? _value.profileMakeResponseModel
+          : profileMakeResponseModel // ignore: cast_nullable_to_non_nullable
+              as ProfileMakeResponseModel?,
       tokenModel: freezed == tokenModel
           ? _value.tokenModel
           : tokenModel // ignore: cast_nullable_to_non_nullable
@@ -398,7 +397,7 @@ class _$InitialImpl implements _Initial {
       required this.dataIsLoading,
       this.message,
       this.profileModel,
-      this.profileResponseModel,
+      this.profileMakeResponseModel,
       this.tokenModel});
 
   @override
@@ -410,13 +409,13 @@ class _$InitialImpl implements _Initial {
   @override
   final ProfileModel? profileModel;
   @override
-  final ProfileResponseModel? profileResponseModel;
+  final ProfileMakeResponseModel? profileMakeResponseModel;
   @override
   final TokenModel? tokenModel;
 
   @override
   String toString() {
-    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, message: $message, profileModel: $profileModel, profileResponseModel: $profileResponseModel, tokenModel: $tokenModel)';
+    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, tokenModel: $tokenModel)';
   }
 
   @override
@@ -429,10 +428,10 @@ class _$InitialImpl implements _Initial {
             (identical(other.dataIsLoading, dataIsLoading) ||
                 other.dataIsLoading == dataIsLoading) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality()
-                .equals(other.profileModel, profileModel) &&
-            const DeepCollectionEquality()
-                .equals(other.profileResponseModel, profileResponseModel) &&
+            (identical(other.profileModel, profileModel) ||
+                other.profileModel == profileModel) &&
+            const DeepCollectionEquality().equals(
+                other.profileMakeResponseModel, profileMakeResponseModel) &&
             (identical(other.tokenModel, tokenModel) ||
                 other.tokenModel == tokenModel));
   }
@@ -443,8 +442,8 @@ class _$InitialImpl implements _Initial {
       dataHasError,
       dataIsLoading,
       message,
-      const DeepCollectionEquality().hash(profileModel),
-      const DeepCollectionEquality().hash(profileResponseModel),
+      profileModel,
+      const DeepCollectionEquality().hash(profileMakeResponseModel),
       tokenModel);
 
   @JsonKey(ignore: true)
@@ -460,7 +459,7 @@ abstract class _Initial implements ProfileState {
       required final bool dataIsLoading,
       final String? message,
       final ProfileModel? profileModel,
-      final ProfileResponseModel? profileResponseModel,
+      final ProfileMakeResponseModel? profileMakeResponseModel,
       final TokenModel? tokenModel}) = _$InitialImpl;
 
   @override
@@ -472,7 +471,7 @@ abstract class _Initial implements ProfileState {
   @override
   ProfileModel? get profileModel;
   @override
-  ProfileResponseModel? get profileResponseModel;
+  ProfileMakeResponseModel? get profileMakeResponseModel;
   @override
   TokenModel? get tokenModel;
   @override

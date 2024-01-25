@@ -158,9 +158,14 @@ class OTPScreen extends StatelessWidget {
                           if (state.verifyOtpHasError) {
                             showSnack(
                                 context: context, message: state.message!);
-                          } else if (state.verifyOtpResponse != null) {
+                          } else if (state.verifyOtpResponse != null &&
+                              state.verifyOtpResponse!.statusCode == 201) {
                             Navigator.pushNamedAndRemoveUntil(context,
                                 Routes.quotesScreen1, (route) => false);
+                          } else if (state.verifyOtpResponse!.statusCode ==
+                              200) {
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                Routes.bottomNavigation, (route) => false);
                           }
                         },
                         builder: (context, state) {

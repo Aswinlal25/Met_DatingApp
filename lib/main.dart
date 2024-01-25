@@ -24,9 +24,8 @@ class DatingApp extends StatelessWidget {
           create: (context) => AuthBloc(AuthApi()),
         ),
         BlocProvider(
-          create: (context) => ProfileBloc(ProfileApi()), 
+          create: (context) => ProfileBloc(ProfileApi()),
         ),
-        
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

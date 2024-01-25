@@ -1,6 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
+import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
 import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +23,6 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-
   ProfileModel profileModel = ProfileModel();
 
   //Get current location
@@ -94,49 +96,88 @@ class _LocationScreenState extends State<LocationScreen> {
           SizedBox(
             height: screenSize.height * 0.22,
           ),
-          ElevatedButton(
-            onPressed: () {
-              getCurrentPosition().then((value) {
-                setState(() async{
-                  latitude = value.latitude;
-                  longitudes = value.longitude;
-
-                 profileModel = ProfileModel(
-                  lattitude: latitude,
-                  longitude: longitudes
-                 );
-                     final tokenModel = await  SharedPref.getToken();
-                      context.read<ProfileBloc>().add(ProfileEvent.makeprofile(tokenModel: tokenModel, profileModel: profileModel));
-                
-                });
-                print(latitude.toString());
-                print(longitudes.toString());
-                Navigator.pushReplacementNamed(
-                    context, Routes.bottomNavigation);
-              });
+          BlocConsumer<ProfileBloc, ProfileState>(
+            listener: (context, state) {
+              if (state.dataHasError) {
+                showSnack(context: context, message: state.message!);
+              } else if (state.profileMakeResponseModel != null) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.bottomNavigation, (route) => false);
+              }
             },
-            style: ElevatedButton.styleFrom(
-              primary: kred,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(screenSize.width * 0.1),
-              ),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(screenSize.width * 0.03),
-              child: SizedBox(
-                height: screenSize.height * 0.045,
-                width: screenSize.width * 0.75,
-                child: Center(
-                  child: Text(
-                    'Allow',
-                    style: TextStyle(
-                      fontSize: screenSize.width * 0.04,
-                      color: kwhite,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            builder: (context, state) {
+              return BlocBuilder<ProfileBloc, ProfileState>(
+                builder: (context, state) {
+                  if (state.dataIsLoading) {
+                    return LoadingAnimation(width: 20);
+                  } else {
+                    return ElevatedButton(
+                      onPressed: () {
+                        getCurrentPosition().then((value) async {
+                          latitude = value.latitude;
+                          longitudes = value.longitude;
+
+                          notifier.value.lattitude = latitude;
+                          notifier.value.longitude = longitudes;
+                          profileModel = ProfileModel(
+                              lattitude: latitude, longitude: longitudes);
+                          final tokenModel = await SharedPref.getToken();
+                          context.read<ProfileBloc>().add(
+                              ProfileEvent.makeprofile(
+                                  tokenModel: tokenModel,
+                                  profileModel: notifier.value));
+
+                          print(notifier.value.toString());
+                          print(
+                              '-----------------------Name${notifier.value.name.toString()}');
+                          print(
+                              '-----------------------Bio${notifier.value.bio.toString()}');
+                          print(
+                              '-----------------------city${notifier.value.city.toString()}');
+                          print(
+                              '-----------------------country${notifier.value.country.toString()}');
+                          print(
+                              '-----------------------dob${notifier.value.dob.toString()}');
+                          print(
+                              '-----------------------genddr${notifier.value.genderId.toString()}');
+                          print(
+                              '-----------------------interest${notifier.value.interests.toString()}');
+                          print(
+                              '----------------------lati${notifier.value.lattitude.toString()}');
+                          print(
+                              '-----------------------long${notifier.value.longitude.toString()}');
+                          print(
+                              '-----------------------country${notifier.value.images.toString()}');
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: kred,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(screenSize.width * 0.1),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(screenSize.width * 0.03),
+                        child: SizedBox(
+                          height: screenSize.height * 0.045,
+                          width: screenSize.width * 0.75,
+                          child: Center(
+                            child: Text(
+                              'Allow',
+                              style: TextStyle(
+                                fontSize: screenSize.width * 0.04,
+                                color: kwhite,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                },
+              );
+            },
           ),
         ]),
       ),

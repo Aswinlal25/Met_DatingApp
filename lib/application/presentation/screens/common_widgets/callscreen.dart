@@ -2,7 +2,6 @@ import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class CallScreen extends StatelessWidget {
   const CallScreen({super.key});
@@ -42,10 +41,8 @@ class CallScreen extends StatelessWidget {
                     gradient: LinearGradient(
                       colors: [
                         Colors.black,
-
                         Colors.transparent,
                         Colors.transparent,
-                        // Colors.black.withOpacity(0.7),
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,

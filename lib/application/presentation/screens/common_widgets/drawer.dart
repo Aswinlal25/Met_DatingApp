@@ -229,7 +229,7 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.loginPage);
+        Navigator.pushNamed(context, Routes.userInfoPage);
       },
       child: Container(
         decoration: BoxDecoration(
