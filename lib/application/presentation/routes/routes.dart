@@ -18,5 +18,5 @@ class Routes {
   static const prederenceScreen = '/preference_screen';
   static const chattingScreen = '/chatting_page';
   static const callingScreen = '/calling_page';
-  //static const Homepage = '/home_page';
+  static const ProfileScreen = '/profile_page';
 }

@@ -9,19 +9,15 @@ import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:dating_app/domain/core/failures/failures.dart';
-import 'package:dating_app/domain/modules/Token/token_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_details/profile_details.dart';
+import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_make_response_model/profile_make_response_model.dart';
-import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:dating_app/domain/repositories/user_repository.dart';
 import 'package:dio/dio.dart';
 
 class ProfileApi implements ProfileRepository {
   @override
-  Future<Either<Failure, ProfileMakeResponseModel>> makeprofile(
-      {required ProfileModel profileModel,
-      required TokenModel tokenModel}) async {
-    final acessToken = await tokenModel.accessToken;
+  Future<Either<Failure, ProfileMakeResponseModel>> makeprofile() async {
     final accessToken = await SharedPref.getToken();
     final accesskey = accessToken.accessToken;
     final refreshkey = accessToken.refreshToken;
@@ -48,7 +44,7 @@ class ProfileApi implements ProfileRepository {
       ..add(MapEntry('interests', notifier.value.interests ?? ''))
       ..add(MapEntry('city', notifier.value.city ?? ''));
 
-// Image files to the FormData
+    // Image files to the FormData
     for (int i = 0; i < images.length; i++) {
       File? image = images[i];
       if (image != null && image.existsSync()) {
@@ -91,7 +87,7 @@ class ProfileApi implements ProfileRepository {
   }
 
   @override
-  Future<Either<Failure, ProfileDetails>> getprofileDetails() async {
+  Future<Either<Failure, ProfileDetailsModel>> getprofileDetails() async {
     final accessToken = await SharedPref.getToken();
     final accesskey = accessToken.accessToken;
     final refreshkey = accessToken.refreshToken;
@@ -111,7 +107,8 @@ class ProfileApi implements ProfileRepository {
       final respone = await dio.get(ApiEndPoints.Userprofile);
 
       if (respone.statusCode == 200) {
-        return Right(ProfileDetails.fromJson(respone.data));
+        print('response..............${respone.data}');
+        return Right(ProfileDetailsModel.fromJson(respone.data));
       } else if (respone.statusCode == 401) {
         return left(Failure.tokenExpire());
       } else if (respone.statusCode == 500) {

@@ -16,7 +16,7 @@ class PhotoContainer extends StatelessWidget {
         color: const Color.fromARGB(255, 37, 37, 37),
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
-          image: AssetImage(image),
+          image: NetworkImage(image),
           fit: BoxFit.cover,
         ),
       ),

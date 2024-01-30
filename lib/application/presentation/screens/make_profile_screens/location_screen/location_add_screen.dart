@@ -4,7 +4,6 @@ import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
-import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -121,11 +120,9 @@ class _LocationScreenState extends State<LocationScreen> {
                           notifier.value.longitude = longitudes;
                           profileModel = ProfileModel(
                               lattitude: latitude, longitude: longitudes);
-                          final tokenModel = await SharedPref.getToken();
-                          context.read<ProfileBloc>().add(
-                              ProfileEvent.makeprofile(
-                                  tokenModel: tokenModel,
-                                  profileModel: notifier.value));
+                          context
+                              .read<ProfileBloc>()
+                              .add(ProfileEvent.makeprofile());
 
                           print(notifier.value.toString());
                           print(

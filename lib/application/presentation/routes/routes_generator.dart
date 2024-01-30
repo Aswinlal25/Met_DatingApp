@@ -15,10 +15,10 @@ import 'package:dating_app/application/presentation/screens/number_input_screen/
 import 'package:dating_app/application/presentation/screens/other_users_Screen/other_users.dart';
 import 'package:dating_app/application/presentation/screens/otp_verification/otp_verification.dart';
 import 'package:dating_app/application/presentation/screens/preference_screen/preference_screen.dart';
+import 'package:dating_app/application/presentation/screens/profile_screen/profile_screen.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_one.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_three.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_two.dart';
-//import 'package:dating_app/application/presentation/screens/quotes_screen/quotes_screen.dart';
 import 'package:dating_app/application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -65,6 +65,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => ChattingScreen());
       case Routes.callingScreen:
         return MaterialPageRoute(builder: (ctx) => CallScreen());
+      case Routes.ProfileScreen:
+        return MaterialPageRoute(builder: (ctx) => ProfileScreen());
       default:
         return _errorScreen();
     }

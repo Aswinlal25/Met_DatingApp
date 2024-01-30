@@ -6,4 +6,5 @@ class ApiEndPoints {
   static String otpLogin = '/sendOtp';
   static String otpverify = '/verify';
   static String Userprofile = '/profile';
+  static String home = '/homeUsers';
 }

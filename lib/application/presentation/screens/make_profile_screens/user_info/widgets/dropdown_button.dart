@@ -1,7 +1,5 @@
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/user_info/iuser_info_screen.dart';
-import 'package:dating_app/data/shared_preferences/shered_preference.dart';
-import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,10 +36,6 @@ class _GenderDropdownState extends State<GenderDropdown> {
                 onChanged: (int? newValue) async {
                   selectedGender = newValue!;
                   notifier.value.genderId = selectedGender;
-                  final profileModel = ProfileModel(genderId: selectedGender);
-                  final tokenModel = await SharedPref.getToken();
-                  context.read<ProfileBloc>().add(ProfileEvent.makeprofile(
-                      tokenModel: tokenModel, profileModel: profileModel));
                 },
                 style: TextStyle(
                   color: Colors.white,

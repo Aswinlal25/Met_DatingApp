@@ -16,46 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProfileEvent {
-  TokenModel get tokenModel => throw _privateConstructorUsedError;
-  ProfileModel get profileModel => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TokenModel tokenModel, ProfileModel profileModel)
-        makeprofile,
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TokenModel tokenModel, ProfileModel profileModel)?
-        makeprofile,
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TokenModel tokenModel, ProfileModel profileModel)?
-        makeprofile,
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProfileEventCopyWith<ProfileEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -64,8 +61,6 @@ abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
-  @useResult
-  $Res call({TokenModel tokenModel, ProfileModel profileModel});
 }
 
 /// @nodoc
@@ -77,35 +72,13 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokenModel = null,
-    Object? profileModel = null,
-  }) {
-    return _then(_value.copyWith(
-      tokenModel: null == tokenModel
-          ? _value.tokenModel
-          : tokenModel // ignore: cast_nullable_to_non_nullable
-              as TokenModel,
-      profileModel: null == profileModel
-          ? _value.profileModel
-          : profileModel // ignore: cast_nullable_to_non_nullable
-              as ProfileModel,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$MakeprofileImplCopyWith<$Res>
-    implements $ProfileEventCopyWith<$Res> {
+abstract class _$$MakeprofileImplCopyWith<$Res> {
   factory _$$MakeprofileImplCopyWith(
           _$MakeprofileImpl value, $Res Function(_$MakeprofileImpl) then) =
       __$$MakeprofileImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({TokenModel tokenModel, ProfileModel profileModel});
 }
 
 /// @nodoc
@@ -115,89 +88,54 @@ class __$$MakeprofileImplCopyWithImpl<$Res>
   __$$MakeprofileImplCopyWithImpl(
       _$MakeprofileImpl _value, $Res Function(_$MakeprofileImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tokenModel = null,
-    Object? profileModel = null,
-  }) {
-    return _then(_$MakeprofileImpl(
-      tokenModel: null == tokenModel
-          ? _value.tokenModel
-          : tokenModel // ignore: cast_nullable_to_non_nullable
-              as TokenModel,
-      profileModel: null == profileModel
-          ? _value.profileModel
-          : profileModel // ignore: cast_nullable_to_non_nullable
-              as ProfileModel,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$MakeprofileImpl implements _Makeprofile {
-  const _$MakeprofileImpl(
-      {required this.tokenModel, required this.profileModel});
-
-  @override
-  final TokenModel tokenModel;
-  @override
-  final ProfileModel profileModel;
+  const _$MakeprofileImpl();
 
   @override
   String toString() {
-    return 'ProfileEvent.makeprofile(tokenModel: $tokenModel, profileModel: $profileModel)';
+    return 'ProfileEvent.makeprofile()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MakeprofileImpl &&
-            (identical(other.tokenModel, tokenModel) ||
-                other.tokenModel == tokenModel) &&
-            (identical(other.profileModel, profileModel) ||
-                other.profileModel == profileModel));
+        (other.runtimeType == runtimeType && other is _$MakeprofileImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tokenModel, profileModel);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MakeprofileImplCopyWith<_$MakeprofileImpl> get copyWith =>
-      __$$MakeprofileImplCopyWithImpl<_$MakeprofileImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TokenModel tokenModel, ProfileModel profileModel)
-        makeprofile,
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
   }) {
-    return makeprofile(tokenModel, profileModel);
+    return makeprofile();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TokenModel tokenModel, ProfileModel profileModel)?
-        makeprofile,
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
   }) {
-    return makeprofile?.call(tokenModel, profileModel);
+    return makeprofile?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TokenModel tokenModel, ProfileModel profileModel)?
-        makeprofile,
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
-      return makeprofile(tokenModel, profileModel);
+      return makeprofile();
     }
     return orElse();
   }
@@ -206,6 +144,7 @@ class _$MakeprofileImpl implements _Makeprofile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
   }) {
     return makeprofile(this);
   }
@@ -214,6 +153,7 @@ class _$MakeprofileImpl implements _Makeprofile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
   }) {
     return makeprofile?.call(this);
   }
@@ -222,6 +162,7 @@ class _$MakeprofileImpl implements _Makeprofile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
@@ -232,29 +173,123 @@ class _$MakeprofileImpl implements _Makeprofile {
 }
 
 abstract class _Makeprofile implements ProfileEvent {
-  const factory _Makeprofile(
-      {required final TokenModel tokenModel,
-      required final ProfileModel profileModel}) = _$MakeprofileImpl;
+  const factory _Makeprofile() = _$MakeprofileImpl;
+}
+
+/// @nodoc
+abstract class _$$GetprofileDetailsImplCopyWith<$Res> {
+  factory _$$GetprofileDetailsImplCopyWith(_$GetprofileDetailsImpl value,
+          $Res Function(_$GetprofileDetailsImpl) then) =
+      __$$GetprofileDetailsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetprofileDetailsImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$GetprofileDetailsImpl>
+    implements _$$GetprofileDetailsImplCopyWith<$Res> {
+  __$$GetprofileDetailsImplCopyWithImpl(_$GetprofileDetailsImpl _value,
+      $Res Function(_$GetprofileDetailsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetprofileDetailsImpl implements _GetprofileDetails {
+  const _$GetprofileDetailsImpl();
 
   @override
-  TokenModel get tokenModel;
+  String toString() {
+    return 'ProfileEvent.getprofileDetails()';
+  }
+
   @override
-  ProfileModel get profileModel;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetprofileDetailsImpl);
+  }
+
   @override
-  @JsonKey(ignore: true)
-  _$$MakeprofileImplCopyWith<_$MakeprofileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
+  }) {
+    return getprofileDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
+  }) {
+    return getprofileDetails?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
+    required TResult orElse(),
+  }) {
+    if (getprofileDetails != null) {
+      return getprofileDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
+  }) {
+    return getprofileDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
+  }) {
+    return getprofileDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
+    required TResult orElse(),
+  }) {
+    if (getprofileDetails != null) {
+      return getprofileDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetprofileDetails implements ProfileEvent {
+  const factory _GetprofileDetails() = _$GetprofileDetailsImpl;
 }
 
 /// @nodoc
 mixin _$ProfileState {
   bool get dataHasError => throw _privateConstructorUsedError;
   bool get dataIsLoading => throw _privateConstructorUsedError;
+  bool get userdataisLoading => throw _privateConstructorUsedError;
+  bool get userdataHasError => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   ProfileModel? get profileModel => throw _privateConstructorUsedError;
   ProfileMakeResponseModel? get profileMakeResponseModel =>
       throw _privateConstructorUsedError;
-  TokenModel? get tokenModel => throw _privateConstructorUsedError;
+  ProfileDetailsModel? get profileDetailsModel =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -270,10 +305,12 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {bool dataHasError,
       bool dataIsLoading,
+      bool userdataisLoading,
+      bool userdataHasError,
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
-      TokenModel? tokenModel});
+      ProfileDetailsModel? profileDetailsModel});
 }
 
 /// @nodoc
@@ -291,10 +328,12 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   $Res call({
     Object? dataHasError = null,
     Object? dataIsLoading = null,
+    Object? userdataisLoading = null,
+    Object? userdataHasError = null,
     Object? message = freezed,
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
-    Object? tokenModel = freezed,
+    Object? profileDetailsModel = freezed,
   }) {
     return _then(_value.copyWith(
       dataHasError: null == dataHasError
@@ -304,6 +343,14 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
       dataIsLoading: null == dataIsLoading
           ? _value.dataIsLoading
           : dataIsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userdataisLoading: null == userdataisLoading
+          ? _value.userdataisLoading
+          : userdataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userdataHasError: null == userdataHasError
+          ? _value.userdataHasError
+          : userdataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
       message: freezed == message
           ? _value.message
@@ -317,10 +364,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.profileMakeResponseModel
           : profileMakeResponseModel // ignore: cast_nullable_to_non_nullable
               as ProfileMakeResponseModel?,
-      tokenModel: freezed == tokenModel
-          ? _value.tokenModel
-          : tokenModel // ignore: cast_nullable_to_non_nullable
-              as TokenModel?,
+      profileDetailsModel: freezed == profileDetailsModel
+          ? _value.profileDetailsModel
+          : profileDetailsModel // ignore: cast_nullable_to_non_nullable
+              as ProfileDetailsModel?,
     ) as $Val);
   }
 }
@@ -336,10 +383,12 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {bool dataHasError,
       bool dataIsLoading,
+      bool userdataisLoading,
+      bool userdataHasError,
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
-      TokenModel? tokenModel});
+      ProfileDetailsModel? profileDetailsModel});
 }
 
 /// @nodoc
@@ -355,10 +404,12 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? dataHasError = null,
     Object? dataIsLoading = null,
+    Object? userdataisLoading = null,
+    Object? userdataHasError = null,
     Object? message = freezed,
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
-    Object? tokenModel = freezed,
+    Object? profileDetailsModel = freezed,
   }) {
     return _then(_$InitialImpl(
       dataHasError: null == dataHasError
@@ -368,6 +419,14 @@ class __$$InitialImplCopyWithImpl<$Res>
       dataIsLoading: null == dataIsLoading
           ? _value.dataIsLoading
           : dataIsLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userdataisLoading: null == userdataisLoading
+          ? _value.userdataisLoading
+          : userdataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userdataHasError: null == userdataHasError
+          ? _value.userdataHasError
+          : userdataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
       message: freezed == message
           ? _value.message
@@ -381,10 +440,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.profileMakeResponseModel
           : profileMakeResponseModel // ignore: cast_nullable_to_non_nullable
               as ProfileMakeResponseModel?,
-      tokenModel: freezed == tokenModel
-          ? _value.tokenModel
-          : tokenModel // ignore: cast_nullable_to_non_nullable
-              as TokenModel?,
+      profileDetailsModel: freezed == profileDetailsModel
+          ? _value.profileDetailsModel
+          : profileDetailsModel // ignore: cast_nullable_to_non_nullable
+              as ProfileDetailsModel?,
     ));
   }
 }
@@ -395,15 +454,21 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.dataHasError,
       required this.dataIsLoading,
+      required this.userdataisLoading,
+      required this.userdataHasError,
       this.message,
       this.profileModel,
       this.profileMakeResponseModel,
-      this.tokenModel});
+      this.profileDetailsModel});
 
   @override
   final bool dataHasError;
   @override
   final bool dataIsLoading;
+  @override
+  final bool userdataisLoading;
+  @override
+  final bool userdataHasError;
   @override
   final String? message;
   @override
@@ -411,11 +476,11 @@ class _$InitialImpl implements _Initial {
   @override
   final ProfileMakeResponseModel? profileMakeResponseModel;
   @override
-  final TokenModel? tokenModel;
+  final ProfileDetailsModel? profileDetailsModel;
 
   @override
   String toString() {
-    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, tokenModel: $tokenModel)';
+    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, userdataisLoading: $userdataisLoading, userdataHasError: $userdataHasError, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, profileDetailsModel: $profileDetailsModel)';
   }
 
   @override
@@ -427,13 +492,18 @@ class _$InitialImpl implements _Initial {
                 other.dataHasError == dataHasError) &&
             (identical(other.dataIsLoading, dataIsLoading) ||
                 other.dataIsLoading == dataIsLoading) &&
+            (identical(other.userdataisLoading, userdataisLoading) ||
+                other.userdataisLoading == userdataisLoading) &&
+            (identical(other.userdataHasError, userdataHasError) ||
+                other.userdataHasError == userdataHasError) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.profileModel, profileModel) ||
                 other.profileModel == profileModel) &&
-            const DeepCollectionEquality().equals(
-                other.profileMakeResponseModel, profileMakeResponseModel) &&
-            (identical(other.tokenModel, tokenModel) ||
-                other.tokenModel == tokenModel));
+            (identical(
+                    other.profileMakeResponseModel, profileMakeResponseModel) ||
+                other.profileMakeResponseModel == profileMakeResponseModel) &&
+            (identical(other.profileDetailsModel, profileDetailsModel) ||
+                other.profileDetailsModel == profileDetailsModel));
   }
 
   @override
@@ -441,10 +511,12 @@ class _$InitialImpl implements _Initial {
       runtimeType,
       dataHasError,
       dataIsLoading,
+      userdataisLoading,
+      userdataHasError,
       message,
       profileModel,
-      const DeepCollectionEquality().hash(profileMakeResponseModel),
-      tokenModel);
+      profileMakeResponseModel,
+      profileDetailsModel);
 
   @JsonKey(ignore: true)
   @override
@@ -457,15 +529,21 @@ abstract class _Initial implements ProfileState {
   const factory _Initial(
       {required final bool dataHasError,
       required final bool dataIsLoading,
+      required final bool userdataisLoading,
+      required final bool userdataHasError,
       final String? message,
       final ProfileModel? profileModel,
       final ProfileMakeResponseModel? profileMakeResponseModel,
-      final TokenModel? tokenModel}) = _$InitialImpl;
+      final ProfileDetailsModel? profileDetailsModel}) = _$InitialImpl;
 
   @override
   bool get dataHasError;
   @override
   bool get dataIsLoading;
+  @override
+  bool get userdataisLoading;
+  @override
+  bool get userdataHasError;
   @override
   String? get message;
   @override
@@ -473,7 +551,7 @@ abstract class _Initial implements ProfileState {
   @override
   ProfileMakeResponseModel? get profileMakeResponseModel;
   @override
-  TokenModel? get tokenModel;
+  ProfileDetailsModel? get profileDetailsModel;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

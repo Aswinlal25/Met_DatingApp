@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/preference_screen/widgets/dropdown_edit_screen.dart';
 import 'package:dating_app/application/presentation/screens/preference_screen/widgets/range_slider.dart';
 import 'package:dating_app/application/presentation/screens/preference_screen/widgets/slider.dart';
@@ -11,6 +13,8 @@ class PreferenceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: kblack,
       appBar: AppBar(
@@ -67,7 +71,38 @@ class PreferenceScreen extends StatelessWidget {
               ),
             ),
             kheight20,
-            GenderEditDropdown()
+            GenderEditDropdown(),
+            SizedBox(
+              height: screenSize.width * 0.54,
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: kred,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  height: screenSize.height * 0.045,
+                  width: screenSize.width * 0.75,
+                  child: Center(
+                    child: Text(
+                      'Save',
+                      style: TextStyle(
+                        fontSize: screenSize.width * 0.04,
+                        color: kwhite,
+                        //fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
