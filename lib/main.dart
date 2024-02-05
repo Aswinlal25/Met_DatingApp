@@ -1,9 +1,11 @@
 import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
+import 'package:dating_app/application/business_logic/Users/users_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/routes/routes_generator.dart';
 import 'package:dating_app/data/services/auth/auth.dart';
 import 'package:dating_app/data/services/profile/profile.dart';
+import 'package:dating_app/data/services/users/users.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,6 +28,7 @@ class DatingApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ProfileBloc(ProfileApi()),
         ),
+        BlocProvider(create: (context) => UsersBloc(UsersApi())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

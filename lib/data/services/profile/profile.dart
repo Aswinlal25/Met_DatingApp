@@ -9,6 +9,7 @@ import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:dating_app/domain/core/failures/failures.dart';
+import 'package:dating_app/domain/modules/profile/edit_profile_response/edit_profile_response.dart';
 import 'package:dating_app/domain/modules/profile/profile_details/profile_details.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_make_response_model/profile_make_response_model.dart';
@@ -110,9 +111,9 @@ class ProfileApi implements ProfileRepository {
         print('response..............${respone.data}');
         return Right(ProfileDetailsModel.fromJson(respone.data));
       } else if (respone.statusCode == 401) {
-        return left(Failure.tokenExpire());
+        return Left(Failure.tokenExpire());
       } else if (respone.statusCode == 500) {
-        return left(Failure.serverFailure()
+        return Left(Failure.serverFailure()
             .copyWith(message: ProfileDetails.fromJson(respone.data).message!));
       }
     } on DioException catch (dioError) {
@@ -120,6 +121,65 @@ class ProfileApi implements ProfileRepository {
       return Left(Failure.serverFailure().copyWith(message: errorMsg));
     } catch (e) {
       print(e.toString());
+    }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, EditProfileResponse>> editprofileDetails() async {
+    final Token = await SharedPref.getToken();
+    final accesskey = Token.accessToken;
+    final refreshkey = Token.refreshToken;
+
+    Dio dio = Dio(BaseOptions(
+      baseUrl: ApiEndPoints.Userprofile,
+      headers: <String, dynamic>{
+        "accept": "application/json",
+        "Content-Type": "multipart/form-data",
+        "Cookie": 'accessToken=$accesskey; refreshToken=$refreshkey',
+      },
+    ));
+
+    FormData formData = FormData();
+    formData.fields
+      ..add(MapEntry('phone_number', notifier.value.name ?? ''))
+      ..add(MapEntry('country', notifier.value.country ?? ''))
+      ..add(MapEntry('bio', notifier.value.bio ?? ''))
+      ..add(MapEntry('interests', notifier.value.interests ?? ''))
+      ..add(MapEntry('city', notifier.value.city ?? ''));
+
+    // Image files to the FormData
+    for (int i = 0; i < images.length; i++) {
+      File? image = images[i];
+      if (image != null && image.existsSync()) {
+        String fileName = 'image$i.jpg';
+        formData.files.add(MapEntry(
+          'images',
+          await MultipartFile.fromFile(
+            image.path,
+            filename: fileName,
+          ),
+        ));
+      }
+    }
+
+    try {
+      final response = await dio.put(ApiEndPoints.Userprofile);
+
+      if (response.statusCode == 200) {
+        return Right(EditProfileResponse.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return Left(Failure.clientFailure());
+      } else if (response.statusCode == 401) {
+        return Left(Failure.tokenExpire());
+      } else if (response.statusCode == 500) {
+        return Left(Failure.serverFailure().copyWith(
+            message: EditProfileResponse.fromJson(response.data).message!));
+      }
+    } on DioException catch (dioError) {
+      print('dioError-----${dioError.message}');
+    } catch (e) {
+      print('Error---------${e.toString()}');
     }
     throw UnimplementedError();
   }

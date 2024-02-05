@@ -1,8 +1,9 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, unreachable_switch_case
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/bottom_navigation/bottom_nav.dart';
 import 'package:dating_app/application/presentation/screens/chatting_screen/chatting_screen.dart';
 import 'package:dating_app/application/presentation/screens/common_widgets/callscreen.dart';
+import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_profile.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/home_screen.dart';
 import 'package:dating_app/application/presentation/screens/login_screen/login_screen.dart';
 import 'package:dating_app/application/presentation/screens/make_profile_screens/dob_screen/dob_screen.dart';
@@ -67,6 +68,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => CallScreen());
       case Routes.ProfileScreen:
         return MaterialPageRoute(builder: (ctx) => ProfileScreen());
+      case Routes.editProfileScreen:
+        return MaterialPageRoute(builder: (ctx) => EditProfileScreen());
       default:
         return _errorScreen();
     }

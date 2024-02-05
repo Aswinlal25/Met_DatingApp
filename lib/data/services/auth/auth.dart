@@ -27,9 +27,9 @@ class AuthApi implements AuthRepository {
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         log("msg ---> ${response.data['message']}");
-        return right(PhoneNumberResponseModel.fromJson(response.data));
+        return Right(PhoneNumberResponseModel.fromJson(response.data));
       } else if (response.statusCode == 400) {
-        return left(ErrorMsg(message: 'server is not respond !'));
+        return Left(ErrorMsg(message: 'server is not respond !'));
       } else {
         return Left(ErrorMsg(
             message:

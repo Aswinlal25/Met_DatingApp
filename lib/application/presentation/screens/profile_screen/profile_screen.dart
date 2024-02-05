@@ -44,13 +44,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
                       CircleAvatar(
-                        backgroundImage: NetworkImage(state
-                                    .profileDetailsModel !=
-                                null
-                            ? state.profileDetailsModel!.data!.image!.last
-                            : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
-                        radius: 80,
                         backgroundColor: const Color.fromARGB(255, 40, 40, 40),
+                        radius: 80,
+                        child: ClipOval(
+                          child: FadeInImage(
+                            placeholder: NetworkImage(
+                                'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
+                            image: NetworkImage(
+                              state.profileDetailsModel != null
+                                  ? state
+                                      .profileDetailsModel!.data!.image!.first
+                                  : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                            width: 160,
+                            height: 160,
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: 10,
@@ -89,16 +99,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
                 ),
-                ListTile(
-                  title: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                        color: kwhite,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.editProfileScreen);
+                  },
+                  child: ListTile(
+                    title: Text(
+                      'Edit Profile',
+                      style: TextStyle(
+                          color: kwhite,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    trailing:
+                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
-                  trailing:
-                      Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
                 ListTile(
                   title: Text(

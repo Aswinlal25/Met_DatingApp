@@ -18,11 +18,6 @@ class UserDetailsScreen extends StatefulWidget {
 }
 
 class _OtherUsersScreenState extends State<UserDetailsScreen> {
-  String image1 = 'assets/users/photo_2023-11-30_12-08-50.jpg';
-  String image2 = 'assets/users/photo_2023-11-30_14-06-05.jpg';
-  String image3 = 'assets/users/photo_2023-11-30_14-06-23.jpg';
-  String image4 = 'assets/users/photo_2023-11-30_14-06-26.jpg';
-
   int activeIndex = 0;
 
   static const IconData interests =

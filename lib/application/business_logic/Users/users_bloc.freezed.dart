@@ -19,32 +19,51 @@ mixin _$UsersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +126,10 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
   }) {
     return gethomedata();
   }
@@ -115,6 +138,9 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
   }) {
     return gethomedata?.call();
   }
@@ -123,6 +149,9 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
     required TResult orElse(),
   }) {
     if (gethomedata != null) {
@@ -135,6 +164,9 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
   }) {
     return gethomedata(this);
   }
@@ -143,6 +175,9 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
   }) {
     return gethomedata?.call(this);
   }
@@ -151,6 +186,9 @@ class _$GethomedataImpl implements _Gethomedata {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
     required TResult orElse(),
   }) {
     if (gethomedata != null) {
@@ -165,11 +203,400 @@ abstract class _Gethomedata implements UsersEvent {
 }
 
 /// @nodoc
+abstract class _$$GetprefrenceImplCopyWith<$Res> {
+  factory _$$GetprefrenceImplCopyWith(
+          _$GetprefrenceImpl value, $Res Function(_$GetprefrenceImpl) then) =
+      __$$GetprefrenceImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetprefrenceImplCopyWithImpl<$Res>
+    extends _$UsersEventCopyWithImpl<$Res, _$GetprefrenceImpl>
+    implements _$$GetprefrenceImplCopyWith<$Res> {
+  __$$GetprefrenceImplCopyWithImpl(
+      _$GetprefrenceImpl _value, $Res Function(_$GetprefrenceImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetprefrenceImpl implements _Getprefrence {
+  _$GetprefrenceImpl();
+
+  @override
+  String toString() {
+    return 'UsersEvent.getprefrence()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetprefrenceImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
+  }) {
+    return getprefrence();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
+  }) {
+    return getprefrence?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (getprefrence != null) {
+      return getprefrence();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
+  }) {
+    return getprefrence(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
+  }) {
+    return getprefrence?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (getprefrence != null) {
+      return getprefrence(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Getprefrence implements UsersEvent {
+  factory _Getprefrence() = _$GetprefrenceImpl;
+}
+
+/// @nodoc
+abstract class _$$EditprefrenceImplCopyWith<$Res> {
+  factory _$$EditprefrenceImplCopyWith(
+          _$EditprefrenceImpl value, $Res Function(_$EditprefrenceImpl) then) =
+      __$$EditprefrenceImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EditUserPreference editUserPreference});
+}
+
+/// @nodoc
+class __$$EditprefrenceImplCopyWithImpl<$Res>
+    extends _$UsersEventCopyWithImpl<$Res, _$EditprefrenceImpl>
+    implements _$$EditprefrenceImplCopyWith<$Res> {
+  __$$EditprefrenceImplCopyWithImpl(
+      _$EditprefrenceImpl _value, $Res Function(_$EditprefrenceImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? editUserPreference = null,
+  }) {
+    return _then(_$EditprefrenceImpl(
+      editUserPreference: null == editUserPreference
+          ? _value.editUserPreference
+          : editUserPreference // ignore: cast_nullable_to_non_nullable
+              as EditUserPreference,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditprefrenceImpl implements _Editprefrence {
+  _$EditprefrenceImpl({required this.editUserPreference});
+
+  @override
+  final EditUserPreference editUserPreference;
+
+  @override
+  String toString() {
+    return 'UsersEvent.editprefrence(editUserPreference: $editUserPreference)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditprefrenceImpl &&
+            (identical(other.editUserPreference, editUserPreference) ||
+                other.editUserPreference == editUserPreference));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, editUserPreference);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditprefrenceImplCopyWith<_$EditprefrenceImpl> get copyWith =>
+      __$$EditprefrenceImplCopyWithImpl<_$EditprefrenceImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
+  }) {
+    return editprefrence(editUserPreference);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
+  }) {
+    return editprefrence?.call(editUserPreference);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (editprefrence != null) {
+      return editprefrence(editUserPreference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
+  }) {
+    return editprefrence(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
+  }) {
+    return editprefrence?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (editprefrence != null) {
+      return editprefrence(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Editprefrence implements UsersEvent {
+  factory _Editprefrence(
+          {required final EditUserPreference editUserPreference}) =
+      _$EditprefrenceImpl;
+
+  EditUserPreference get editUserPreference;
+  @JsonKey(ignore: true)
+  _$$EditprefrenceImplCopyWith<_$EditprefrenceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetRecommentdataImplCopyWith<$Res> {
+  factory _$$GetRecommentdataImplCopyWith(_$GetRecommentdataImpl value,
+          $Res Function(_$GetRecommentdataImpl) then) =
+      __$$GetRecommentdataImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetRecommentdataImplCopyWithImpl<$Res>
+    extends _$UsersEventCopyWithImpl<$Res, _$GetRecommentdataImpl>
+    implements _$$GetRecommentdataImplCopyWith<$Res> {
+  __$$GetRecommentdataImplCopyWithImpl(_$GetRecommentdataImpl _value,
+      $Res Function(_$GetRecommentdataImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetRecommentdataImpl implements _GetRecommentdata {
+  _$GetRecommentdataImpl();
+
+  @override
+  String toString() {
+    return 'UsersEvent.getRecommentdata()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetRecommentdataImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
+  }) {
+    return getRecommentdata();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
+  }) {
+    return getRecommentdata?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (getRecommentdata != null) {
+      return getRecommentdata();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
+  }) {
+    return getRecommentdata(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
+  }) {
+    return getRecommentdata?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
+    required TResult orElse(),
+  }) {
+    if (getRecommentdata != null) {
+      return getRecommentdata(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetRecommentdata implements UsersEvent {
+  factory _GetRecommentdata() = _$GetRecommentdataImpl;
+}
+
+/// @nodoc
 mixin _$UsersState {
   bool get homedataisLoading => throw _privateConstructorUsedError;
   bool get homedataHasError => throw _privateConstructorUsedError;
+  bool get prefrencedataisLoading => throw _privateConstructorUsedError;
+  bool get prefrencedataHasError => throw _privateConstructorUsedError;
+  bool get editdataisLoading => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   HomeResponse? get homeResponse => throw _privateConstructorUsedError;
+  GetUserPreference? get getUserPreference =>
+      throw _privateConstructorUsedError;
+  EditUserPreference? get editUserPreference =>
+      throw _privateConstructorUsedError;
+  EditUserPreferenceResponse? get editUserPreferenceResponse =>
+      throw _privateConstructorUsedError;
+  RecommentedModel? get recommentedModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UsersStateCopyWith<UsersState> get copyWith =>
@@ -185,8 +612,15 @@ abstract class $UsersStateCopyWith<$Res> {
   $Res call(
       {bool homedataisLoading,
       bool homedataHasError,
+      bool prefrencedataisLoading,
+      bool prefrencedataHasError,
+      bool editdataisLoading,
       String? message,
-      HomeResponse? homeResponse});
+      HomeResponse? homeResponse,
+      GetUserPreference? getUserPreference,
+      EditUserPreference? editUserPreference,
+      EditUserPreferenceResponse? editUserPreferenceResponse,
+      RecommentedModel? recommentedModel});
 }
 
 /// @nodoc
@@ -204,8 +638,15 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
   $Res call({
     Object? homedataisLoading = null,
     Object? homedataHasError = null,
+    Object? prefrencedataisLoading = null,
+    Object? prefrencedataHasError = null,
+    Object? editdataisLoading = null,
     Object? message = freezed,
     Object? homeResponse = freezed,
+    Object? getUserPreference = freezed,
+    Object? editUserPreference = freezed,
+    Object? editUserPreferenceResponse = freezed,
+    Object? recommentedModel = freezed,
   }) {
     return _then(_value.copyWith(
       homedataisLoading: null == homedataisLoading
@@ -216,6 +657,18 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
           ? _value.homedataHasError
           : homedataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      prefrencedataisLoading: null == prefrencedataisLoading
+          ? _value.prefrencedataisLoading
+          : prefrencedataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      prefrencedataHasError: null == prefrencedataHasError
+          ? _value.prefrencedataHasError
+          : prefrencedataHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      editdataisLoading: null == editdataisLoading
+          ? _value.editdataisLoading
+          : editdataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -224,6 +677,22 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
           ? _value.homeResponse
           : homeResponse // ignore: cast_nullable_to_non_nullable
               as HomeResponse?,
+      getUserPreference: freezed == getUserPreference
+          ? _value.getUserPreference
+          : getUserPreference // ignore: cast_nullable_to_non_nullable
+              as GetUserPreference?,
+      editUserPreference: freezed == editUserPreference
+          ? _value.editUserPreference
+          : editUserPreference // ignore: cast_nullable_to_non_nullable
+              as EditUserPreference?,
+      editUserPreferenceResponse: freezed == editUserPreferenceResponse
+          ? _value.editUserPreferenceResponse
+          : editUserPreferenceResponse // ignore: cast_nullable_to_non_nullable
+              as EditUserPreferenceResponse?,
+      recommentedModel: freezed == recommentedModel
+          ? _value.recommentedModel
+          : recommentedModel // ignore: cast_nullable_to_non_nullable
+              as RecommentedModel?,
     ) as $Val);
   }
 }
@@ -239,8 +708,15 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {bool homedataisLoading,
       bool homedataHasError,
+      bool prefrencedataisLoading,
+      bool prefrencedataHasError,
+      bool editdataisLoading,
       String? message,
-      HomeResponse? homeResponse});
+      HomeResponse? homeResponse,
+      GetUserPreference? getUserPreference,
+      EditUserPreference? editUserPreference,
+      EditUserPreferenceResponse? editUserPreferenceResponse,
+      RecommentedModel? recommentedModel});
 }
 
 /// @nodoc
@@ -256,8 +732,15 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? homedataisLoading = null,
     Object? homedataHasError = null,
+    Object? prefrencedataisLoading = null,
+    Object? prefrencedataHasError = null,
+    Object? editdataisLoading = null,
     Object? message = freezed,
     Object? homeResponse = freezed,
+    Object? getUserPreference = freezed,
+    Object? editUserPreference = freezed,
+    Object? editUserPreferenceResponse = freezed,
+    Object? recommentedModel = freezed,
   }) {
     return _then(_$InitialImpl(
       homedataisLoading: null == homedataisLoading
@@ -268,6 +751,18 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.homedataHasError
           : homedataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      prefrencedataisLoading: null == prefrencedataisLoading
+          ? _value.prefrencedataisLoading
+          : prefrencedataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      prefrencedataHasError: null == prefrencedataHasError
+          ? _value.prefrencedataHasError
+          : prefrencedataHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      editdataisLoading: null == editdataisLoading
+          ? _value.editdataisLoading
+          : editdataisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -276,6 +771,22 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.homeResponse
           : homeResponse // ignore: cast_nullable_to_non_nullable
               as HomeResponse?,
+      getUserPreference: freezed == getUserPreference
+          ? _value.getUserPreference
+          : getUserPreference // ignore: cast_nullable_to_non_nullable
+              as GetUserPreference?,
+      editUserPreference: freezed == editUserPreference
+          ? _value.editUserPreference
+          : editUserPreference // ignore: cast_nullable_to_non_nullable
+              as EditUserPreference?,
+      editUserPreferenceResponse: freezed == editUserPreferenceResponse
+          ? _value.editUserPreferenceResponse
+          : editUserPreferenceResponse // ignore: cast_nullable_to_non_nullable
+              as EditUserPreferenceResponse?,
+      recommentedModel: freezed == recommentedModel
+          ? _value.recommentedModel
+          : recommentedModel // ignore: cast_nullable_to_non_nullable
+              as RecommentedModel?,
     ));
   }
 }
@@ -286,21 +797,42 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.homedataisLoading,
       required this.homedataHasError,
+      required this.prefrencedataisLoading,
+      required this.prefrencedataHasError,
+      required this.editdataisLoading,
       this.message,
-      this.homeResponse});
+      this.homeResponse,
+      this.getUserPreference,
+      this.editUserPreference,
+      this.editUserPreferenceResponse,
+      this.recommentedModel});
 
   @override
   final bool homedataisLoading;
   @override
   final bool homedataHasError;
   @override
+  final bool prefrencedataisLoading;
+  @override
+  final bool prefrencedataHasError;
+  @override
+  final bool editdataisLoading;
+  @override
   final String? message;
   @override
   final HomeResponse? homeResponse;
+  @override
+  final GetUserPreference? getUserPreference;
+  @override
+  final EditUserPreference? editUserPreference;
+  @override
+  final EditUserPreferenceResponse? editUserPreferenceResponse;
+  @override
+  final RecommentedModel? recommentedModel;
 
   @override
   String toString() {
-    return 'UsersState(homedataisLoading: $homedataisLoading, homedataHasError: $homedataHasError, message: $message, homeResponse: $homeResponse)';
+    return 'UsersState(homedataisLoading: $homedataisLoading, homedataHasError: $homedataHasError, prefrencedataisLoading: $prefrencedataisLoading, prefrencedataHasError: $prefrencedataHasError, editdataisLoading: $editdataisLoading, message: $message, homeResponse: $homeResponse, getUserPreference: $getUserPreference, editUserPreference: $editUserPreference, editUserPreferenceResponse: $editUserPreferenceResponse, recommentedModel: $recommentedModel)';
   }
 
   @override
@@ -312,14 +844,41 @@ class _$InitialImpl implements _Initial {
                 other.homedataisLoading == homedataisLoading) &&
             (identical(other.homedataHasError, homedataHasError) ||
                 other.homedataHasError == homedataHasError) &&
+            (identical(other.prefrencedataisLoading, prefrencedataisLoading) ||
+                other.prefrencedataisLoading == prefrencedataisLoading) &&
+            (identical(other.prefrencedataHasError, prefrencedataHasError) ||
+                other.prefrencedataHasError == prefrencedataHasError) &&
+            (identical(other.editdataisLoading, editdataisLoading) ||
+                other.editdataisLoading == editdataisLoading) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.homeResponse, homeResponse) ||
-                other.homeResponse == homeResponse));
+                other.homeResponse == homeResponse) &&
+            (identical(other.getUserPreference, getUserPreference) ||
+                other.getUserPreference == getUserPreference) &&
+            (identical(other.editUserPreference, editUserPreference) ||
+                other.editUserPreference == editUserPreference) &&
+            (identical(other.editUserPreferenceResponse,
+                    editUserPreferenceResponse) ||
+                other.editUserPreferenceResponse ==
+                    editUserPreferenceResponse) &&
+            (identical(other.recommentedModel, recommentedModel) ||
+                other.recommentedModel == recommentedModel));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, homedataisLoading, homedataHasError, message, homeResponse);
+      runtimeType,
+      homedataisLoading,
+      homedataHasError,
+      prefrencedataisLoading,
+      prefrencedataHasError,
+      editdataisLoading,
+      message,
+      homeResponse,
+      getUserPreference,
+      editUserPreference,
+      editUserPreferenceResponse,
+      recommentedModel);
 
   @JsonKey(ignore: true)
   @override
@@ -332,17 +891,38 @@ abstract class _Initial implements UsersState {
   const factory _Initial(
       {required final bool homedataisLoading,
       required final bool homedataHasError,
+      required final bool prefrencedataisLoading,
+      required final bool prefrencedataHasError,
+      required final bool editdataisLoading,
       final String? message,
-      final HomeResponse? homeResponse}) = _$InitialImpl;
+      final HomeResponse? homeResponse,
+      final GetUserPreference? getUserPreference,
+      final EditUserPreference? editUserPreference,
+      final EditUserPreferenceResponse? editUserPreferenceResponse,
+      final RecommentedModel? recommentedModel}) = _$InitialImpl;
 
   @override
   bool get homedataisLoading;
   @override
   bool get homedataHasError;
   @override
+  bool get prefrencedataisLoading;
+  @override
+  bool get prefrencedataHasError;
+  @override
+  bool get editdataisLoading;
+  @override
   String? get message;
   @override
   HomeResponse? get homeResponse;
+  @override
+  GetUserPreference? get getUserPreference;
+  @override
+  EditUserPreference? get editUserPreference;
+  @override
+  EditUserPreferenceResponse? get editUserPreferenceResponse;
+  @override
+  RecommentedModel? get recommentedModel;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
