@@ -1,9 +1,8 @@
 // ignore_for_file: deprecated_member_use
-import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
-import 'package:dating_app/domain/modules/phone_number_model/phone_number_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,8 +24,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController cityController = TextEditingController();
 
   TextEditingController numberController = TextEditingController();
+
   GlobalKey editkey = GlobalKey();
-  PhoneNumberModel phoneNumberModel = PhoneNumberModel();
 
   @override
   void initState() {
@@ -59,8 +58,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         .data!
         .userDetails!
         .city!;
-    print(phoneNumberModel.phNo);
-
+    numberController.text = context
+            .read<ProfileBloc>()
+            .state
+            .profileDetailsModel!
+            .data!
+            .userDetails!
+            .phNo ??
+        'Name';
+    print(context
+            .read<ProfileBloc>()
+            .state
+            .profileDetailsModel!
+            .data!
+            .userDetails!
+            .phNo ??
+        'No Data');
     super.initState();
   }
 
@@ -99,6 +112,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: Text(
                       'You can change your Name ,bio ,country ,city and mobile Number',
                       style: TextStyle(
+                        fontSize: 13,
                         color: Colors.white60,
                         fontWeight: FontWeight.w400,
                         letterSpacing: 1,
@@ -113,7 +127,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: Text(
                       'Name',
                       style: TextStyle(
-                        color: kwhite,
+                        color: fkwhite,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1,
                       ),
@@ -124,20 +138,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   Container(
                     height: screenSize.height * 0.07,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 51, 51, 51),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+                    decoration: BoxStyle(),
                     child: Padding(
-                      padding: EdgeInsets.only(left: screenSize.width * 0.02),
+                      padding: EdgeInsets.only(
+                          left: screenSize.width * 0.02,
+                          top: screenSize.height * 0.005),
                       child: TextFormField(
                         controller: nameController,
                         keyboardType: TextInputType.name,
-                        style: TextStyle(
-                          color: kwhite,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 2,
-                        ),
+                        style: FormTxtStyle(),
                         decoration: InputDecoration(
                           hintText: 'Name',
                           hintStyle: TextStyle(
@@ -169,7 +178,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: Text(
                       'Describe yourself',
                       style: TextStyle(
-                        color: kwhite,
+                        color: fkwhite,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1,
                       ),
@@ -180,21 +189,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   Container(
                     height: screenSize.height * 0.16,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 51, 51, 51),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+                    decoration: BoxStyle(),
                     child: Padding(
-                      padding: EdgeInsets.only(left: screenSize.width * 0.02),
+                      padding: EdgeInsets.only(
+                          left: screenSize.width * 0.02,
+                          top: screenSize.height * 0.005),
                       child: TextFormField(
                         controller: bioController,
                         keyboardType: TextInputType.multiline,
                         maxLines: null, // Set to null for unlimited lines
-                        style: TextStyle(
-                          color: kwhite,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 2,
-                        ),
+                        style: FormTxtStyle(),
                         decoration: InputDecoration(
                           hintText: 'Bio',
                           hintStyle: TextStyle(
@@ -228,7 +232,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         child: Text(
                           'Country',
                           style: TextStyle(
-                            color: kwhite,
+                            color: fkwhite,
                             fontWeight: FontWeight.w500,
                             letterSpacing: 1,
                           ),
@@ -239,7 +243,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         child: Text(
                           'City',
                           style: TextStyle(
-                            color: kwhite,
+                            color: fkwhite,
                             fontWeight: FontWeight.w500,
                             letterSpacing: 1,
                           ),
@@ -259,21 +263,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Container(
                         height: screenSize.height * 0.07,
                         width: screenSize.width * 0.42,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 51, 51, 51),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
+                        decoration: BoxStyle(),
                         child: Padding(
-                          padding:
-                              EdgeInsets.only(left: screenSize.width * 0.02),
+                          padding: EdgeInsets.only(
+                              left: screenSize.width * 0.02,
+                              top: screenSize.height * 0.005),
                           child: TextFormField(
                             controller: countryController,
                             keyboardType: TextInputType.name,
-                            style: TextStyle(
-                              color: kwhite,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 2,
-                            ),
+                            style: FormTxtStyle(),
                             decoration: InputDecoration(
                               hintText: 'Country',
                               hintStyle: TextStyle(
@@ -299,21 +297,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Container(
                         height: screenSize.height * 0.07,
                         width: screenSize.width * 0.42,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 51, 51, 51),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
+                        decoration: BoxStyle(),
                         child: Padding(
-                          padding:
-                              EdgeInsets.only(left: screenSize.width * 0.02),
+                          padding: EdgeInsets.only(
+                              left: screenSize.width * 0.02,
+                              top: screenSize.height * 0.005),
                           child: TextFormField(
                             controller: cityController,
                             keyboardType: TextInputType.name,
-                            style: TextStyle(
-                              color: kwhite,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 2,
-                            ),
+                            style: FormTxtStyle(),
                             decoration: InputDecoration(
                               hintText: 'City',
                               hintStyle: TextStyle(
@@ -346,9 +338,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: Text(
                       'Mobile Number',
                       style: TextStyle(
-                        color: kwhite,
+                        color: fkwhite,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.01,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: screenSize.width * 0.04),
+                    child: Expanded(
+                      child: Text(
+                        'You can change your phone number. The newly updated number will become the registered phone number, and you can only use this number for login purposes.',
+                        style: TextStyle(
+                          color: fkwhite,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                          letterSpacing: 1,
+                        ),
                       ),
                     ),
                   ),
@@ -358,20 +367,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   Container(
                     height: screenSize.height * 0.07,
                     // width: screenSize.width * 0.42,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 51, 51, 51),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+                    decoration: BoxStyle(),
                     child: Padding(
-                      padding: EdgeInsets.only(left: screenSize.width * 0.02),
+                      padding: EdgeInsets.only(
+                          left: screenSize.width * 0.02,
+                          top: screenSize.height * 0.005),
                       child: TextFormField(
-                        controller: context.read<ProfileBloc>().cityContoller,
+                        controller: numberController,
                         keyboardType: TextInputType.name,
-                        style: TextStyle(
-                          color: kwhite,
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 2,
-                        ),
+                        style: FormTxtStyle(),
                         decoration: InputDecoration(
                           hintText: 'Mobile Number',
                           hintStyle: TextStyle(
@@ -395,13 +399,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: screenSize.height * 0.15,
+                    height: screenSize.height * 0.10,
                   ),
                   Center(
                     child: BlocBuilder<ProfileBloc, ProfileState>(
                       builder: (context, state) {
                         return ElevatedButton(
-                          onPressed: () async {},
+                          onPressed: () async {
+                            // context.read<ProfileBloc>().add()
+                          },
                           style: ElevatedButton.styleFrom(
                             primary: kred,
                             shape: RoundedRectangleBorder(
@@ -415,7 +421,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               width: screenSize.width * 0.75,
                               child: Center(
                                 child: Text(
-                                  'Next',
+                                  'Save',
                                   style: TextStyle(
                                     fontSize: screenSize.width * 0.04,
                                     color: kwhite,

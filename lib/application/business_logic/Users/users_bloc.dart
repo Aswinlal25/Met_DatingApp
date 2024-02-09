@@ -100,20 +100,30 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
         }
       },
     );
+    on<_GetRecommentdata>(
+      (event, emit) async {
+        print('function is okey');
+        emit(state.copyWith(homedataisLoading: true));
+
+        // Call the function to get the recommended users
+        final result = await usersRepository.getRecommentedUsers();
+
+        print('function is okey------------------------>>${result.toString()}');
+        result.fold(
+          (failure) {
+            emit(state.copyWith(
+              homedataisLoading: false,
+              message: 'something went wrong',
+            ));
+          },
+          (recommentUsers) {
+            emit(state.copyWith(
+              homedataisLoading: false,
+              recommentedModel: recommentUsers,
+            ));
+          },
+        );
+      },
+    );
   }
-  //  on<_GetRecommentdata>(
-  //     (event, emit) async {
-  //       print('function is okey');
-  //       emit(state.copyWith(homedataisLoading: true));
-  //       final result = await usersRepository.getRecommentedUsers;
-  //       print('function is okey------------------------>>${result.toString()}');
-  //       result.fold((failure) {
-  //         emit(state.copyWith(
-  //             homedataisLoading: false, message: 'something went wrong'));
-  //       }, (homeResponse) {
-  //         emit(state.copyWith(
-  //             homedataisLoading: false, homeResponse: homeResponse));
-  //       });
-  //     },
-  //   );
 }

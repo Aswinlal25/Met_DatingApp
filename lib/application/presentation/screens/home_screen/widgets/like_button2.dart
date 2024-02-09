@@ -46,8 +46,8 @@ class LikeButtonWithHeart extends StatelessWidget {
 
     // Complete the Future after 1 second
     Future.delayed(Duration(seconds: 1), () {
-      Navigator.of(context).pop(); // Close the dialog
-      completer.complete(true); // Complete the Future with a value
+      Navigator.of(context).pop();
+      completer.complete(true);
     });
 
     return completer.future;

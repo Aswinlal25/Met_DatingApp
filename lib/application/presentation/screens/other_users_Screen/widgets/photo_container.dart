@@ -21,18 +21,20 @@ class PhotoContainer extends StatelessWidget {
         ),
       ),
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Colors.black,
-            Colors.black.withOpacity(0.0),
-            Colors.black.withOpacity(0.0),
-            Colors.black.withOpacity(0.0),
-            Colors.black.withOpacity(0.0),
-            Colors.black.withOpacity(0.0),
-            Colors.transparent,
-            // Colors.black,
-            // withOpacity(0.6)
-          ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.black,
+              Colors.black.withOpacity(0.0),
+              Colors.black.withOpacity(0.0),
+              Colors.black.withOpacity(0.0),
+              Colors.black.withOpacity(0.0),
+              Colors.black.withOpacity(0.0),
+              Colors.transparent,
+              // Colors.black,
+              // withOpacity(0.6)
+            ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
+          ),
         ),
       ),
     );

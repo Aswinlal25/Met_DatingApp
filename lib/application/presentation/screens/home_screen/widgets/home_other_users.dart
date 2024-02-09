@@ -2,27 +2,29 @@
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/interst_container.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
-import 'package:dating_app/domain/modules/recommented_model/datum.dart';
+import 'package:dating_app/domain/modules/home_response/datum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:like_button/like_button.dart';
 
-class OtherUsersScreen extends StatefulWidget {
-  final Datum user;
-  OtherUsersScreen({super.key, required this.user});
+class HomeOtherUsers extends StatefulWidget {
+  final Datum homeuser;
+  HomeOtherUsers({super.key, required this.homeuser});
 
   @override
-  State<OtherUsersScreen> createState() => _OtherUsersScreenState();
+  State<HomeOtherUsers> createState() => _OtherUsersScreenState();
 }
 
-class _OtherUsersScreenState extends State<OtherUsersScreen> {
+class _OtherUsersScreenState extends State<HomeOtherUsers> {
   List<String>? images = [];
 
   int activeIndex = 0;
   @override
   void initState() {
-    images = widget.user.images;
+    images = widget.homeuser.images;
+    final dob = widget.homeuser.dob;
+    print(dob);
     super.initState();
   }
 
@@ -74,7 +76,8 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Text('${widget.user.name} (${widget.user.age})',
+                        child: Text(
+                            '${widget.homeuser.name} (${widget.homeuser.age})',
                             style: TextStyle(
                                 color: kwhite,
                                 fontWeight: FontWeight.w500,
@@ -134,7 +137,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text("${widget.user.bio}",
+                      Text("${widget.homeuser.bio}",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w300,
@@ -184,7 +187,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
-                              "${widget.user.city} , ${widget.user.country}",
+                              "${widget.homeuser.city} , ${widget.homeuser.country}",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400,
@@ -233,7 +236,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       ),
                       Align(
                         alignment: Alignment.bottomLeft,
-                        child: Text("${widget.user.dob}",
+                        child: Text("${widget.homeuser.dob}",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
@@ -254,7 +257,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(25),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
                       Align(
@@ -285,9 +288,9 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                           alignment: Alignment.centerLeft,
                           child: Wrap(
                             children: List.generate(
-                              widget.user.interests!.length,
+                              widget.homeuser.interests!.length,
                               (index) => InterestsBoxs(
-                                  chipName: widget.user.interests![index]),
+                                  chipName: widget.homeuser.interests![index]),
                             ),
                           )),
                     ],
@@ -305,7 +308,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Center(
-                  child: Text('Block  ${widget.user.name}',
+                  child: Text('Block  ${widget.homeuser.name}',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -321,7 +324,7 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Center(
-                  child: Text('Report  ${widget.user.name}',
+                  child: Text('Report ${widget.homeuser.name}',
                       style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.w500,

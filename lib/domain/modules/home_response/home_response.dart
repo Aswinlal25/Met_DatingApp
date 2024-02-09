@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'datum.dart';
+
 part 'home_response.g.dart';
 
 @JsonSerializable()
@@ -9,9 +11,9 @@ class HomeResponse {
   @JsonKey(name: 'Message')
   String? message;
   @JsonKey(name: 'Data')
-  dynamic data;
+  List<Datum>? data;
   @JsonKey(name: 'Error')
-  String? error;
+  dynamic error;
 
   HomeResponse({this.statusCode, this.message, this.data, this.error});
 

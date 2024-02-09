@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -9,19 +11,38 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kblack,
+      appBar: AppBar(
+          backgroundColor: kblack,
+          leading: InkWell(
+            onTap: () => Navigator.pop(context),
+            child: Icon(
+              CupertinoIcons.back,
+              color: kwhite,
+            ),
+          )),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Your profile liked by 3 peoples',
+                  'Likes',
                   style: TextStyle(
                     color: kwhite,
-                    fontSize: 16,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Your profile liked by 3 peoples',
+                  style: TextStyle(
+                    color: Colors.white60,
+                    fontSize: 15,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1,
                   ),
@@ -31,7 +52,7 @@ class NotificationScreen extends StatelessWidget {
                   'Get the Premium to see their profiles',
                   style: TextStyle(
                     color: kwhite,
-                    fontSize: 13,
+                    fontSize: 11,
                     fontWeight: FontWeight.w200,
                     letterSpacing: 1,
                   ),
@@ -39,6 +60,7 @@ class NotificationScreen extends StatelessWidget {
               ],
             ),
           ),
+          kheight10,
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(8.0),
@@ -46,7 +68,7 @@ class NotificationScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 19,
                 mainAxisSpacing: 19,
-                childAspectRatio: 0.75, // Adjust the aspect ratio as needed
+                childAspectRatio: 0.75,
               ),
               itemCount: 3,
               itemBuilder: (context, index) {

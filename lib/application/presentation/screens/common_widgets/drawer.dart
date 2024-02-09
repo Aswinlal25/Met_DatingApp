@@ -1,6 +1,6 @@
 // drawer_screen.dart
 // ignore_for_file: unused_element, deprecated_member_use, must_be_immutable
-import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/premium_screen.dart/premium_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
 import 'package:flutter/cupertino.dart';
@@ -229,7 +229,8 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.userInfoPage);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => PremiumScreen()));
       },
       child: Container(
         decoration: BoxDecoration(

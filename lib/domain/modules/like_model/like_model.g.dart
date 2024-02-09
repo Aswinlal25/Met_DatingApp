@@ -1,22 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_response.dart';
+part of 'like_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-HomeResponse _$HomeResponseFromJson(Map<String, dynamic> json) => HomeResponse(
+LikeModel _$LikeModelFromJson(Map<String, dynamic> json) => LikeModel(
       statusCode: json['StatusCode'] as int?,
       message: json['Message'] as String?,
-      data: (json['Data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: json['Data'] == null
+          ? null
+          : Data.fromJson(json['Data'] as Map<String, dynamic>),
       error: json['Error'],
     );
 
-Map<String, dynamic> _$HomeResponseToJson(HomeResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LikeModelToJson(LikeModel instance) => <String, dynamic>{
       'StatusCode': instance.statusCode,
       'Message': instance.message,
       'Data': instance.data,

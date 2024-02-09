@@ -5,6 +5,7 @@ import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart'
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/interst_container.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,6 +43,7 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: BlocBuilder<ProfileBloc, ProfileState>(
           builder: (context, state) {
+            final currentUser = state.profileDetailsModel!.data;
             return ListView(
               children: [
                 Stack(
@@ -57,11 +59,17 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                           ),
                           slideTransform: CubeTransform(),
                           unlimitedMode: true,
-                          children: state.profileDetailsModel?.data?.image
-                                  ?.map((image) {
-                                return PhotoContainer(image: image);
-                              }).toList() ??
-                              [],
+                          enableAutoSlider: true,
+                          children: (currentUser!.image ?? []).map((image) {
+                            return image == null ||
+                                    context
+                                        .read<ProfileBloc>()
+                                        .state
+                                        .userdataisLoading
+                                ? LoadingAnimation(width: 20)
+                                : PhotoContainer(
+                                    image: image); // Custom placeholder widget
+                          }).toList(),
                         )),
                     Positioned(
                         top: 500,
@@ -71,7 +79,7 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                               Navigator.pop(context);
                             },
                             child: Text(
-                                '${state.profileDetailsModel!.data!.userDetails!.name} (${state.profileDetailsModel!.data!.userDetails!.age})',
+                                '${currentUser.userDetails!.name} (${currentUser.userDetails!.age})',
                                 style: TextStyle(
                                     color: kwhite,
                                     fontWeight: FontWeight.w500,
@@ -115,9 +123,7 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text(
-                              state
-                                  .profileDetailsModel!.data!.userDetails!.bio!,
+                          Text(currentUser.userDetails!.bio!,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
@@ -167,7 +173,7 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                           Align(
                               alignment: Alignment.bottomLeft,
                               child: Text(
-                                  '${state.profileDetailsModel!.data!.userDetails!.city!} , ${state.profileDetailsModel!.data!.userDetails!.country}',
+                                  '${currentUser.userDetails!.city!} , ${currentUser.userDetails!.country}',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w400,
@@ -216,8 +222,7 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                           ),
                           Align(
                             alignment: Alignment.bottomLeft,
-                            child: Text(
-                                "${state.profileDetailsModel!.data!.userDetails!.dob}",
+                            child: Text("${currentUser.userDetails!.dob}",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400,

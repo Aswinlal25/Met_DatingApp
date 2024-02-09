@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:dating_app/domain/core/failures/error_msg.dart';
+import 'package:dating_app/domain/modules/Logout/logout_model/logout_model.dart';
 import 'package:dating_app/domain/modules/phone_number_model/phone_number_model.dart';
 import 'package:dating_app/domain/modules/phone_number_response_model/phone_number_response_model.dart';
 import 'package:dating_app/domain/modules/verify_otp_model/verify_otp_model.dart';
@@ -68,5 +69,18 @@ class AuthApi implements AuthRepository {
       log('msg --->${e.toString()}');
       return Left(ErrorMsg(message: errorMsg));
     }
+  }
+
+  @override
+  Future<Either<ErrorMsg, LogoutModel>> logout() async {
+    try {
+      final response = await dio.post(ApiEndPoints.logout);
+      if (response.statusCode == 401) {
+        Left(ErrorMsg(message: LogoutModel.fromJson(response.data).message!));
+      }
+    } catch (e) {
+      print('${e.toString()}');
+    }
+    throw UnimplementedError();
   }
 }

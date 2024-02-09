@@ -1,6 +1,11 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/data/services/auth/auth.dart';
+import 'package:dating_app/data/services/profile/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,47 +26,40 @@ class CustomDialog extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            color: const Color.fromARGB(255, 51, 51, 51),
+            color: Color.fromARGB(255, 28, 28, 28),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    SizedBox(height: 15),
+                    SizedBox(height: 28),
+                    LogoContainer(),
+                    SizedBox(height: 28),
                     Text(
-                      "Are you sure you want to logout?",
-                      style: TextStyle(fontSize: 14, color: kwhite),
+                      "Are you sure you want to log out \nof your account?",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white60,
+                          letterSpacing: 0.4,
+                          wordSpacing: 1),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 22),
-                    SlideAction(
-                      height: 69,
-                      borderRadius: 32,
-                      elevation: 0,
-                      innerColor: const Color.fromARGB(255, 51, 51, 51),
-                      outerColor: kblack,
-                      sliderButtonIcon: const Icon(
-                        CupertinoIcons.forward,
-                        color: kwhite,
-                      ),
-                      text: 'Slide to logout',
-                      textStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.red[400],
-                        letterSpacing: 1,
-                      ),
-                      onSubmit: () async {
+                    kheight10,
+                    ElevatedButton(
+                      onPressed: () {
                         try {
                           {
                             // Now you can use context.read<AuthBloc>() here
-                            context
-                                .read<AuthBloc>()
-                                .add(const AuthEvent.signOut());
+                            // context
+                            //     .read<AuthBloc>()
+                            //     .add(const AuthEvent.signOut());
+                            AuthApi authApi = AuthApi();
+                            authApi.logout();
                             Navigator.pushNamedAndRemoveUntil(
                               context,
                               Routes.loginPage,
@@ -73,7 +71,45 @@ class CustomDialog extends StatelessWidget {
                           // Handle any exceptions here
                         }
                       },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red,
+                        // Color.fromARGB(255, 0, 0, 0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: SizedBox(
+                          height: 20,
+                          width: 160,
+                          child: Center(
+                            child: Text(
+                              'Logout',
+                              style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.5),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
+                    kheight10,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.white38,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 0.5),
+                      ),
+                    )
                   ],
                 ),
               )

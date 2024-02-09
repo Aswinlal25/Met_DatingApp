@@ -122,35 +122,38 @@ class UsersApi implements UsersRepository {
 
   @override
   Future<Either<Failure, RecommentedModel>> getRecommentedUsers() async {
-    final Token = await SharedPref.getToken();
-    final accesskey = Token.accessToken;
-    final refreshkey = Token.refreshToken;
-
-    final Dio dio = Dio(
-        BaseOptions(baseUrl: ApiEndPoints.baseUrl, headers: <String, dynamic>{
-      "accept": "application/json",
-      "Content-Type": "multipart/form-data",
-      "Cookie": 'accessToken=$accesskey; refreshToken=$refreshkey',
-    }));
-
-    final response = await dio.get(
-      ApiEndPoints.home,
-      queryParameters: {'interest': true},
-    );
-
     try {
+      final Token = await SharedPref.getToken();
+      final accesskey = Token.accessToken;
+      final refreshkey = Token.refreshToken;
+
+      final Dio dio = Dio(
+        BaseOptions(baseUrl: ApiEndPoints.baseUrl, headers: <String, dynamic>{
+          "accept": "application/json",
+          "Cookie": 'accessToken=$accesskey; refreshToken=$refreshkey',
+        }),
+      );
+
+      final response = await dio.get(ApiEndPoints.interest);
+
       if (response.statusCode == 200) {
+        print('Interest_Response----->>${response.data}');
         return Right(RecommentedModel.fromJson(response.data));
       } else if (response.statusCode == 400) {
         return Left(Failure.clientFailure().copyWith(
-            message: RecommentedModel.fromJson(response.data).message));
+          message: RecommentedModel.fromJson(response.data).message,
+        ));
       } else if (response.statusCode == 401) {
         return Left(Failure.tokenExpire());
       } else if (response.statusCode == 500) {
         return Left(Failure.serverFailure());
+      } else {
+        return Left(Failure.serverFailure());
       }
     } on DioException catch (dioError) {
       print('Error----${dioError.toString()}');
+    } catch (e) {
+      print('Error----${e.toString()}');
     }
     throw UnimplementedError();
   }

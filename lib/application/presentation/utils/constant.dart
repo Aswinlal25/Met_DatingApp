@@ -1,3 +1,4 @@
+import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 const String errorMsg = 'Something went wrong, please try again';
@@ -40,6 +41,35 @@ BoxDecoration gradientBackground() {
       ],
       begin: Alignment.bottomCenter,
       end: Alignment.topCenter,
+    ),
+  );
+}
+
+BoxDecoration BoxStyle() {
+  return BoxDecoration(
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+      border:
+          Border.all(color: const Color.fromARGB(255, 51, 51, 51), width: 2));
+}
+
+TextStyle FormTxtStyle() {
+  return TextStyle(
+    color: kwhite,
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    letterSpacing: 1,
+  );
+}
+
+Container LogoContainer() {
+  return Container(
+    width: 100,
+    height: 55,
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage('assets/icons/Met_logo_black1-removebg-preview.png'),
+        fit: BoxFit.contain,
+      ),
     ),
   );
 }

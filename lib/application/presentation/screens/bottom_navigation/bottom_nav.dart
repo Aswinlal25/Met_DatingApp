@@ -55,6 +55,26 @@ class _HomeScreenState extends State<BottomNavBar> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
+                            builder: (context) => NotificationScreen()));
+                  },
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    //  color: kwhite,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Color.fromARGB(195, 244, 67, 54),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
                             builder: (context) => DrawerScreen()));
                   },
                   child: Container(
@@ -78,7 +98,7 @@ class _HomeScreenState extends State<BottomNavBar> {
               // Pages for each bottom navigation item
               HomeScreen(),
               InterersUsersScreen(),
-              NotificationScreen(),
+              // NotificationScreen(),
               ChatScreen(),
               ProfileScreen()
             ],
@@ -110,15 +130,15 @@ class _HomeScreenState extends State<BottomNavBar> {
                   color: Color.fromARGB(255, 195, 47, 36),
                 ),
               ),
-              BottomBarItem(
-                icon: const Icon(Icons.favorite),
-                title: const Text(''),
-                backgroundColor: Colors.white30,
-                selectedIcon: const Icon(
-                  Icons.favorite,
-                  color: Color.fromARGB(255, 195, 47, 36),
-                ),
-              ),
+              // BottomBarItem(
+              //   icon: const Icon(Icons.favorite),
+              //   title: const Text(''),
+              //   backgroundColor: Colors.white30,
+              //   selectedIcon: const Icon(
+              //     Icons.favorite,
+              //     color: Color.fromARGB(255, 195, 47, 36),
+              //   ),
+              // ),
               BottomBarItem(
                 icon: const Icon(CupertinoIcons.chat_bubble_2_fill),
                 title: const Text(''),

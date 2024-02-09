@@ -2,6 +2,7 @@
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/common_widgets/drawer.dart';
+import 'package:dating_app/application/presentation/screens/edit_profile_screen/edited_profile.dart';
 import 'package:dating_app/application/presentation/screens/profile_screen/widgets/user_details_view.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
@@ -43,32 +44,98 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Center(
                   child: Column(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: const Color.fromARGB(255, 40, 40, 40),
-                        radius: 80,
-                        child: ClipOval(
-                          child: FadeInImage(
-                            placeholder: NetworkImage(
-                                'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
-                            image: NetworkImage(
-                              state.profileDetailsModel != null
-                                  ? state
-                                      .profileDetailsModel!.data!.image!.first
-                                  : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg',
+                      Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              //color: Color.fromARGB(255, 244, 67, 54),
+                              gradient: LinearGradient(
+                                colors: [
+                                  const Color.fromARGB(255, 244, 67, 54),
+                                  Color.fromARGB(90, 244, 67, 54),
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
                             ),
-                            fit: BoxFit.cover,
-                            width: 160,
-                            height: 160,
+                            child: CircleAvatar(
+                              backgroundColor: Colors
+                                  .transparent, // Make the CircleAvatar transparent
+                              radius: 88,
+                              // Add child or background image if needed
+                            ),
                           ),
-                        ),
+                          Positioned(
+                            top: 0,
+                            bottom: 0,
+                            left: 3,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black,
+
+                                radius: 85,
+                                // Add child or background image if needed
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 0,
+                            bottom: 0,
+                            left: 6,
+                            child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 40, 40, 40),
+                              radius: 82,
+                              child: ClipOval(
+                                child: FadeInImage(
+                                  placeholder: NetworkImage(
+                                      'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
+                                  image: NetworkImage(
+                                    state.profileDetailsModel != null
+                                        ? state.profileDetailsModel!.data!
+                                            .image!.first
+                                        : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg',
+                                  ),
+                                  fit: BoxFit.cover,
+                                  width: 160,
+                                  height: 160,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                              right: 10,
+                              bottom: 10,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) =>
+                                              EditProfilePictureScreen()));
+                                },
+                                child: CircleAvatar(
+                                  backgroundColor: kred,
+                                  radius: 15,
+                                  child: Icon(
+                                    Icons.add,
+                                    color: kwhite,
+                                    size: 20,
+                                  ),
+                                ),
+                              ))
+                        ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         state.profileDetailsModel != null
-                            ? state
-                                .profileDetailsModel!.data!.userDetails!.name!
+                            ? "${state.profileDetailsModel!.data!.userDetails!.name!} , ${state.profileDetailsModel!.data!.userDetails!.age}"
                             : 'User',
                         style: TextStyle(
                             color: Colors.white,
@@ -154,7 +221,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),

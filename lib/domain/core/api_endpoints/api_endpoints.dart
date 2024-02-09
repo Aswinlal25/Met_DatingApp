@@ -5,7 +5,10 @@ class ApiEndPoints {
 
   static String otpLogin = '/sendOtp';
   static String otpverify = '/verify';
+  static String logout = '/logout';
   static String Userprofile = '/profile';
-  static String home = '/homeUsers';
+  static String home = '/home';
   static String preference = '/preference';
+  static String interest = '/home?interest=true';
+  static String like = '/like';
 }

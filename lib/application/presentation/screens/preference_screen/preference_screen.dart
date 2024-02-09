@@ -46,7 +46,11 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
       backgroundColor: kblack,
       appBar: AppBar(
         backgroundColor: kblack,
-        leading: Icon(CupertinoIcons.back, color: kwhite),
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(CupertinoIcons.back, color: kwhite)),
         title: Text(
           'Edit Preference',
           style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
@@ -55,9 +59,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: BlocConsumer<UsersBloc, UsersState>(
-          listener: (context, state) {
-            // TODO: implement listener
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,46 +170,6 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    final int? min = editedAgeRange
-                        ? minAge
-                        : context
-                            .read<UsersBloc>()
-                            .state
-                            .getUserPreference!
-                            .data!
-                            .minAge;
-                    print(
-                        "----------------------------------------------------$min");
-                    final int? max = editedAgeRange
-                        ? maxAge
-                        : context
-                            .read<UsersBloc>()
-                            .state
-                            .getUserPreference!
-                            .data!
-                            .maxAge;
-                    print(
-                        "----------------------------------------------------$max");
-                    final int? dis = editedDistance
-                        ? distance
-                        : context
-                            .read<UsersBloc>()
-                            .state
-                            .getUserPreference!
-                            .data!
-                            .maxDistance;
-                    print(
-                        "----------------------------------------------------$dis");
-                    final int? gen = editedGender
-                        ? gender
-                        : context
-                            .read<UsersBloc>()
-                            .state
-                            .getUserPreference!
-                            .data!
-                            .gender;
-                    print(
-                        "----------------------------------------------------$gen");
                     Navigator.pop(context);
                     context.read<UsersBloc>().add(UsersEvent.editprefrence(
                         editUserPreference: EditUserPreference(
