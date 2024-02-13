@@ -20,18 +20,25 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() makeprofile,
     required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? makeprofile,
     TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? makeprofile,
     TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +46,24 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Makeprofile value) makeprofile,
     required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Makeprofile value)? makeprofile,
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Makeprofile value)? makeprofile,
     TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +127,9 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult when<TResult extends Object?>({
     required TResult Function() makeprofile,
     required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
   }) {
     return makeprofile();
   }
@@ -123,6 +139,8 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? makeprofile,
     TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
   }) {
     return makeprofile?.call();
   }
@@ -132,6 +150,8 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? makeprofile,
     TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
@@ -145,6 +165,8 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult map<TResult extends Object?>({
     required TResult Function(_Makeprofile value) makeprofile,
     required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
   }) {
     return makeprofile(this);
   }
@@ -154,6 +176,8 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Makeprofile value)? makeprofile,
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
   }) {
     return makeprofile?.call(this);
   }
@@ -163,6 +187,8 @@ class _$MakeprofileImpl implements _Makeprofile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Makeprofile value)? makeprofile,
     TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
@@ -216,6 +242,9 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult when<TResult extends Object?>({
     required TResult Function() makeprofile,
     required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
   }) {
     return getprofileDetails();
   }
@@ -225,6 +254,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? makeprofile,
     TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
   }) {
     return getprofileDetails?.call();
   }
@@ -234,6 +265,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? makeprofile,
     TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
     required TResult orElse(),
   }) {
     if (getprofileDetails != null) {
@@ -247,6 +280,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult map<TResult extends Object?>({
     required TResult Function(_Makeprofile value) makeprofile,
     required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
   }) {
     return getprofileDetails(this);
   }
@@ -256,6 +291,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Makeprofile value)? makeprofile,
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
   }) {
     return getprofileDetails?.call(this);
   }
@@ -265,6 +302,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Makeprofile value)? makeprofile,
     TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
     required TResult orElse(),
   }) {
     if (getprofileDetails != null) {
@@ -279,6 +318,271 @@ abstract class _GetprofileDetails implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$EditprofileDetailsImplCopyWith<$Res> {
+  factory _$$EditprofileDetailsImplCopyWith(_$EditprofileDetailsImpl value,
+          $Res Function(_$EditprofileDetailsImpl) then) =
+      __$$EditprofileDetailsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({EditProfileModel editProfileModel});
+}
+
+/// @nodoc
+class __$$EditprofileDetailsImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$EditprofileDetailsImpl>
+    implements _$$EditprofileDetailsImplCopyWith<$Res> {
+  __$$EditprofileDetailsImplCopyWithImpl(_$EditprofileDetailsImpl _value,
+      $Res Function(_$EditprofileDetailsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? editProfileModel = null,
+  }) {
+    return _then(_$EditprofileDetailsImpl(
+      editProfileModel: null == editProfileModel
+          ? _value.editProfileModel
+          : editProfileModel // ignore: cast_nullable_to_non_nullable
+              as EditProfileModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditprofileDetailsImpl implements _EditprofileDetails {
+  const _$EditprofileDetailsImpl({required this.editProfileModel});
+
+  @override
+  final EditProfileModel editProfileModel;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.editprofileDetails(editProfileModel: $editProfileModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditprofileDetailsImpl &&
+            (identical(other.editProfileModel, editProfileModel) ||
+                other.editProfileModel == editProfileModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, editProfileModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditprofileDetailsImplCopyWith<_$EditprofileDetailsImpl> get copyWith =>
+      __$$EditprofileDetailsImplCopyWithImpl<_$EditprofileDetailsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
+  }) {
+    return editprofileDetails(editProfileModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
+  }) {
+    return editprofileDetails?.call(editProfileModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
+    required TResult orElse(),
+  }) {
+    if (editprofileDetails != null) {
+      return editprofileDetails(editProfileModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
+  }) {
+    return editprofileDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
+  }) {
+    return editprofileDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
+    required TResult orElse(),
+  }) {
+    if (editprofileDetails != null) {
+      return editprofileDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditprofileDetails implements ProfileEvent {
+  const factory _EditprofileDetails(
+          {required final EditProfileModel editProfileModel}) =
+      _$EditprofileDetailsImpl;
+
+  EditProfileModel get editProfileModel;
+  @JsonKey(ignore: true)
+  _$$EditprofileDetailsImplCopyWith<_$EditprofileDetailsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EditProfilePictureImplCopyWith<$Res> {
+  factory _$$EditProfilePictureImplCopyWith(_$EditProfilePictureImpl value,
+          $Res Function(_$EditProfilePictureImpl) then) =
+      __$$EditProfilePictureImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EditProfilePictureImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$EditProfilePictureImpl>
+    implements _$$EditProfilePictureImplCopyWith<$Res> {
+  __$$EditProfilePictureImplCopyWithImpl(_$EditProfilePictureImpl _value,
+      $Res Function(_$EditProfilePictureImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EditProfilePictureImpl implements _EditProfilePicture {
+  const _$EditProfilePictureImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.editProfilePicture()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EditProfilePictureImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
+  }) {
+    return editProfilePicture();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
+  }) {
+    return editProfilePicture?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
+    required TResult orElse(),
+  }) {
+    if (editProfilePicture != null) {
+      return editProfilePicture();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
+  }) {
+    return editProfilePicture(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
+  }) {
+    return editProfilePicture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
+    required TResult orElse(),
+  }) {
+    if (editProfilePicture != null) {
+      return editProfilePicture(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditProfilePicture implements ProfileEvent {
+  const factory _EditProfilePicture() = _$EditProfilePictureImpl;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   bool get dataHasError => throw _privateConstructorUsedError;
   bool get dataIsLoading => throw _privateConstructorUsedError;
@@ -289,6 +593,11 @@ mixin _$ProfileState {
   ProfileMakeResponseModel? get profileMakeResponseModel =>
       throw _privateConstructorUsedError;
   ProfileDetailsModel? get profileDetailsModel =>
+      throw _privateConstructorUsedError;
+  EditProfileModel? get editProfileModel => throw _privateConstructorUsedError;
+  EditProfileResponse? get editProfileResponse =>
+      throw _privateConstructorUsedError;
+  EditProfilePictureResponse? get editProfilePictureResponse =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -310,7 +619,10 @@ abstract class $ProfileStateCopyWith<$Res> {
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
-      ProfileDetailsModel? profileDetailsModel});
+      ProfileDetailsModel? profileDetailsModel,
+      EditProfileModel? editProfileModel,
+      EditProfileResponse? editProfileResponse,
+      EditProfilePictureResponse? editProfilePictureResponse});
 }
 
 /// @nodoc
@@ -334,6 +646,9 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
     Object? profileDetailsModel = freezed,
+    Object? editProfileModel = freezed,
+    Object? editProfileResponse = freezed,
+    Object? editProfilePictureResponse = freezed,
   }) {
     return _then(_value.copyWith(
       dataHasError: null == dataHasError
@@ -368,6 +683,18 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.profileDetailsModel
           : profileDetailsModel // ignore: cast_nullable_to_non_nullable
               as ProfileDetailsModel?,
+      editProfileModel: freezed == editProfileModel
+          ? _value.editProfileModel
+          : editProfileModel // ignore: cast_nullable_to_non_nullable
+              as EditProfileModel?,
+      editProfileResponse: freezed == editProfileResponse
+          ? _value.editProfileResponse
+          : editProfileResponse // ignore: cast_nullable_to_non_nullable
+              as EditProfileResponse?,
+      editProfilePictureResponse: freezed == editProfilePictureResponse
+          ? _value.editProfilePictureResponse
+          : editProfilePictureResponse // ignore: cast_nullable_to_non_nullable
+              as EditProfilePictureResponse?,
     ) as $Val);
   }
 }
@@ -388,7 +715,10 @@ abstract class _$$InitialImplCopyWith<$Res>
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
-      ProfileDetailsModel? profileDetailsModel});
+      ProfileDetailsModel? profileDetailsModel,
+      EditProfileModel? editProfileModel,
+      EditProfileResponse? editProfileResponse,
+      EditProfilePictureResponse? editProfilePictureResponse});
 }
 
 /// @nodoc
@@ -410,6 +740,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
     Object? profileDetailsModel = freezed,
+    Object? editProfileModel = freezed,
+    Object? editProfileResponse = freezed,
+    Object? editProfilePictureResponse = freezed,
   }) {
     return _then(_$InitialImpl(
       dataHasError: null == dataHasError
@@ -444,6 +777,18 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.profileDetailsModel
           : profileDetailsModel // ignore: cast_nullable_to_non_nullable
               as ProfileDetailsModel?,
+      editProfileModel: freezed == editProfileModel
+          ? _value.editProfileModel
+          : editProfileModel // ignore: cast_nullable_to_non_nullable
+              as EditProfileModel?,
+      editProfileResponse: freezed == editProfileResponse
+          ? _value.editProfileResponse
+          : editProfileResponse // ignore: cast_nullable_to_non_nullable
+              as EditProfileResponse?,
+      editProfilePictureResponse: freezed == editProfilePictureResponse
+          ? _value.editProfilePictureResponse
+          : editProfilePictureResponse // ignore: cast_nullable_to_non_nullable
+              as EditProfilePictureResponse?,
     ));
   }
 }
@@ -459,7 +804,10 @@ class _$InitialImpl implements _Initial {
       this.message,
       this.profileModel,
       this.profileMakeResponseModel,
-      this.profileDetailsModel});
+      this.profileDetailsModel,
+      this.editProfileModel,
+      this.editProfileResponse,
+      this.editProfilePictureResponse});
 
   @override
   final bool dataHasError;
@@ -477,10 +825,16 @@ class _$InitialImpl implements _Initial {
   final ProfileMakeResponseModel? profileMakeResponseModel;
   @override
   final ProfileDetailsModel? profileDetailsModel;
+  @override
+  final EditProfileModel? editProfileModel;
+  @override
+  final EditProfileResponse? editProfileResponse;
+  @override
+  final EditProfilePictureResponse? editProfilePictureResponse;
 
   @override
   String toString() {
-    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, userdataisLoading: $userdataisLoading, userdataHasError: $userdataHasError, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, profileDetailsModel: $profileDetailsModel)';
+    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, userdataisLoading: $userdataisLoading, userdataHasError: $userdataHasError, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, profileDetailsModel: $profileDetailsModel, editProfileModel: $editProfileModel, editProfileResponse: $editProfileResponse, editProfilePictureResponse: $editProfilePictureResponse)';
   }
 
   @override
@@ -503,7 +857,15 @@ class _$InitialImpl implements _Initial {
                     other.profileMakeResponseModel, profileMakeResponseModel) ||
                 other.profileMakeResponseModel == profileMakeResponseModel) &&
             (identical(other.profileDetailsModel, profileDetailsModel) ||
-                other.profileDetailsModel == profileDetailsModel));
+                other.profileDetailsModel == profileDetailsModel) &&
+            (identical(other.editProfileModel, editProfileModel) ||
+                other.editProfileModel == editProfileModel) &&
+            (identical(other.editProfileResponse, editProfileResponse) ||
+                other.editProfileResponse == editProfileResponse) &&
+            (identical(other.editProfilePictureResponse,
+                    editProfilePictureResponse) ||
+                other.editProfilePictureResponse ==
+                    editProfilePictureResponse));
   }
 
   @override
@@ -516,7 +878,10 @@ class _$InitialImpl implements _Initial {
       message,
       profileModel,
       profileMakeResponseModel,
-      profileDetailsModel);
+      profileDetailsModel,
+      editProfileModel,
+      editProfileResponse,
+      editProfilePictureResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -527,14 +892,18 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements ProfileState {
   const factory _Initial(
-      {required final bool dataHasError,
-      required final bool dataIsLoading,
-      required final bool userdataisLoading,
-      required final bool userdataHasError,
-      final String? message,
-      final ProfileModel? profileModel,
-      final ProfileMakeResponseModel? profileMakeResponseModel,
-      final ProfileDetailsModel? profileDetailsModel}) = _$InitialImpl;
+          {required final bool dataHasError,
+          required final bool dataIsLoading,
+          required final bool userdataisLoading,
+          required final bool userdataHasError,
+          final String? message,
+          final ProfileModel? profileModel,
+          final ProfileMakeResponseModel? profileMakeResponseModel,
+          final ProfileDetailsModel? profileDetailsModel,
+          final EditProfileModel? editProfileModel,
+          final EditProfileResponse? editProfileResponse,
+          final EditProfilePictureResponse? editProfilePictureResponse}) =
+      _$InitialImpl;
 
   @override
   bool get dataHasError;
@@ -552,6 +921,12 @@ abstract class _Initial implements ProfileState {
   ProfileMakeResponseModel? get profileMakeResponseModel;
   @override
   ProfileDetailsModel? get profileDetailsModel;
+  @override
+  EditProfileModel? get editProfileModel;
+  @override
+  EditProfileResponse? get editProfileResponse;
+  @override
+  EditProfilePictureResponse? get editProfilePictureResponse;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

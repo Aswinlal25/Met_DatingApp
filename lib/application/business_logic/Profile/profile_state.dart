@@ -11,6 +11,9 @@ class ProfileState with _$ProfileState {
     ProfileModel? profileModel,
     ProfileMakeResponseModel? profileMakeResponseModel,
     ProfileDetailsModel? profileDetailsModel,
+    EditProfileModel? editProfileModel,
+    EditProfileResponse? editProfileResponse,
+    EditProfilePictureResponse? editProfilePictureResponse,
   }) = _Initial;
 
   factory ProfileState.initial() => ProfileState(

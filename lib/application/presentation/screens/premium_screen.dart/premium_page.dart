@@ -52,7 +52,7 @@ class PremiumScreen extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 22,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           letterSpacing: 1.2,
                           wordSpacing: 2),
                     ),

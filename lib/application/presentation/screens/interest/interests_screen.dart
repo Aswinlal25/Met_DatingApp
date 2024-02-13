@@ -32,17 +32,17 @@ class _InterersUsersScreenState extends State<InterersUsersScreen> {
             child: Text(
               'Recommended',
               style: TextStyle(
-                color: Colors.white60,
+                color: Colors.white,
                 fontSize: 24,
                 fontWeight: FontWeight.w800,
-                letterSpacing: 2,
+                letterSpacing: 0.7,
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15.0),
             child: Text(
-              'Recommented based on user interest',
+              'Recommented based on your interest',
               style: TextStyle(
                 color: Colors.white60,
                 fontSize: 13,
@@ -55,10 +55,13 @@ class _InterersUsersScreenState extends State<InterersUsersScreen> {
             builder: (context, state) {
               if (state.recommentedModel == null ||
                   state.recommentedModel!.data == null) {
-                return Center(
-                    child: LoadingAnimation(
-                        width:
-                            30)); // Show loading indicator if data is not available yet
+                return Container(
+                  height: 600,
+                  width: double.infinity,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: LoadingAnimation(width: 10)),
+                ); // Show loading indicator if data is not available yet
               }
 
               return Expanded(

@@ -63,7 +63,7 @@ class _HomeScreenState extends State<BottomNavBar> {
                     //  color: kwhite,
                     child: Icon(
                       Icons.favorite,
-                      color: Color.fromARGB(195, 244, 67, 54),
+                      color: kred,
                     ),
                   ),
                 ),

@@ -1,8 +1,11 @@
 // ignore_for_file: deprecated_member_use
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
+import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_interest.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/domain/modules/profile/edit_profile_model/edit_profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -406,7 +409,24 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       builder: (context, state) {
                         return ElevatedButton(
                           onPressed: () async {
-                            // context.read<ProfileBloc>().add()
+                            EditProfileModel editProfileModel =
+                                EditProfileModel(
+                                    bio: bioController.text,
+                                    city: cityController.text,
+                                    country: countryController.text,
+                                    name: nameController.text,
+                                    phNo: numberController.text,
+                                    interests: selectedInterests);
+                            context.read<ProfileBloc>().add(
+                                ProfileEvent.editprofileDetails(
+                                    editProfileModel: editProfileModel));
+                            if (state.dataIsLoading) {
+                              LoadingAnimation(
+                                width: 20,
+                              );
+                            } else if (state.editProfileResponse != null) {
+                              Navigator.pop(context);
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             primary: kred,

@@ -1,4 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:dating_app/domain/modules/profile/edit_profile_model/edit_profile_model.dart';
+import 'package:dating_app/domain/modules/profile/edit_profile_picture_response/edit_profile_picture_response.dart';
+import 'package:dating_app/domain/modules/profile/edit_profile_response/edit_profile_response.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_make_response_model/profile_make_response_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
@@ -47,6 +50,35 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emit(state.copyWith(
             userdataisLoading: false,
             profileDetailsModel: profileDetailsModel));
+      });
+    });
+
+    on<_EditprofileDetails>((event, emit) async {
+      emit(state.copyWith(userdataisLoading: true));
+
+      final result = await profileRepository.editprofileDetails(
+          editProfileModel: event.editProfileModel);
+      result.fold((errorMssg) {
+        emit(state.copyWith(
+            userdataisLoading: false, message: errorMssg.message));
+      }, (editProfileModelResponse) {
+        emit(state.copyWith(
+            userdataisLoading: false,
+            editProfileResponse: editProfileModelResponse));
+      });
+    });
+
+    on<_EditProfilePicture>((event, emit) async {
+      emit(state.copyWith(userdataisLoading: true));
+
+      final result = await profileRepository.editprofilepicture();
+      result.fold((errorMssg) {
+        emit(state.copyWith(
+            userdataisLoading: false, message: errorMssg.message));
+      }, (editProfilePictureResponse) {
+        emit(state.copyWith(
+            userdataisLoading: false,
+            editProfilePictureResponse: editProfilePictureResponse));
       });
     });
   }

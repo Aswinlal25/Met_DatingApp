@@ -2,6 +2,7 @@
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/common_widgets/drawer.dart';
+import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_interest.dart';
 import 'package:dating_app/application/presentation/screens/edit_profile_screen/edited_profile.dart';
 import 'package:dating_app/application/presentation/screens/profile_screen/widgets/user_details_view.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
@@ -9,6 +10,7 @@ import 'package:dating_app/domain/modules/profile/profile_details_model/profile_
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({super.key});
@@ -26,6 +28,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // Dispatch the _GetprofileDetails event when the screen is initialized
     context.read<ProfileBloc>().add(ProfileEvent.getprofileDetails());
   }
+
+  static const IconData edit_sharp =
+      IconData(0xe91c, fontFamily: 'MaterialIcons');
+
+  // final Uri _url = Uri.parse('https://pub.dev/packages/url_launcher');
 
   @override
   Widget build(BuildContext context) {
@@ -92,14 +99,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               radius: 82,
                               child: ClipOval(
                                 child: FadeInImage(
-                                  placeholder: NetworkImage(
-                                      'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
-                                  image: NetworkImage(
-                                    state.profileDetailsModel != null
-                                        ? state.profileDetailsModel!.data!
-                                            .image!.first
-                                        : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg',
-                                  ),
+                                  placeholder: AssetImage(
+                                      'assets/images/palce_holder_images/PlaceHolder.jpg'),
+                                  image: state.profileDetailsModel != null &&
+                                          state.profileDetailsModel!.data!
+                                              .image!.isNotEmpty
+                                      ? NetworkImage(state.profileDetailsModel!
+                                          .data!.image!.first)
+                                      : AssetImage(
+                                              'assets/images/palce_holder_images/PlaceHolder.jpg')
+                                          as ImageProvider,
                                   fit: BoxFit.cover,
                                   width: 160,
                                   height: 160,
@@ -108,8 +117,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Positioned(
-                              right: 10,
-                              bottom: 10,
+                              right: 18,
+                              bottom: 8,
                               child: InkWell(
                                 onTap: () {
                                   Navigator.push(
@@ -122,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   backgroundColor: kred,
                                   radius: 15,
                                   child: Icon(
-                                    Icons.add,
+                                    edit_sharp,
                                     color: kwhite,
                                     size: 20,
                                   ),
@@ -151,13 +160,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => UserDetailsScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => UserDetailsScreen())).then((value) {
+                      if (value == true) {
+                        context
+                            .read<ProfileBloc>()
+                            .add(ProfileEvent.getprofileDetails());
+                      }
+                    });
                   },
                   child: ListTile(
                     title: Text(
                       'Profile View',
                       style: TextStyle(
+                          fontSize: 15.5,
                           color: kwhite,
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
@@ -168,7 +186,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.editProfileScreen);
+                    Navigator.pushNamed(context, Routes.editProfileScreen)
+                        .then((value) {
+                      if (value == true) {
+                        context
+                            .read<ProfileBloc>()
+                            .add(ProfileEvent.getprofileDetails());
+                      }
+                    });
                   },
                   child: ListTile(
                     title: Text(
@@ -182,16 +207,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
                 ),
-                ListTile(
-                  title: Text(
-                    'Edit interest',
-                    style: TextStyle(
-                        color: kwhite,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {
+                    // Your interest mapping
+                    Map<String, int> interestMapping = {
+                      'reading': 1,
+                      'art and creativity': 2,
+                      'fitness and exercise': 3,
+                      'music': 4,
+                      'pets': 5,
+                      'movies and tv shows': 6,
+                      'travel': 7,
+                      'dance': 8,
+                      'gardening': 9,
+                      'cooking and food': 10,
+                      'photography': 11,
+                      'technology': 12,
+                      'games': 13,
+                    };
+
+// Convert interests from string to int based on the mapping
+                    List<int> convertedInterests = state
+                            .profileDetailsModel!.data!.interests
+                            ?.map((interest) =>
+                                interestMapping[interest.toLowerCase()] ??
+                                0) // Use 0 as default value if interest not found
+                            .toList() ??
+                        [];
+
+// Navigate to EditInterestScreen with converted interests
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditInterestScreen(
+                          initialInterests: convertedInterests,
+                        ),
+                      ),
+                    ).then((value) {
+                      if (value == true) {
+                        context
+                            .read<ProfileBloc>()
+                            .add(ProfileEvent.getprofileDetails());
+                      }
+                    });
+
+                    print(state.profileDetailsModel!.data!.interests);
+                  },
+                  child: ListTile(
+                    title: Text(
+                      'Edit interest',
+                      style: TextStyle(
+                          color: kwhite,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    trailing:
+                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
-                  trailing:
-                      Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
                 InkWell(
                   onTap: () {
@@ -209,16 +281,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
                 ),
-                ListTile(
-                  title: Text(
-                    'Instagram',
-                    style: TextStyle(
-                        color: kwhite,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {
+                    _launchURL('https://www.youtube.com/watch?v=uLpoPVLpG9E');
+                  },
+                  child: ListTile(
+                    title: Text(
+                      'Instagram',
+                      style: TextStyle(
+                          color: kwhite,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    trailing:
+                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                   ),
-                  trailing:
-                      Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -292,5 +369,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

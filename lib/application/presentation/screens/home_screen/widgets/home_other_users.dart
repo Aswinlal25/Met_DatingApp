@@ -64,6 +64,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     slideTransform: CubeTransform(),
                     unlimitedMode: true,
                     enableAutoSlider: true,
+                    autoSliderTransitionTime: Duration(seconds: 2),
                     children: images!.map((image) {
                       return PhotoContainer(image: image);
                     }).toList(), // Convert the iterable to a list

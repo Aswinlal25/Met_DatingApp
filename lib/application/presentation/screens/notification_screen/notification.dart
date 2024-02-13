@@ -1,11 +1,26 @@
 import 'dart:ui';
+import 'package:dating_app/application/business_logic/Users/users_bloc.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/data/services/features/features.dart';
+import 'package:dating_app/domain/modules/get_likes/get_likes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationScreen extends StatefulWidget {
   NotificationScreen({Key? key});
+
+  @override
+  State<NotificationScreen> createState() => _NotificationScreenState();
+}
+
+class _NotificationScreenState extends State<NotificationScreen> {
+  @override
+  void initState() {
+    //context.read<UsersBloc>().add(UsersEvent.getLikes());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

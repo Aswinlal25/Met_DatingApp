@@ -7,4 +7,5 @@ class UsersEvent with _$UsersEvent {
   factory UsersEvent.editprefrence(
       {required EditUserPreference editUserPreference}) = _Editprefrence;
   factory UsersEvent.getRecommentdata() = _GetRecommentdata;
+  factory UsersEvent.getLikes() = _GetLikes;
 }

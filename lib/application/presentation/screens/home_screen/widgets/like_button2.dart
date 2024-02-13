@@ -1,17 +1,23 @@
 import 'dart:async';
 
+import 'package:dating_app/data/services/features/features.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'package:lottie/lottie.dart';
 
 class LikeButtonWithHeart extends StatelessWidget {
   final double buttonSize = 33.0;
+  final int? id;
+
+  LikeButtonWithHeart({Key? key, this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LikeButton(
       onTap: (isLiked) {
-        return showTimedDialog(context); // Return the Future<bool?> here
+        FeaturesApi featuresApi = FeaturesApi();
+        featuresApi.postlike(id);
+        return showTimedDialog(context);
       },
       size: buttonSize,
       circleColor: CircleColor(

@@ -16,8 +16,8 @@ class _GenderDropdownState extends State<GenderDropdown2> {
   late int selectedGender;
 
   Map<String, int> genderValueMap = {
-    'Male': 2,
-    'Female': 1,
+    'Female': 2,
+    'Male': 1,
     'Others': 3,
   };
 

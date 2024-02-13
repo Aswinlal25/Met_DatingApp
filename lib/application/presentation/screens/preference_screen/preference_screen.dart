@@ -12,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PreferenceScreen extends StatefulWidget {
-  const PreferenceScreen({super.key});
+  const PreferenceScreen({Key? key}) : super(key: key);
 
   @override
   State<PreferenceScreen> createState() => _PreferenceScreenState();
@@ -61,6 +61,8 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
         child: BlocConsumer<UsersBloc, UsersState>(
           listener: (context, state) {},
           builder: (context, state) {
+            final userPreference =
+                context.read<UsersBloc>().state.getUserPreference;
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -86,12 +88,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 CustomSlider(
                   min: 0,
                   max: 50,
-                  initialValue: context
-                      .read<UsersBloc>()
-                      .state
-                      .getUserPreference!
-                      .data!
-                      .maxDistance!,
+                  initialValue: userPreference?.data?.maxDistance ?? 15,
                   onChanged: (value) {
                     setState(() {
                       editedDistance = true;
@@ -113,31 +110,14 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 RangeSliderWidget(
                   min: 0.0,
                   max: 50.0,
-                  startValue: context
-                          .read<UsersBloc>()
-                          .state
-                          .getUserPreference!
-                          .data
-                          ?.minAge
-                          ?.toDouble() ??
-                      10.0,
-                  endValue: context
-                          .read<UsersBloc>()
-                          .state
-                          .getUserPreference!
-                          .data
-                          ?.maxAge
-                          ?.toDouble() ??
-                      50.0,
+                  startValue: userPreference?.data?.minAge?.toDouble() ?? 10.0,
+                  endValue: userPreference?.data?.maxAge?.toDouble() ?? 30.0,
                   onChanged: (RangeValues value) {
                     setState(() {
                       editedAgeRange = true;
                       minAge = value.start.round().toInt();
                       maxAge = value.end.round().toInt();
                     });
-
-                    // print(minAge);
-                    // print(maxAge);
                   },
                 ),
                 kheight50,
@@ -151,12 +131,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                 ),
                 kheight20,
                 GenderDropdown2(
-                  initialValue: context
-                      .read<UsersBloc>()
-                      .state
-                      .getUserPreference!
-                      .data!
-                      .gender!,
+                  initialValue: userPreference?.data?.gender ?? 1,
                   onGenderSelected: (selectedGender) {
                     setState(() {
                       editedGender = true;
@@ -175,36 +150,16 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                         editUserPreference: EditUserPreference(
                             minAge: editedAgeRange
                                 ? minAge
-                                : context
-                                    .read<UsersBloc>()
-                                    .state
-                                    .getUserPreference!
-                                    .data!
-                                    .minAge,
+                                : userPreference?.data?.minAge ?? 0,
                             maxAge: editedAgeRange
                                 ? maxAge
-                                : context
-                                    .read<UsersBloc>()
-                                    .state
-                                    .getUserPreference!
-                                    .data!
-                                    .maxAge,
+                                : userPreference?.data?.maxAge ?? 0,
                             gender: editedGender
                                 ? gender
-                                : context
-                                    .read<UsersBloc>()
-                                    .state
-                                    .getUserPreference!
-                                    .data!
-                                    .gender,
+                                : userPreference?.data?.gender ?? 0,
                             maxDistance: editedDistance
                                 ? distance
-                                : context
-                                    .read<UsersBloc>()
-                                    .state
-                                    .getUserPreference!
-                                    .data!
-                                    .maxDistance)));
+                                : userPreference?.data?.maxDistance ?? 0)));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: kred,

@@ -60,6 +60,7 @@ dependencies:
   geolocator: ^10.1.0
   sprintf: ^7.0.0
   cached_network_image: ^3.3.1
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:
@@ -120,6 +121,11 @@ flutter:
     - assets\animations\location.json
     - assets\animations\love.json
     - assets\animations\colse.json
+    - assets\animations\w90DPqEHxi.json
+    - assets\animations\KA0VBERvHs.json
+    - assets\animations\W3t5pOXcH9.json
+
+    - assets\images\palce_holder_images\PlaceHolder.jpg
 
     - assets\users\photo_2023-11-30_12-08-50.jpg
     - assets\users\photo_2023-11-30_14-06-05.jpg

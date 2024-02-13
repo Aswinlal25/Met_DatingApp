@@ -14,6 +14,7 @@ class UsersState with _$UsersState {
     EditUserPreference? editUserPreference,
     EditUserPreferenceResponse? editUserPreferenceResponse,
     RecommentedModel? recommentedModel,
+    GetLikes? getLikes,
   }) = _Initial;
 
   factory UsersState.initial() => UsersState(

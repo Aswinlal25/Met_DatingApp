@@ -41,8 +41,11 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: BlocBuilder<ProfileBloc, ProfileState>(
-          builder: (context, state) {
+        child:
+            BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+          if (state.dataIsLoading || state.profileDetailsModel == null) {
+            return LoadingAnimation(width: 20);
+          } else {
             final currentUser = state.profileDetailsModel!.data;
             return ListView(
               children: [
@@ -302,8 +305,8 @@ class _OtherUsersScreenState extends State<UserDetailsScreen> {
                 )
               ],
             );
-          },
-        ),
+          }
+        }),
       ),
     );
   }

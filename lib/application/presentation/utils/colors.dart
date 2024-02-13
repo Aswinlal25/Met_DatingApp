@@ -11,3 +11,5 @@ const Color kwhite = Colors.white;
 const Color fkwhite = Colors.white60;
 
 const Color kblack56 = Colors.white54;
+
+const Color f2kwhite = Colors.white70;

@@ -23,6 +23,7 @@ mixin _$UsersEvent {
     required TResult Function(EditUserPreference editUserPreference)
         editprefrence,
     required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$UsersEvent {
     TResult? Function()? getprefrence,
     TResult? Function(EditUserPreference editUserPreference)? editprefrence,
     TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$UsersEvent {
     TResult Function()? getprefrence,
     TResult Function(EditUserPreference editUserPreference)? editprefrence,
     TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$UsersEvent {
     required TResult Function(_Getprefrence value) getprefrence,
     required TResult Function(_Editprefrence value) editprefrence,
     required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$UsersEvent {
     TResult? Function(_Getprefrence value)? getprefrence,
     TResult? Function(_Editprefrence value)? editprefrence,
     TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$UsersEvent {
     TResult Function(_Getprefrence value)? getprefrence,
     TResult Function(_Editprefrence value)? editprefrence,
     TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +136,7 @@ class _$GethomedataImpl implements _Gethomedata {
     required TResult Function(EditUserPreference editUserPreference)
         editprefrence,
     required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
   }) {
     return gethomedata();
   }
@@ -141,6 +148,7 @@ class _$GethomedataImpl implements _Gethomedata {
     TResult? Function()? getprefrence,
     TResult? Function(EditUserPreference editUserPreference)? editprefrence,
     TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
   }) {
     return gethomedata?.call();
   }
@@ -152,6 +160,7 @@ class _$GethomedataImpl implements _Gethomedata {
     TResult Function()? getprefrence,
     TResult Function(EditUserPreference editUserPreference)? editprefrence,
     TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
     required TResult orElse(),
   }) {
     if (gethomedata != null) {
@@ -167,6 +176,7 @@ class _$GethomedataImpl implements _Gethomedata {
     required TResult Function(_Getprefrence value) getprefrence,
     required TResult Function(_Editprefrence value) editprefrence,
     required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
   }) {
     return gethomedata(this);
   }
@@ -178,6 +188,7 @@ class _$GethomedataImpl implements _Gethomedata {
     TResult? Function(_Getprefrence value)? getprefrence,
     TResult? Function(_Editprefrence value)? editprefrence,
     TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
   }) {
     return gethomedata?.call(this);
   }
@@ -189,6 +200,7 @@ class _$GethomedataImpl implements _Gethomedata {
     TResult Function(_Getprefrence value)? getprefrence,
     TResult Function(_Editprefrence value)? editprefrence,
     TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
     required TResult orElse(),
   }) {
     if (gethomedata != null) {
@@ -245,6 +257,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     required TResult Function(EditUserPreference editUserPreference)
         editprefrence,
     required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
   }) {
     return getprefrence();
   }
@@ -256,6 +269,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     TResult? Function()? getprefrence,
     TResult? Function(EditUserPreference editUserPreference)? editprefrence,
     TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
   }) {
     return getprefrence?.call();
   }
@@ -267,6 +281,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     TResult Function()? getprefrence,
     TResult Function(EditUserPreference editUserPreference)? editprefrence,
     TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
     required TResult orElse(),
   }) {
     if (getprefrence != null) {
@@ -282,6 +297,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     required TResult Function(_Getprefrence value) getprefrence,
     required TResult Function(_Editprefrence value) editprefrence,
     required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
   }) {
     return getprefrence(this);
   }
@@ -293,6 +309,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     TResult? Function(_Getprefrence value)? getprefrence,
     TResult? Function(_Editprefrence value)? editprefrence,
     TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
   }) {
     return getprefrence?.call(this);
   }
@@ -304,6 +321,7 @@ class _$GetprefrenceImpl implements _Getprefrence {
     TResult Function(_Getprefrence value)? getprefrence,
     TResult Function(_Editprefrence value)? editprefrence,
     TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
     required TResult orElse(),
   }) {
     if (getprefrence != null) {
@@ -387,6 +405,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     required TResult Function(EditUserPreference editUserPreference)
         editprefrence,
     required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
   }) {
     return editprefrence(editUserPreference);
   }
@@ -398,6 +417,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     TResult? Function()? getprefrence,
     TResult? Function(EditUserPreference editUserPreference)? editprefrence,
     TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
   }) {
     return editprefrence?.call(editUserPreference);
   }
@@ -409,6 +429,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     TResult Function()? getprefrence,
     TResult Function(EditUserPreference editUserPreference)? editprefrence,
     TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
     required TResult orElse(),
   }) {
     if (editprefrence != null) {
@@ -424,6 +445,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     required TResult Function(_Getprefrence value) getprefrence,
     required TResult Function(_Editprefrence value) editprefrence,
     required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
   }) {
     return editprefrence(this);
   }
@@ -435,6 +457,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     TResult? Function(_Getprefrence value)? getprefrence,
     TResult? Function(_Editprefrence value)? editprefrence,
     TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
   }) {
     return editprefrence?.call(this);
   }
@@ -446,6 +469,7 @@ class _$EditprefrenceImpl implements _Editprefrence {
     TResult Function(_Getprefrence value)? getprefrence,
     TResult Function(_Editprefrence value)? editprefrence,
     TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
     required TResult orElse(),
   }) {
     if (editprefrence != null) {
@@ -509,6 +533,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     required TResult Function(EditUserPreference editUserPreference)
         editprefrence,
     required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
   }) {
     return getRecommentdata();
   }
@@ -520,6 +545,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     TResult? Function()? getprefrence,
     TResult? Function(EditUserPreference editUserPreference)? editprefrence,
     TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
   }) {
     return getRecommentdata?.call();
   }
@@ -531,6 +557,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     TResult Function()? getprefrence,
     TResult Function(EditUserPreference editUserPreference)? editprefrence,
     TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
     required TResult orElse(),
   }) {
     if (getRecommentdata != null) {
@@ -546,6 +573,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     required TResult Function(_Getprefrence value) getprefrence,
     required TResult Function(_Editprefrence value) editprefrence,
     required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
   }) {
     return getRecommentdata(this);
   }
@@ -557,6 +585,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     TResult? Function(_Getprefrence value)? getprefrence,
     TResult? Function(_Editprefrence value)? editprefrence,
     TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
   }) {
     return getRecommentdata?.call(this);
   }
@@ -568,6 +597,7 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
     TResult Function(_Getprefrence value)? getprefrence,
     TResult Function(_Editprefrence value)? editprefrence,
     TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
     required TResult orElse(),
   }) {
     if (getRecommentdata != null) {
@@ -579,6 +609,127 @@ class _$GetRecommentdataImpl implements _GetRecommentdata {
 
 abstract class _GetRecommentdata implements UsersEvent {
   factory _GetRecommentdata() = _$GetRecommentdataImpl;
+}
+
+/// @nodoc
+abstract class _$$GetLikesImplCopyWith<$Res> {
+  factory _$$GetLikesImplCopyWith(
+          _$GetLikesImpl value, $Res Function(_$GetLikesImpl) then) =
+      __$$GetLikesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetLikesImplCopyWithImpl<$Res>
+    extends _$UsersEventCopyWithImpl<$Res, _$GetLikesImpl>
+    implements _$$GetLikesImplCopyWith<$Res> {
+  __$$GetLikesImplCopyWithImpl(
+      _$GetLikesImpl _value, $Res Function(_$GetLikesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetLikesImpl implements _GetLikes {
+  _$GetLikesImpl();
+
+  @override
+  String toString() {
+    return 'UsersEvent.getLikes()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetLikesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() gethomedata,
+    required TResult Function() getprefrence,
+    required TResult Function(EditUserPreference editUserPreference)
+        editprefrence,
+    required TResult Function() getRecommentdata,
+    required TResult Function() getLikes,
+  }) {
+    return getLikes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? gethomedata,
+    TResult? Function()? getprefrence,
+    TResult? Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult? Function()? getRecommentdata,
+    TResult? Function()? getLikes,
+  }) {
+    return getLikes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? gethomedata,
+    TResult Function()? getprefrence,
+    TResult Function(EditUserPreference editUserPreference)? editprefrence,
+    TResult Function()? getRecommentdata,
+    TResult Function()? getLikes,
+    required TResult orElse(),
+  }) {
+    if (getLikes != null) {
+      return getLikes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Gethomedata value) gethomedata,
+    required TResult Function(_Getprefrence value) getprefrence,
+    required TResult Function(_Editprefrence value) editprefrence,
+    required TResult Function(_GetRecommentdata value) getRecommentdata,
+    required TResult Function(_GetLikes value) getLikes,
+  }) {
+    return getLikes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Gethomedata value)? gethomedata,
+    TResult? Function(_Getprefrence value)? getprefrence,
+    TResult? Function(_Editprefrence value)? editprefrence,
+    TResult? Function(_GetRecommentdata value)? getRecommentdata,
+    TResult? Function(_GetLikes value)? getLikes,
+  }) {
+    return getLikes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Gethomedata value)? gethomedata,
+    TResult Function(_Getprefrence value)? getprefrence,
+    TResult Function(_Editprefrence value)? editprefrence,
+    TResult Function(_GetRecommentdata value)? getRecommentdata,
+    TResult Function(_GetLikes value)? getLikes,
+    required TResult orElse(),
+  }) {
+    if (getLikes != null) {
+      return getLikes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetLikes implements UsersEvent {
+  factory _GetLikes() = _$GetLikesImpl;
 }
 
 /// @nodoc
@@ -597,6 +748,7 @@ mixin _$UsersState {
   EditUserPreferenceResponse? get editUserPreferenceResponse =>
       throw _privateConstructorUsedError;
   RecommentedModel? get recommentedModel => throw _privateConstructorUsedError;
+  GetLikes? get getLikes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UsersStateCopyWith<UsersState> get copyWith =>
@@ -620,7 +772,8 @@ abstract class $UsersStateCopyWith<$Res> {
       GetUserPreference? getUserPreference,
       EditUserPreference? editUserPreference,
       EditUserPreferenceResponse? editUserPreferenceResponse,
-      RecommentedModel? recommentedModel});
+      RecommentedModel? recommentedModel,
+      GetLikes? getLikes});
 }
 
 /// @nodoc
@@ -647,6 +800,7 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
     Object? editUserPreference = freezed,
     Object? editUserPreferenceResponse = freezed,
     Object? recommentedModel = freezed,
+    Object? getLikes = freezed,
   }) {
     return _then(_value.copyWith(
       homedataisLoading: null == homedataisLoading
@@ -693,6 +847,10 @@ class _$UsersStateCopyWithImpl<$Res, $Val extends UsersState>
           ? _value.recommentedModel
           : recommentedModel // ignore: cast_nullable_to_non_nullable
               as RecommentedModel?,
+      getLikes: freezed == getLikes
+          ? _value.getLikes
+          : getLikes // ignore: cast_nullable_to_non_nullable
+              as GetLikes?,
     ) as $Val);
   }
 }
@@ -716,7 +874,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       GetUserPreference? getUserPreference,
       EditUserPreference? editUserPreference,
       EditUserPreferenceResponse? editUserPreferenceResponse,
-      RecommentedModel? recommentedModel});
+      RecommentedModel? recommentedModel,
+      GetLikes? getLikes});
 }
 
 /// @nodoc
@@ -741,6 +900,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? editUserPreference = freezed,
     Object? editUserPreferenceResponse = freezed,
     Object? recommentedModel = freezed,
+    Object? getLikes = freezed,
   }) {
     return _then(_$InitialImpl(
       homedataisLoading: null == homedataisLoading
@@ -787,6 +947,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.recommentedModel
           : recommentedModel // ignore: cast_nullable_to_non_nullable
               as RecommentedModel?,
+      getLikes: freezed == getLikes
+          ? _value.getLikes
+          : getLikes // ignore: cast_nullable_to_non_nullable
+              as GetLikes?,
     ));
   }
 }
@@ -805,7 +969,8 @@ class _$InitialImpl implements _Initial {
       this.getUserPreference,
       this.editUserPreference,
       this.editUserPreferenceResponse,
-      this.recommentedModel});
+      this.recommentedModel,
+      this.getLikes});
 
   @override
   final bool homedataisLoading;
@@ -829,10 +994,12 @@ class _$InitialImpl implements _Initial {
   final EditUserPreferenceResponse? editUserPreferenceResponse;
   @override
   final RecommentedModel? recommentedModel;
+  @override
+  final GetLikes? getLikes;
 
   @override
   String toString() {
-    return 'UsersState(homedataisLoading: $homedataisLoading, homedataHasError: $homedataHasError, prefrencedataisLoading: $prefrencedataisLoading, prefrencedataHasError: $prefrencedataHasError, editdataisLoading: $editdataisLoading, message: $message, homeResponse: $homeResponse, getUserPreference: $getUserPreference, editUserPreference: $editUserPreference, editUserPreferenceResponse: $editUserPreferenceResponse, recommentedModel: $recommentedModel)';
+    return 'UsersState(homedataisLoading: $homedataisLoading, homedataHasError: $homedataHasError, prefrencedataisLoading: $prefrencedataisLoading, prefrencedataHasError: $prefrencedataHasError, editdataisLoading: $editdataisLoading, message: $message, homeResponse: $homeResponse, getUserPreference: $getUserPreference, editUserPreference: $editUserPreference, editUserPreferenceResponse: $editUserPreferenceResponse, recommentedModel: $recommentedModel, getLikes: $getLikes)';
   }
 
   @override
@@ -862,7 +1029,8 @@ class _$InitialImpl implements _Initial {
                 other.editUserPreferenceResponse ==
                     editUserPreferenceResponse) &&
             (identical(other.recommentedModel, recommentedModel) ||
-                other.recommentedModel == recommentedModel));
+                other.recommentedModel == recommentedModel) &&
+            const DeepCollectionEquality().equals(other.getLikes, getLikes));
   }
 
   @override
@@ -878,7 +1046,8 @@ class _$InitialImpl implements _Initial {
       getUserPreference,
       editUserPreference,
       editUserPreferenceResponse,
-      recommentedModel);
+      recommentedModel,
+      const DeepCollectionEquality().hash(getLikes));
 
   @JsonKey(ignore: true)
   @override
@@ -899,7 +1068,8 @@ abstract class _Initial implements UsersState {
       final GetUserPreference? getUserPreference,
       final EditUserPreference? editUserPreference,
       final EditUserPreferenceResponse? editUserPreferenceResponse,
-      final RecommentedModel? recommentedModel}) = _$InitialImpl;
+      final RecommentedModel? recommentedModel,
+      final GetLikes? getLikes}) = _$InitialImpl;
 
   @override
   bool get homedataisLoading;
@@ -923,6 +1093,8 @@ abstract class _Initial implements UsersState {
   EditUserPreferenceResponse? get editUserPreferenceResponse;
   @override
   RecommentedModel? get recommentedModel;
+  @override
+  GetLikes? get getLikes;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

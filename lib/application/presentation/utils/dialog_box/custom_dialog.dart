@@ -1,15 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:dating_app/application/business_logic/Auth/auth_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
-import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/data/services/auth/auth.dart';
-import 'package:dating_app/data/services/profile/profile.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:slide_to_act/slide_to_act.dart';
 
 class CustomDialog extends StatelessWidget {
   static const IconData heart_broken_sharp =
@@ -36,8 +30,16 @@ class CustomDialog extends StatelessWidget {
                 padding: EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    SizedBox(height: 28),
+                    SizedBox(height: 18),
                     LogoContainer(),
+                    SizedBox(height: 8),
+                    // Container(
+                    //   height: 120,
+                    //   child: LottieBuilder.asset(
+                    //     'assets/animations/W3t5pOXcH9.json',
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
                     SizedBox(height: 28),
                     Text(
                       "Are you sure you want to log out \nof your account?",
