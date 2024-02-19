@@ -46,8 +46,9 @@ class _CustomSliderState extends State<CustomSlider> {
           ),
         ),
         Text(
-          '$_sliderValue',
-          style: TextStyle(color: Colors.white),
+          '${_sliderValue} km.',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
         ),
       ],
     );

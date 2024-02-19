@@ -4,6 +4,7 @@ import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InterersUsersScreen extends StatefulWidget {
   InterersUsersScreen({Key? key});
@@ -31,12 +32,8 @@ class _InterersUsersScreenState extends State<InterersUsersScreen> {
             padding: const EdgeInsets.only(top: 8.0, left: 15.0, bottom: 0),
             child: Text(
               'Recommended',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 0.7,
-              ),
+              style: GoogleFonts.dmSerifDisplay(
+                  textStyle: TextStyle(color: Colors.white, fontSize: 22)),
             ),
           ),
           Padding(

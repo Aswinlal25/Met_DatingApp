@@ -4,6 +4,7 @@ import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
 import 'package:dating_app/domain/modules/profile/edit_profile_model/edit_profile_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -69,7 +70,7 @@ class _InterestScreenState extends State<EditInterestScreen> {
         leading: InkWell(
           onTap: () => Navigator.pop(context),
           child: Icon(
-            Icons.arrow_back,
+            CupertinoIcons.back,
             color: Colors.white,
           ),
         ),

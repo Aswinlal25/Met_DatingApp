@@ -26,6 +26,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   bool editedGender = false;
   bool editedDistance = false;
   bool editedAgeRange = false;
+  bool isEdited = false;
 
   @override
   void initState() {
@@ -51,13 +52,13 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               Navigator.pop(context);
             },
             child: Icon(CupertinoIcons.back, color: kwhite)),
-        title: Text(
-          'Edit Preference',
-          style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
-        ),
+        // title: Text(
+        //   'Edit Preference',
+        //   style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
+        // ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: BlocConsumer<UsersBloc, UsersState>(
           listener: (context, state) {},
           builder: (context, state) {
@@ -66,6 +67,15 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  'Edit Preference',
+                  style: TextStyle(
+                    color: kwhite,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1,
+                  ),
+                ),
                 kheight10,
                 Text(
                   'Customize your preferences from distance and age range to gender. Choose wisely now, or adjust anytime for the best matches. Your journey, your choices!',
@@ -92,6 +102,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                   onChanged: (value) {
                     setState(() {
                       editedDistance = true;
+                      isEdited = true;
                       print(value);
                       distance = value;
                     });
@@ -115,6 +126,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                   onChanged: (RangeValues value) {
                     setState(() {
                       editedAgeRange = true;
+                      isEdited = true;
                       minAge = value.start.round().toInt();
                       maxAge = value.end.round().toInt();
                     });
@@ -135,13 +147,14 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                   onGenderSelected: (selectedGender) {
                     setState(() {
                       editedGender = true;
+                      isEdited = true;
                       gender = selectedGender;
                       print(gender);
                     });
                   },
                 ),
                 SizedBox(
-                  height: screenSize.width * 0.54,
+                  height: screenSize.width * 0.50,
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -162,7 +175,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                                 : userPreference?.data?.maxDistance ?? 0)));
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: kred,
+                    primary: isEdited ? kred : Color.fromARGB(133, 51, 51, 51),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

@@ -9,6 +9,6 @@ class ApiEndPoints {
   static String Userprofile = '/profile';
   static String home = '/home';
   static String preference = '/preference';
-  static String interest = '/home?interest=true';
+  static String interest = '/home?interest=true&count=10';
   static String like = '/like';
 }

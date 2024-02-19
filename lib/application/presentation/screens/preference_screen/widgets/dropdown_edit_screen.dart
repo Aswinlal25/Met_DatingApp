@@ -45,7 +45,7 @@ class _GenderDropdownState extends State<GenderDropdown2> {
           height: 55,
           width: 365,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 51, 51, 51),
+            color: Color.fromARGB(133, 51, 51, 51),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Padding(
@@ -67,9 +67,12 @@ class _GenderDropdownState extends State<GenderDropdown2> {
                       fontWeight: FontWeight.w500,
                       letterSpacing: 2,
                     ),
-                    icon: Icon(
-                      Icons.arrow_drop_down,
-                      color: Colors.white,
+                    icon: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        color: Colors.white,
+                      ),
                     ),
                     items: genderValueMap.entries.map<DropdownMenuItem<int>>(
                         (MapEntry<String, int> entry) {
@@ -86,7 +89,7 @@ class _GenderDropdownState extends State<GenderDropdown2> {
                         ),
                       );
                     }).toList(),
-                    dropdownColor: const Color.fromARGB(255, 51, 51, 51),
+                    dropdownColor: Color.fromARGB(255, 33, 33, 33),
                     underline: Container(), // Remove the default underline
                   );
                 },

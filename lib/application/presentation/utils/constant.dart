@@ -48,8 +48,7 @@ BoxDecoration gradientBackground() {
 BoxDecoration BoxStyle() {
   return BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(20)),
-      border:
-          Border.all(color: const Color.fromARGB(255, 51, 51, 51), width: 2));
+      border: Border.all(color: Color.fromARGB(255, 59, 59, 59), width: 2));
 }
 
 TextStyle FormTxtStyle() {
@@ -71,5 +70,12 @@ Container LogoContainer() {
         fit: BoxFit.contain,
       ),
     ),
+  );
+}
+
+BoxDecoration BackgroundBoxStyle() {
+  return BoxDecoration(
+    color: Color.fromARGB(133, 51, 51, 51),
+    borderRadius: BorderRadius.all(Radius.circular(20)),
   );
 }

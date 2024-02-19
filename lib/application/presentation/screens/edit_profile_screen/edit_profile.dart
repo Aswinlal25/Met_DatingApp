@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
-import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_interest.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
@@ -352,15 +351,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: screenSize.width * 0.04),
-                    child: Expanded(
-                      child: Text(
-                        'You can change your phone number. The newly updated number will become the registered phone number, and you can only use this number for login purposes.',
-                        style: TextStyle(
-                          color: fkwhite,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 1,
-                        ),
+                    child: Text(
+                      'You can change your phone number. The newly updated number will become the registered phone number, and you can only use this number for login purposes.',
+                      style: TextStyle(
+                        color: fkwhite,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                        letterSpacing: 1,
                       ),
                     ),
                   ),
@@ -409,6 +406,32 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       builder: (context, state) {
                         return ElevatedButton(
                           onPressed: () async {
+                            Map<String, int> interestMapping = {
+                              'reading': 1,
+                              'art and creativity': 2,
+                              'fitness and exercise': 3,
+                              'music': 4,
+                              'pets': 5,
+                              'movies and tv shows': 6,
+                              'travel': 7,
+                              'dance': 8,
+                              'gardening': 9,
+                              'cooking and food': 10,
+                              'photography': 11,
+                              'technology': 12,
+                              'games': 13,
+                            };
+
+// Convert interests from string to int based on the mapping
+                            List<int> convertedInterests = state
+                                    .profileDetailsModel!.data!.interests
+                                    ?.map((interest) =>
+                                        interestMapping[
+                                            interest.toLowerCase()] ??
+                                        0) // Use 0 as default value if interest not found
+                                    .toList() ??
+                                [];
+
                             EditProfileModel editProfileModel =
                                 EditProfileModel(
                                     bio: bioController.text,
@@ -416,7 +439,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     country: countryController.text,
                                     name: nameController.text,
                                     phNo: numberController.text,
-                                    interests: selectedInterests);
+                                    interests: convertedInterests);
                             context.read<ProfileBloc>().add(
                                 ProfileEvent.editprofileDetails(
                                     editProfileModel: editProfileModel));
@@ -426,6 +449,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               );
                             } else if (state.editProfileResponse != null) {
                               Navigator.pop(context);
+                              context
+                                  .read<ProfileBloc>()
+                                  .add(ProfileEvent.getprofileDetails());
                             }
                           },
                           style: ElevatedButton.styleFrom(

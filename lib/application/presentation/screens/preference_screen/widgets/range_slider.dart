@@ -32,13 +32,13 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: 10,
-        ),
-        Text(
-          '${_currentRangeValues.start.round().toString()}',
-          style: TextStyle(color: Colors.white),
-        ),
+        // SizedBox(
+        //   width: 10,
+        // ),
+        // Text(
+        //   '${_currentRangeValues.start.round().toString()}',
+        //   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        // ),
         Expanded(
           child: RangeSlider(
             activeColor: Colors.red, // Use your desired active color
@@ -59,8 +59,9 @@ class _RangeSliderWidgetState extends State<RangeSliderWidget> {
           ),
         ),
         Text(
-          '${_currentRangeValues.end.round().toString()}',
-          style: TextStyle(color: Colors.white),
+          '${_currentRangeValues.start.round().toString()} - ${_currentRangeValues.end.round().toString()}',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
         ),
       ],
     );

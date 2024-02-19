@@ -5,6 +5,7 @@ import 'package:dating_app/application/presentation/screens/common_widgets/drawe
 import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_interest.dart';
 import 'package:dating_app/application/presentation/screens/edit_profile_screen/edited_profile.dart';
 import 'package:dating_app/application/presentation/screens/profile_screen/widgets/user_details_view.dart';
+import 'package:dating_app/application/presentation/screens/settings/settings_screen.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -117,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Positioned(
-                              right: 18,
+                              right: 15,
                               bottom: 8,
                               child: InkWell(
                                 onTap: () {
@@ -127,13 +128,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           builder: (_) =>
                                               EditProfilePictureScreen()));
                                 },
-                                child: CircleAvatar(
-                                  backgroundColor: kred,
-                                  radius: 15,
-                                  child: Icon(
-                                    edit_sharp,
-                                    color: kwhite,
-                                    size: 20,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: kred,
+                                        width: 1), // Adjust width as needed
+                                  ),
+                                  child: CircleAvatar(
+                                    backgroundColor: kblack,
+                                    radius: 17,
+                                    child: Icon(
+                                      edit_sharp,
+                                      color: kgrey,
+                                      size: 20,
+                                    ),
                                   ),
                                 ),
                               ))
@@ -142,15 +151,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         height: 5,
                       ),
-                      Text(
-                        state.profileDetailsModel != null
-                            ? "${state.profileDetailsModel!.data!.userDetails!.name!} , ${state.profileDetailsModel!.data!.userDetails!.age}"
-                            : 'User',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
-                            letterSpacing: 1),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            CupertinoIcons.checkmark_seal_fill,
+                            color: kwhite,
+                            size: 20,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            state.profileDetailsModel != null
+                                ? "${state.profileDetailsModel!.data!.userDetails!.name!} , ${state.profileDetailsModel!.data!.userDetails!.age}"
+                                : 'User',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                                letterSpacing: 1),
+                          ),
+                        ],
                       )
                     ],
                   ),
@@ -181,7 +203,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                     trailing:
-                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
+                        Icon(CupertinoIcons.forward, color: fkwhite, size: 20),
                   ),
                 ),
                 InkWell(
@@ -204,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                     trailing:
-                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
+                        Icon(CupertinoIcons.forward, color: fkwhite, size: 20),
                   ),
                 ),
                 InkWell(
@@ -262,7 +284,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                     trailing:
-                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
+                        Icon(CupertinoIcons.forward, color: fkwhite, size: 20),
                   ),
                 ),
                 InkWell(
@@ -278,23 +300,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                     trailing:
-                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
+                        Icon(CupertinoIcons.forward, color: fkwhite, size: 20),
                   ),
                 ),
                 InkWell(
                   onTap: () {
-                    _launchURL('https://www.youtube.com/watch?v=uLpoPVLpG9E');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SettingsScreen(
+                                  currentuser: state
+                                      .profileDetailsModel!.data!.userDetails,
+                                )));
                   },
                   child: ListTile(
                     title: Text(
-                      'Instagram',
+                      'Settings',
                       style: TextStyle(
                           color: kwhite,
                           letterSpacing: 1,
                           fontWeight: FontWeight.bold),
                     ),
                     trailing:
-                        Icon(CupertinoIcons.forward, color: kwhite, size: 20),
+                        Icon(CupertinoIcons.forward, color: fkwhite, size: 20),
                   ),
                 ),
                 SizedBox(
