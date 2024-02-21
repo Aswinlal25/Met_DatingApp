@@ -29,6 +29,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   GlobalKey editkey = GlobalKey();
 
+  bool isEdited = false;
+
   @override
   void initState() {
     context.read<ProfileBloc>().add(ProfileEvent.getprofileDetails());
@@ -60,14 +62,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         .data!
         .userDetails!
         .city!;
-    numberController.text = context
-            .read<ProfileBloc>()
-            .state
-            .profileDetailsModel!
-            .data!
-            .userDetails!
-            .phNo ??
-        'Name';
+
     print(context
             .read<ProfileBloc>()
             .state
@@ -95,20 +90,36 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               CupertinoIcons.back,
               color: kwhite,
             )),
-        title: Text(
-          'Edit Profile',
-          style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
-        ),
+        // title: Text(
+        //   'Edit Profile',
+        //   style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
+        // ),
       ),
       body: ListView(
         children: [
           Padding(
-            padding: EdgeInsets.all(screenSize.width * 0.04),
+            padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.04),
+            //  all(screenSize.width * 0.04),
             child: Form(
               key: context.read<ProfileBloc>().infokey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: screenSize.width * 0.04),
+                    child: Text(
+                      'Edit Details',
+                      style: TextStyle(
+                        color: kwhite,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenSize.height * 0.01,
+                  ),
                   Padding(
                     padding: EdgeInsets.only(left: screenSize.width * 0.04),
                     child: Text(
@@ -190,7 +201,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     height: screenSize.height * 0.01,
                   ),
                   Container(
-                    height: screenSize.height * 0.16,
+                    height: screenSize.height * 0.23,
                     decoration: BoxStyle(),
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -232,7 +243,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Padding(
                         padding: EdgeInsets.only(left: screenSize.width * 0.04),
                         child: Text(
-                          'Country',
+                          'State',
                           style: TextStyle(
                             color: fkwhite,
                             fontWeight: FontWeight.w500,
@@ -335,71 +346,71 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   SizedBox(
                     height: screenSize.height * 0.02,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenSize.width * 0.04),
-                    child: Text(
-                      'Mobile Number',
-                      style: TextStyle(
-                        color: fkwhite,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: screenSize.width * 0.04),
+                  //   child: Text(
+                  //     'Mobile Number',
+                  //     style: TextStyle(
+                  //       color: fkwhite,
+                  //       fontWeight: FontWeight.w500,
+                  //       letterSpacing: 1,
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: screenSize.height * 0.01,
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: screenSize.width * 0.04),
+                  //   child: Text(
+                  //     'You can change your phone number. The newly updated number will become the registered phone number, and you can only use this number for login purposes.',
+                  //     style: TextStyle(
+                  //       color: fkwhite,
+                  //       fontSize: 12,
+                  //       fontWeight: FontWeight.w300,
+                  //       letterSpacing: 1,
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   height: screenSize.height * 0.01,
+                  // ),
+                  // Container(
+                  //   height: screenSize.height * 0.07,
+                  //   // width: screenSize.width * 0.42,
+                  //   decoration: BoxStyle(),
+                  //   child: Padding(
+                  //     padding: EdgeInsets.only(
+                  //         left: screenSize.width * 0.02,
+                  //         top: screenSize.height * 0.005),
+                  //     child: TextFormField(
+                  //       controller: numberController,
+                  //       keyboardType: TextInputType.name,
+                  //       style: FormTxtStyle(),
+                  //       decoration: InputDecoration(
+                  //         hintText: 'Mobile Number',
+                  //         hintStyle: TextStyle(
+                  //           color: Colors.white38,
+                  //           fontWeight: FontWeight.w400,
+                  //           fontSize: screenSize.width * 0.03,
+                  //         ),
+                  //         border: InputBorder.none,
+                  //         contentPadding:
+                  //             EdgeInsets.all(screenSize.width * 0.02),
+                  //       ),
+                  //       validator: (value) {
+                  //         if (value == null)
+                  //           showSnack(
+                  //               context: context,
+                  //               message: 'Please fill in all fields',
+                  //               color: kblack);
+                  //         return null;
+                  //       },
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
-                    height: screenSize.height * 0.01,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: screenSize.width * 0.04),
-                    child: Text(
-                      'You can change your phone number. The newly updated number will become the registered phone number, and you can only use this number for login purposes.',
-                      style: TextStyle(
-                        color: fkwhite,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenSize.height * 0.01,
-                  ),
-                  Container(
-                    height: screenSize.height * 0.07,
-                    // width: screenSize.width * 0.42,
-                    decoration: BoxStyle(),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: screenSize.width * 0.02,
-                          top: screenSize.height * 0.005),
-                      child: TextFormField(
-                        controller: numberController,
-                        keyboardType: TextInputType.name,
-                        style: FormTxtStyle(),
-                        decoration: InputDecoration(
-                          hintText: 'Mobile Number',
-                          hintStyle: TextStyle(
-                            color: Colors.white38,
-                            fontWeight: FontWeight.w400,
-                            fontSize: screenSize.width * 0.03,
-                          ),
-                          border: InputBorder.none,
-                          contentPadding:
-                              EdgeInsets.all(screenSize.width * 0.02),
-                        ),
-                        validator: (value) {
-                          if (value == null)
-                            showSnack(
-                                context: context,
-                                message: 'Please fill in all fields',
-                                color: kblack);
-                          return null;
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenSize.height * 0.10,
+                    height: screenSize.height * 0.16,
                   ),
                   Center(
                     child: BlocBuilder<ProfileBloc, ProfileState>(
@@ -431,6 +442,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         0) // Use 0 as default value if interest not found
                                     .toList() ??
                                 [];
+                            final number = context
+                                    .read<ProfileBloc>()
+                                    .state
+                                    .profileDetailsModel!
+                                    .data!
+                                    .userDetails!
+                                    .phNo ??
+                                'Name';
 
                             EditProfileModel editProfileModel =
                                 EditProfileModel(
@@ -438,7 +457,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     city: cityController.text,
                                     country: countryController.text,
                                     name: nameController.text,
-                                    phNo: numberController.text,
+                                    phNo: number,
                                     interests: convertedInterests);
                             context.read<ProfileBloc>().add(
                                 ProfileEvent.editprofileDetails(

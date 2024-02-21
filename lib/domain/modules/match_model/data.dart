@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'like.dart';
+import 'match.dart';
 
 part 'data.g.dart';
 
@@ -8,14 +8,10 @@ part 'data.g.dart';
 class Data {
   @JsonKey(name: 'user_id')
   int? userId;
-  @JsonKey(name: 'is_subscribed')
-  bool? isSubscribed;
-  @JsonKey(name: 'see_like')
-  bool? seeLike;
-  @JsonKey(name: 'likes')
-  List<Like>? likes;
+  @JsonKey(name: 'matches')
+  List<Match>? matches;
 
-  Data({this.userId, this.isSubscribed, this.seeLike, this.likes});
+  Data({this.userId, this.matches});
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 

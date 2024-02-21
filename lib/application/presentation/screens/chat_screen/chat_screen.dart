@@ -1,6 +1,11 @@
+import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/chat_screen/widgets/match_profiles_view.dart';
+import 'package:dating_app/application/presentation/utils/constant.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -16,6 +21,7 @@ class _ChatScreenState extends State<ChatScreen>
   @override
   void initState() {
     super.initState();
+    context.read<FeaturesBloc>().add(FeaturesEvent.getMatches());
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -56,24 +62,115 @@ class _ChatScreenState extends State<ChatScreen>
                   ),
                 ),
               ),
-              Container(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 15,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        radius: 33,
-                        backgroundImage: AssetImage(
-                            'assets/users/photo_2023-11-30_12-08-50.jpg'),
-                        //  backgroundColor: Colors.blue,
-                      ),
-                    );
-                  },
-                ),
-              ),
+              BlocBuilder<FeaturesBloc, FeaturesState>(
+                  builder: (context, state) {
+                final matches = context
+                    .read<FeaturesBloc>()
+                    .state
+                    .matchModel!
+                    .data!
+                    .matches;
+
+                if (matches == null) {
+                  return Text(
+                    'No Matches',
+                    style: FormTxtStyle(),
+                  );
+                } else {
+                  return Container(
+                    height: 100,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: matches.length,
+                      itemBuilder: (context, index) {
+                        List<String>? imageUrls =
+                            matches[index].image?.split(',');
+
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => MatchUsersProfileView(
+                                            matchUser: matches[index],
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    //color: Color.fromARGB(255, 244, 67, 54),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        const Color.fromARGB(255, 244, 67, 54),
+                                        Color.fromARGB(21, 244, 67, 54),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                    ),
+                                  ),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors
+                                        .transparent, // Make the CircleAvatar transparent
+                                    radius: 38,
+                                    // Add child or background image if needed
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  bottom: 8,
+                                  left: 2,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CircleAvatar(
+                                      backgroundColor: Colors.black,
+
+                                      radius: 36,
+                                      // Add child or background image if needed
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 0,
+                                  bottom: 8,
+                                  left: 5,
+                                  child: CircleAvatar(
+                                    radius: 33,
+                                    backgroundImage: NetworkImage(imageUrls
+                                            ?.first ??
+                                        'assets/images/palce_holder_images/PlaceHolder.jpg'),
+                                    //  backgroundColor: Colors.blue,
+                                  ),
+                                ),
+                                Positioned(
+                                    top: 50,
+                                    bottom: 0,
+                                    left: 50,
+                                    child: Icon(
+                                      Icons.favorite_rounded,
+                                      color: const Color.fromARGB(
+                                          255, 244, 67, 54),
+                                    )),
+                              ],
+                            ),
+                            // CircleAvatar(
+                            //   radius: 35,
+                            //   backgroundImage: NetworkImage(imageUrls?.first ??
+                            //       'assets/images/palce_holder_images/PlaceHolder.jpg'),
+                            //   //  backgroundColor: Colors.blue,
+                            // ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                }
+              }),
             ],
           ),
         ),

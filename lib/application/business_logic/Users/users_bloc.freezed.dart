@@ -1030,7 +1030,8 @@ class _$InitialImpl implements _Initial {
                     editUserPreferenceResponse) &&
             (identical(other.recommentedModel, recommentedModel) ||
                 other.recommentedModel == recommentedModel) &&
-            const DeepCollectionEquality().equals(other.getLikes, getLikes));
+            (identical(other.getLikes, getLikes) ||
+                other.getLikes == getLikes));
   }
 
   @override
@@ -1047,7 +1048,7 @@ class _$InitialImpl implements _Initial {
       editUserPreference,
       editUserPreferenceResponse,
       recommentedModel,
-      const DeepCollectionEquality().hash(getLikes));
+      getLikes);
 
   @JsonKey(ignore: true)
   @override

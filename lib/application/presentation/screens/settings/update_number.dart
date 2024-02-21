@@ -1,10 +1,10 @@
 import 'package:dating_app/application/presentation/screens/settings/widgets/otp_screen.dart';
-import 'package:dating_app/application/presentation/screens/settings/widgets/otp_verify_dialog.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 
 class NumberEditScreen extends StatefulWidget {
   const NumberEditScreen({Key? key}) : super(key: key);
@@ -158,17 +158,8 @@ class _NumberEditScreenState extends State<NumberEditScreen> {
                                           'Please enter your new phone number',
                                       context: context,
                                       color: kblack);
-                                } else if (value.length != 10) {
-                                  setState(() {
-                                    isnewnumber = false;
-                                  });
-                                  showSnack(
-                                      message:
-                                          'Please enter 10 digit phone number',
-                                      context: context,
-                                      color: kblack);
-                                }
-                                return null;
+                                } else
+                                  return null;
                               },
                             ),
                           ),
@@ -197,12 +188,26 @@ class _NumberEditScreenState extends State<NumberEditScreen> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       final newNumber = numberController.text;
-                      showOtpBottomSheet(context, newNumber);
+                      RegExp phoneNumberRegExp =
+                          RegExp(r'^(?!([0-9])\1{9}$)[0-9]{10}$');
+
+                      if (phoneNumberRegExp.hasMatch(newNumber)) {
+                        print('Valid phone number');
+                        showOtpBottomSheet(context, newNumber);
+                      } else {
+                        showSnack(
+                            message: 'Invalid phone number',
+                            context: context,
+                            color: kblack);
+                        print('invalid number');
+                      }
+                      if (numberController.text.length == 10) {}
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        isnewnumber ? kred : Color.fromARGB(133, 51, 51, 51),
+                    backgroundColor: numberController.text.length == 10
+                        ? kred
+                        : Color.fromARGB(133, 51, 51, 51),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

@@ -5,7 +5,6 @@ import 'package:dating_app/domain/modules/get_likes/get_likes.dart';
 import 'package:dating_app/domain/modules/get_user_preference/get_user_preference.dart';
 import 'package:dating_app/domain/modules/home_response/home_response.dart';
 import 'package:dating_app/domain/modules/recommented_model/recommented_model.dart';
-import 'package:dating_app/domain/repositories/features_repository.dart';
 import 'package:dating_app/domain/repositories/users_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'users_bloc.freezed.dart';

@@ -11,4 +11,6 @@ class ApiEndPoints {
   static String preference = '/preference';
   static String interest = '/home?interest=true&count=10';
   static String like = '/like';
+  static String matches = '/match';
+  static String chat = '/chat';
 }

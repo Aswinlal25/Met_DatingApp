@@ -8,16 +8,12 @@ part of 'data.dart';
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
       userId: json['user_id'] as int?,
-      isSubscribed: json['is_subscribed'] as bool?,
-      seeLike: json['see_like'] as bool?,
-      likes: (json['likes'] as List<dynamic>?)
-          ?.map((e) => Like.fromJson(e as Map<String, dynamic>))
+      matches: (json['matches'] as List<dynamic>?)
+          ?.map((e) => Match.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'user_id': instance.userId,
-      'is_subscribed': instance.isSubscribed,
-      'see_like': instance.seeLike,
-      'likes': instance.likes,
+      'matches': instance.matches,
     };

@@ -9,7 +9,7 @@ void showSnack(
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.only(bottom: 120.0),
+      margin: EdgeInsets.only(bottom: 122.0),
       //content: Text("Hello World!"),
       dismissDirection: DismissDirection.none,
       // dismissDirection: DismissDirection.horizontal,

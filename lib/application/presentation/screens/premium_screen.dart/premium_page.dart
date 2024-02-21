@@ -1,17 +1,32 @@
-// ignore_for_file: must_be_immutable, deprecated_member_use
+// ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 
-class PremiumScreen extends StatelessWidget {
-  List<String>? points = [
+class PremiumScreen extends StatefulWidget {
+  PremiumScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PremiumScreen> createState() => _PremiumScreenState();
+}
+
+class _PremiumScreenState extends State<PremiumScreen> {
+  List<String>? plan1 = [
     'Unlimited Like',
     '1 Month Validity',
     'Price Rs.699',
     'More chances for matches',
+  ];
+  List<String>? plan2 = [
+    'Unlimited Like',
+    '2 Month Validity',
+    'Price Rs.999',
+    'More chances for matches',
     'See Liked Profiles',
   ];
+  int selectedCardIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -60,7 +75,7 @@ class PremiumScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Select a paln',
+                        'Select a plan',
                         style: TextStyle(
                           color: Colors.white70,
                           fontSize: 16,
@@ -80,11 +95,14 @@ class PremiumScreen extends StatelessWidget {
                             Color.fromARGB(168, 255, 111, 0),
                             const Color.fromARGB(255, 255, 191, 0),
                             Color.fromARGB(168, 255, 111, 0),
-                            // const Color.fromARGB(255, 255, 191, 0),
                           ],
+                          isSelected: selectedCardIndex == 0,
+                          onTap: () {
+                            selectCard(0);
+                          },
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 17,
                         ),
                         SubscriptionCard(
                           planName: 'PLATINUM',
@@ -93,6 +111,10 @@ class PremiumScreen extends StatelessWidget {
                             const Color.fromARGB(255, 255, 191, 0),
                             Color.fromARGB(224, 255, 111, 0),
                           ],
+                          isSelected: selectedCardIndex == 1,
+                          onTap: () {
+                            selectCard(1);
+                          },
                         ),
                       ],
                     ),
@@ -110,15 +132,18 @@ class PremiumScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10, top: 20),
                         child: ListView.builder(
-                          itemCount: points?.length,
+                          itemCount: selectedCardIndex == 0
+                              ? plan1!.length
+                              : plan2!.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                              leading: Icon(
-                                Icons.check,
-                                color: kblack56,
-                              ),
+                              leading: Icon(Icons.check, color: Colors.green
+                                  // kblack56,
+                                  ),
                               title: Text(
-                                points![index],
+                                selectedCardIndex == 0
+                                    ? plan1![index]
+                                    : plan2![index],
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: Colors.white60,
@@ -146,13 +171,21 @@ class PremiumScreen extends StatelessWidget {
                           height: 35,
                           width: 300,
                           child: Center(
-                            child: Text(
-                              'Continue',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: kwhite,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                            child: selectedCardIndex == 0
+                                ? Text(
+                                    'Continue with GOLD',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: kwhite,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                : Text(
+                                    'Continue with PLATINUM',
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: kwhite,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                           ),
                         ),
                       ),
@@ -192,12 +225,13 @@ class PremiumScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-            height: 35,
-            top: 35,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3),
-              child: LogoContainer(),
-            ))
+          height: 35,
+          top: 35,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 3),
+            child: LogoContainer(),
+          ),
+        ),
       ],
     );
   }
@@ -215,39 +249,37 @@ class PremiumScreen extends StatelessWidget {
       ),
     );
   }
+
+  void selectCard(int index) {
+    setState(() {
+      selectedCardIndex = index;
+    });
+  }
 }
 
-class SubscriptionCard extends StatefulWidget {
+class SubscriptionCard extends StatelessWidget {
   final String planName;
   final String price;
   final List<Color> gradientColors;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   const SubscriptionCard({
     required this.planName,
     required this.price,
     required this.gradientColors,
+    required this.isSelected,
+    required this.onTap,
   });
-
-  @override
-  _SubscriptionCardState createState() => _SubscriptionCardState();
-}
-
-class _SubscriptionCardState extends State<SubscriptionCard> {
-  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = !isSelected;
-        });
-      },
+      onTap: onTap,
       child: Container(
         height: 210,
         child: Container(
-          // height: 232,
-          width: 175,
+          width: 170,
           decoration: BoxDecoration(
             border: Border.all(
               color: isSelected ? kred : Color.fromARGB(148, 54, 54, 54),
@@ -262,15 +294,15 @@ class _SubscriptionCardState extends State<SubscriptionCard> {
               children: [
                 kheight20,
                 Text(
-                  widget.planName,
+                  planName,
                   style: TextStyle(
                     foreground: Paint()
                       ..shader = LinearGradient(
-                        colors: widget.gradientColors,
+                        colors: gradientColors,
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ).createShader(Rect.fromLTRB(0, 0, 200, 70)),
-                    fontSize: 20,
+                    fontSize: isSelected ? 23 : 17,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
                   ),
@@ -278,10 +310,10 @@ class _SubscriptionCardState extends State<SubscriptionCard> {
                 kheight50,
                 kheight80,
                 Text(
-                  widget.price,
+                  price,
                   style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 15,
+                    color: isSelected ? kwhite : Colors.white70,
+                    fontSize: isSelected ? 18 : 15,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 1,
                   ),

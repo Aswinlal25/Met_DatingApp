@@ -13,3 +13,5 @@ const Color fkwhite = Colors.white60;
 const Color kblack56 = Colors.white54;
 
 const Color f2kwhite = Colors.white70;
+
+const Color darkgrey = Color.fromARGB(133, 51, 51, 51);

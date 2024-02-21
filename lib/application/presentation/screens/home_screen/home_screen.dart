@@ -54,41 +54,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Stack(
                             children: [
-                              GestureDetector(
-                                // onHorizontalDragEnd: (details) {
-                                //   showTimedDialog(context);
-                                // },
-                                // onVerticalDragEnd: (details) {
-                                //   if (details.primaryVelocity! < 0) {
-                                //     Navigator.pushNamed(context, Routes.otherUsersScreen);
-                                //     print('Swipe up detected!');
-                                //   }
-                                // },
+                              Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(image?.isNotEmpty ==
+                                            true
+                                        ? image![0]
+                                        : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                                 child: Container(
                                   width: double.infinity,
+                                  height: 600,
                                   decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(image?.isNotEmpty ==
-                                              true
-                                          ? image![0]
-                                          : 'https://i.pinimg.com/564x/81/8a/1b/818a1b89a57c2ee0fb7619b95e11aebd.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 600,
-                                    decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                            colors: [
-                                          Colors.black,
-                                          Colors.transparent,
-                                          Colors.transparent,
-                                          Colors.black.withOpacity(0.1),
-                                        ],
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter)),
-                                  ),
+                                      gradient: LinearGradient(
+                                          colors: [
+                                        Colors.black,
+                                        Colors.transparent,
+                                        Colors.transparent,
+                                        Colors.black.withOpacity(0.1),
+                                      ],
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter)),
                                 ),
                               ),
                               Positioned(

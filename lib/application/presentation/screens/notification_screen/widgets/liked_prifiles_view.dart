@@ -1,31 +1,31 @@
 // import 'package:dating_app/application/presentation/routes/routes.dart';
-import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/interst_container.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
-import 'package:dating_app/application/presentation/utils/dialog_box/user_block_dialog.dart';
-import 'package:dating_app/domain/modules/home_response/datum.dart';
+import 'package:dating_app/domain/modules/get_likes/like.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:like_button/like_button.dart';
 
-class HomeOtherUsers extends StatefulWidget {
-  final Datum homeuser;
-  HomeOtherUsers({super.key, required this.homeuser});
+import '../../../utils/dialog_box/user_block_dialog.dart';
+
+class LikedUsersProfileView extends StatefulWidget {
+  final Like likedUsers;
+  LikedUsersProfileView({super.key, required this.likedUsers});
 
   @override
-  State<HomeOtherUsers> createState() => _OtherUsersScreenState();
+  State<LikedUsersProfileView> createState() => _OtherUsersScreenState();
 }
 
-class _OtherUsersScreenState extends State<HomeOtherUsers> {
-  List<String>? images = [];
+class _OtherUsersScreenState extends State<LikedUsersProfileView> {
+  List<String>? imageUrls = [];
 
   int activeIndex = 0;
   @override
   void initState() {
-    images = widget.homeuser.images;
-    final dob = widget.homeuser.dob;
+    imageUrls = widget.likedUsers.image?.split(", ");
+    final dob = widget.likedUsers.dob;
     print(dob);
     super.initState();
   }
@@ -67,7 +67,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     unlimitedMode: true,
                     enableAutoSlider: true,
                     autoSliderTransitionTime: Duration(seconds: 2),
-                    children: images!.map((image) {
+                    children: imageUrls!.map((image) {
                       return PhotoContainer(image: image);
                     }).toList(), // Convert the iterable to a list
                   ),
@@ -80,7 +80,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                           Navigator.pop(context);
                         },
                         child: Text(
-                            '${widget.homeuser.name} (${widget.homeuser.age})',
+                            '${widget.likedUsers.name} (${widget.likedUsers.age})',
                             style: TextStyle(
                                 color: kwhite,
                                 fontWeight: FontWeight.w500,
@@ -108,7 +108,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(133, 51, 51, 51),
+                color: darkgrey,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Padding(
@@ -139,7 +139,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("${widget.homeuser.bio}",
+                    Text("${widget.likedUsers.bio}",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w300,
@@ -153,7 +153,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(133, 51, 51, 51),
+                color: darkgrey,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Padding(
@@ -187,7 +187,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     Align(
                         alignment: Alignment.bottomLeft,
                         child: Text(
-                            "${widget.homeuser.city} , ${widget.homeuser.country}",
+                            "${widget.likedUsers.city} , ${widget.likedUsers.country}",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
@@ -201,7 +201,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(133, 51, 51, 51),
+                color: darkgrey,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Padding(
@@ -234,7 +234,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     ),
                     Align(
                       alignment: Alignment.bottomLeft,
-                      child: Text("${widget.homeuser.dob}",
+                      child: Text("${widget.likedUsers.dob}",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
@@ -249,7 +249,7 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(133, 51, 51, 51),
+                color: darkgrey,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Padding(
@@ -280,15 +280,15 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                     SizedBox(
                       height: 10,
                     ),
-                    Align(
-                        alignment: Alignment.centerLeft,
-                        child: Wrap(
-                          children: List.generate(
-                            widget.homeuser.interests!.length,
-                            (index) => InterestsBoxs(
-                                chipName: widget.homeuser.interests![index]),
-                          ),
-                        )),
+                    // Align(
+                    //     alignment: Alignment.centerLeft,
+                    //     child: Wrap(
+                    //       children: List.generate(
+                    //         widget.likedUsers.interests!.length,
+                    //         (index) => InterestsBoxs(
+                    //             chipName: widget.homeuser.interests![index]),
+                    //       ),
+                    //     )),
                   ],
                 ),
               ),
@@ -308,11 +308,11 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
               child: Container(
                 height: 55,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(133, 51, 51, 51),
+                  color: darkgrey,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Center(
-                    child: Text('Block  ${widget.homeuser.name}',
+                    child: Text('Block  ${widget.likedUsers.name}',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -333,11 +333,11 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
               child: Container(
                 height: 55,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(133, 51, 51, 51),
+                  color: darkgrey,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Center(
-                    child: Text('Report ${widget.homeuser.name}',
+                    child: Text('Report ${widget.likedUsers.name}',
                         style: TextStyle(
                             color: Colors.red,
                             fontWeight: FontWeight.w500,
