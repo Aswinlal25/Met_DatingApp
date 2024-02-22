@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/data/shared_preferences/shered_preference.dart';
 import 'package:dating_app/domain/core/api_endpoints/api_endpoints.dart';
 import 'package:dating_app/domain/core/failures/failures.dart';

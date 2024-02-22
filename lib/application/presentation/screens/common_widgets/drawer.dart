@@ -3,9 +3,11 @@
 import 'package:dating_app/application/presentation/screens/premium_screen.dart/premium_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
+import 'package:dating_app/application/presentation/utils/privacy_policy/privacy_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 
 class DrawerScreen extends StatelessWidget {
   @override
@@ -91,55 +93,89 @@ class DrawerScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              ListTile(
-                leading: Icon(
-                  CupertinoIcons.lock_fill,
-                  color: kblack56,
-                ),
-                title: Text(
-                  'Privacy policy',
-                  style: TextStyle(
-                      color: kwhite,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold),
-                ),
-                trailing: Icon(
-                  CupertinoIcons.forward,
-                  color: kwhite,
-                  size: 20,
-                ),
-              ),
-              ListTile(
-                leading: Icon(
-                  CupertinoIcons.bookmark_fill,
-                  color: kblack56,
-                ),
-                title: Text(
-                  'About us',
-                  style: TextStyle(
-                      color: kwhite,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold),
-                ),
-                trailing: Icon(
-                  CupertinoIcons.forward,
-                  color: kwhite,
-                  size: 20,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => PolicyScreen(
+                                mdFileName: 'privacy_policy.md',
+                                title: 'Privacy policy',
+                              )));
+                },
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.lock_fill,
+                    color: kblack56,
+                  ),
+                  title: Text(
+                    'Privacy policy',
+                    style: TextStyle(
+                        color: kwhite,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing: Icon(
+                    CupertinoIcons.forward,
+                    color: kwhite,
+                    size: 20,
+                  ),
                 ),
               ),
-              ListTile(
-                leading: Icon(
-                  CupertinoIcons.doc_fill,
-                  color: kblack56,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => PolicyScreen(
+                                mdFileName: 'about.md',
+                                title: 'About',
+                              )));
+                },
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.bookmark_fill,
+                    color: kblack56,
+                  ),
+                  title: Text(
+                    'About us',
+                    style: TextStyle(
+                        color: kwhite,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing: Icon(
+                    CupertinoIcons.forward,
+                    color: kwhite,
+                    size: 20,
+                  ),
                 ),
-                title: Text(
-                  'Privacy policy',
-                  style: TextStyle(
-                      color: kwhite,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => PolicyScreen(
+                                mdFileName: 'Terms_and_conditions.md',
+                                title: 'Terms and conditions',
+                              )));
+                },
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.doc_fill,
+                    color: kblack56,
+                  ),
+                  title: Text(
+                    'Terms and conditions',
+                    style: TextStyle(
+                        color: kwhite,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing:
+                      Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
-                trailing: Icon(CupertinoIcons.forward, color: kwhite, size: 20),
               ),
               ListTile(
                 leading: Icon(
@@ -155,19 +191,25 @@ class DrawerScreen extends StatelessWidget {
                 ),
                 trailing: Icon(CupertinoIcons.forward, color: kwhite, size: 20),
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.share,
-                  color: kblack56,
+              InkWell(
+                onTap: () {
+                  Share.share("com.aswin.chat_app");
+                },
+                child: ListTile(
+                  leading: Icon(
+                    Icons.share,
+                    color: kblack56,
+                  ),
+                  title: Text(
+                    'Share',
+                    style: TextStyle(
+                        color: kwhite,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  trailing:
+                      Icon(CupertinoIcons.forward, color: kwhite, size: 20),
                 ),
-                title: Text(
-                  'Share',
-                  style: TextStyle(
-                      color: kwhite,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold),
-                ),
-                trailing: Icon(CupertinoIcons.forward, color: kwhite, size: 20),
               ),
               InkWell(
                   onTap: () {

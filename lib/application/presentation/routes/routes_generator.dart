@@ -1,7 +1,6 @@
 // ignore_for_file: unused_local_variable, unreachable_switch_case
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/bottom_navigation/bottom_nav.dart';
-import 'package:dating_app/application/presentation/screens/chatting_screen/chatting_screen.dart';
 import 'package:dating_app/application/presentation/screens/common_widgets/callscreen.dart';
 import 'package:dating_app/application/presentation/screens/edit_profile_screen/edit_profile.dart';
 import 'package:dating_app/application/presentation/screens/home_screen/home_screen.dart';
@@ -61,8 +60,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => NotificationScreen());
       case Routes.prederenceScreen:
         return MaterialPageRoute(builder: (ctx) => PreferenceScreen());
-      case Routes.chattingScreen:
-        return MaterialPageRoute(builder: (ctx) => ChattingScreen());
+
       case Routes.callingScreen:
         return MaterialPageRoute(builder: (ctx) => CallScreen());
       case Routes.ProfileScreen:

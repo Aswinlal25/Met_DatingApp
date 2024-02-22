@@ -7,7 +7,7 @@ class ChatState with _$ChatState {
       required bool chatUserHasError,
       String? message,
       ChatUsersModel? chatUsersModel}) = _Initial;
-  factory ChatState.initail() => ChatState(
+  factory ChatState.initial() => ChatState(
         chatUserisLoading: false,
         chatUserHasError: false,
       );

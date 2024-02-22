@@ -12,6 +12,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   ChatBloc(this.chatRepository) : super(ChatState.initial()) {
     on<_GetChatUsers>(
       (event, emit) async {
+        emit(state.copyWith(chatUserisLoading: true));
         emit(state.copyWith());
         final result = await chatRepository.getChatUsers();
 

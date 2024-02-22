@@ -1,12 +1,24 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
+import 'package:dating_app/domain/modules/chat/chat_users_model/datum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+class CustomAppBar extends StatefulWidget {
+  Datum? chatUsersModel;
+  CustomAppBar({super.key, required this.chatUsersModel});
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +49,13 @@ class CustomAppBar extends StatelessWidget {
                 CircleAvatar(
                   radius: 22,
                   backgroundImage:
-                      AssetImage('assets/users/photo_2023-11-30_14-06-05.jpg'),
+                      NetworkImage(widget.chatUsersModel!.user!.image ?? ''),
                 ),
                 SizedBox(
                   width: 15,
                 ),
                 Text(
-                  'Mariam',
+                  widget.chatUsersModel!.user!.name ?? '',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

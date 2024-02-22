@@ -16,5 +16,7 @@ class Datum {
 
   factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
 
+  get data => null;
+
   Map<String, dynamic> toJson() => _$DatumToJson(this);
 }

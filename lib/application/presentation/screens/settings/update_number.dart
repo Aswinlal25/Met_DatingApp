@@ -4,7 +4,6 @@ import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
 
 class NumberEditScreen extends StatefulWidget {
   const NumberEditScreen({Key? key}) : super(key: key);
@@ -158,8 +157,8 @@ class _NumberEditScreenState extends State<NumberEditScreen> {
                                           'Please enter your new phone number',
                                       context: context,
                                       color: kblack);
-                                } else
-                                  return null;
+                                }
+                                return null;
                               },
                             ),
                           ),

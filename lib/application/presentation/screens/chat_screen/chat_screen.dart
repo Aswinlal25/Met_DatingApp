@@ -1,7 +1,10 @@
+import 'package:dating_app/application/business_logic/Chat/chat_bloc.dart';
 import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
 import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/chat_screen/widgets/match_profiles_view.dart';
+import 'package:dating_app/application/presentation/screens/chatting_screen/chatting_screen.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +25,7 @@ class _ChatScreenState extends State<ChatScreen>
   void initState() {
     super.initState();
     context.read<FeaturesBloc>().add(FeaturesEvent.getMatches());
+    context.read<ChatBloc>().add(ChatEvent.getChatUsers());
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -67,11 +71,11 @@ class _ChatScreenState extends State<ChatScreen>
                 final matches = context
                     .read<FeaturesBloc>()
                     .state
-                    .matchModel!
-                    .data!
-                    .matches;
+                    .matchModel
+                    ?.data
+                    ?.matches;
 
-                if (matches == null) {
+                if (matches == null || matches.isEmpty) {
                   return Text(
                     'No Matches',
                     style: FormTxtStyle(),
@@ -91,11 +95,13 @@ class _ChatScreenState extends State<ChatScreen>
                           child: InkWell(
                             onTap: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => MatchUsersProfileView(
-                                            matchUser: matches[index],
-                                          )));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => MatchUsersProfileView(
+                                    matchUser: matches[index],
+                                  ),
+                                ),
+                              );
                             },
                             child: Stack(
                               children: [
@@ -113,10 +119,8 @@ class _ChatScreenState extends State<ChatScreen>
                                     ),
                                   ),
                                   child: CircleAvatar(
-                                    backgroundColor: Colors
-                                        .transparent, // Make the CircleAvatar transparent
+                                    backgroundColor: Colors.transparent,
                                     radius: 38,
-                                    // Add child or background image if needed
                                   ),
                                 ),
                                 Positioned(
@@ -129,9 +133,7 @@ class _ChatScreenState extends State<ChatScreen>
                                     ),
                                     child: CircleAvatar(
                                       backgroundColor: Colors.black,
-
                                       radius: 36,
-                                      // Add child or background image if needed
                                     ),
                                   ),
                                 ),
@@ -140,12 +142,13 @@ class _ChatScreenState extends State<ChatScreen>
                                   bottom: 8,
                                   left: 5,
                                   child: CircleAvatar(
-                                    radius: 33,
-                                    backgroundImage: NetworkImage(imageUrls
-                                            ?.first ??
-                                        'assets/images/palce_holder_images/PlaceHolder.jpg'),
-                                    //  backgroundColor: Colors.blue,
-                                  ),
+                                      radius: 33,
+                                      backgroundImage: imageUrls?.isNotEmpty ==
+                                              true
+                                          ? NetworkImage(imageUrls!.first)
+                                          : NetworkImage(
+                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc0V1a7P8AYy3QBSO1AgldcqV9H37AtK3_aQ&usqp=CAU')
+                                              as ImageProvider<Object>?),
                                 ),
                                 Positioned(
                                     top: 50,
@@ -158,12 +161,6 @@ class _ChatScreenState extends State<ChatScreen>
                                     )),
                               ],
                             ),
-                            // CircleAvatar(
-                            //   radius: 35,
-                            //   backgroundImage: NetworkImage(imageUrls?.first ??
-                            //       'assets/images/palce_holder_images/PlaceHolder.jpg'),
-                            //   //  backgroundColor: Colors.blue,
-                            // ),
                           ),
                         );
                       },
@@ -178,48 +175,88 @@ class _ChatScreenState extends State<ChatScreen>
       body: TabBarView(
         controller: _tabController,
         children: [
-          ListView.builder(
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.chattingScreen);
-                },
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 33,
-                    backgroundImage: AssetImage(
-                        'assets/users/photo_2023-11-30_14-06-05.jpg'),
-                    //  backgroundColor: Colors.blue,
-                  ),
-                  title: Text(
-                    'Mariam',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                  subtitle: Text(
-                    'Helloo',
-                    style: TextStyle(
-                      color: Colors.white54,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                  trailing: Text(
-                    'Now',
-                    style: TextStyle(
-                      color: Colors.white54,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                ),
-              );
+          BlocConsumer<ChatBloc, ChatState>(
+            listener: (context, state) {
+              if (state.chatUserisLoading) {
+                LoadingAnimation(width: 20);
+              }
+            },
+            builder: (context, state) {
+              final chatUsers = state.chatUsersModel?.data;
+              if (chatUsers == null || chatUsers.isEmpty) {
+                return Text('No Chats Available');
+              } else {
+                return ListView.builder(
+                  itemCount: chatUsers.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => ChattingScreen(
+                                    chatUsersModel:
+                                        state.chatUsersModel!.data![index])));
+                      },
+                      child: ListTile(
+                        // leading: CircleAvatar(
+                        //   radius: 33,
+                        //   backgroundImage:
+                        //       NetworkImage(chatUsers[index].user?.image ?? ''),
+
+                        // ),
+                        leading: CircleAvatar(
+                          backgroundColor:
+                              const Color.fromARGB(255, 40, 40, 40),
+                          radius: 82,
+                          child: ClipOval(
+                            child: FadeInImage(
+                              placeholder: AssetImage(
+                                  'assets/images/palce_holder_images/PlaceHolder.jpg'),
+                              image: chatUsers[index].user?.image != null
+                                  ? NetworkImage(
+                                      chatUsers[index].user?.image ?? '')
+                                  : AssetImage(
+                                          'assets/images/palce_holder_images/PlaceHolder.jpg')
+                                      as ImageProvider,
+                              fit: BoxFit.cover,
+                              width: 160,
+                              height: 160,
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          chatUsers[index].user?.name ?? '',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        subtitle: Text(
+                          'Helloo',
+                          style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        trailing: Text(
+                          'Now',
+                          style: TextStyle(
+                            color: Colors.white54,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }
             },
           ),
           ListView.builder(
@@ -232,7 +269,7 @@ class _ChatScreenState extends State<ChatScreen>
                     //  backgroundColor: Colors.blue,
                   ),
                   title: Text(
-                    'Mariam',
+                    '',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
