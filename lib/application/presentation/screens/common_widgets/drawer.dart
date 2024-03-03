@@ -1,15 +1,28 @@
 // drawer_screen.dart
 // ignore_for_file: unused_element, deprecated_member_use, must_be_immutable
+import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
 import 'package:dating_app/application/presentation/screens/premium_screen.dart/premium_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
 import 'package:dating_app/application/presentation/utils/privacy_policy/privacy_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
-class DrawerScreen extends StatelessWidget {
+class DrawerScreen extends StatefulWidget {
+  @override
+  State<DrawerScreen> createState() => _DrawerScreenState();
+}
+
+class _DrawerScreenState extends State<DrawerScreen> {
+  @override
+  void initState() {
+    context.read<FeaturesBloc>().add(FeaturesEvent.getLikes());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,50 +54,103 @@ class DrawerScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(15),
-                child: Container(
-                  height: 112,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(80, 59, 59, 59),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 13, horizontal: 15),
-                    child: Column(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                LogoContainer(),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                // ConatinerText(titile: 'PREMIUM'),
-
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 8, left: 10),
-                                  child: CardButton(),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'Go Premium to instantly discover your matches',
-                              style: TextStyle(
-                                  color: kwhite,
-                                  letterSpacing: 0,
-                                  fontSize: 12),
-                            )
-                          ],
+                child: BlocBuilder<FeaturesBloc, FeaturesState>(
+                  builder: (context, state) {
+                    final likesData = state.getLikes?.data;
+                    if (likesData != null) {
+                      bool? isSubscribed = likesData.isSubscribed;
+                      return Container(
+                        height: 112,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(80, 59, 59, 59),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
-                        SizedBox(
-                          height: 10,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 13, horizontal: 15),
+                          child: Column(
+                            children: [
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      LogoContainer(),
+                                      SizedBox(width: 2),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8, left: 10),
+                                        child: CardButton(),
+                                      ),
+                                    ],
+                                  ),
+                                  isSubscribed!
+                                      ? Text(
+                                          'Go to see your current subscription plan ',
+                                          style: TextStyle(
+                                            color: kwhite,
+                                            letterSpacing: 0,
+                                            fontSize: 12,
+                                          ),
+                                        )
+                                      : Text(
+                                          'Go Premium to instantly discover your matches',
+                                          style: TextStyle(
+                                            color: kwhite,
+                                            letterSpacing: 0,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
+                      );
+                    } else {
+                      return Container(
+                        height: 112,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(80, 59, 59, 59),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 13, horizontal: 15),
+                          child: Column(
+                            children: [
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      LogoContainer(),
+                                      SizedBox(width: 2),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 8, left: 10),
+                                        child: CardButton(),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    'Go Premium to instantly discover your matches',
+                                    style: TextStyle(
+                                      color: kwhite,
+                                      letterSpacing: 0,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                            ],
+                          ),
+                        ),
+                      ); // Placeholder for when data is loading or null
+                    }
+                  },
                 ),
               ),
               SizedBox(
@@ -219,10 +285,6 @@ class DrawerScreen extends StatelessWidget {
                         return CustomDialog();
                       },
                     );
-                    // print('button is work');
-                    //   context.read<AuthBloc>().add(const AuthEvent.signOut());
-                    //   Navigator.pushNamedAndRemoveUntil(
-                    //       context, Routes.loginPage, (route) => false);
                   },
                   child: ListTile(
                     leading: Icon(
@@ -271,8 +333,26 @@ class CardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        final cardNo = context
+                    .read<FeaturesBloc>()
+                    .state
+                    .usersOrderModel
+                    ?.data
+                    ?.isNotEmpty ==
+                true
+            ? context
+                .read<FeaturesBloc>()
+                .state
+                .usersOrderModel!
+                .data![0]
+                .subscriptionId
+            : 2;
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => PremiumScreen()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => PremiumScreen(
+                      initailcard: cardNo,
+                    )));
       },
       child: Container(
         decoration: BoxDecoration(

@@ -19,32 +19,38 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getChatUsers,
+    required TResult Function(String? chatId) getAllMessages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getChatUsers,
+    TResult? Function(String? chatId)? getAllMessages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getChatUsers,
+    TResult Function(String? chatId)? getAllMessages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetChatUsers value) getChatUsers,
+    required TResult Function(_GetAllMessages value) getAllMessages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetChatUsers value)? getChatUsers,
+    TResult? Function(_GetAllMessages value)? getAllMessages,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetChatUsers value)? getChatUsers,
+    TResult Function(_GetAllMessages value)? getAllMessages,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getChatUsers,
+    required TResult Function(String? chatId) getAllMessages,
   }) {
     return getChatUsers();
   }
@@ -114,6 +121,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getChatUsers,
+    TResult? Function(String? chatId)? getAllMessages,
   }) {
     return getChatUsers?.call();
   }
@@ -122,6 +130,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getChatUsers,
+    TResult Function(String? chatId)? getAllMessages,
     required TResult orElse(),
   }) {
     if (getChatUsers != null) {
@@ -134,6 +143,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetChatUsers value) getChatUsers,
+    required TResult Function(_GetAllMessages value) getAllMessages,
   }) {
     return getChatUsers(this);
   }
@@ -142,6 +152,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetChatUsers value)? getChatUsers,
+    TResult? Function(_GetAllMessages value)? getAllMessages,
   }) {
     return getChatUsers?.call(this);
   }
@@ -150,6 +161,7 @@ class _$GetChatUsersImpl implements _GetChatUsers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetChatUsers value)? getChatUsers,
+    TResult Function(_GetAllMessages value)? getAllMessages,
     required TResult orElse(),
   }) {
     if (getChatUsers != null) {
@@ -164,11 +176,149 @@ abstract class _GetChatUsers implements ChatEvent {
 }
 
 /// @nodoc
+abstract class _$$GetAllMessagesImplCopyWith<$Res> {
+  factory _$$GetAllMessagesImplCopyWith(_$GetAllMessagesImpl value,
+          $Res Function(_$GetAllMessagesImpl) then) =
+      __$$GetAllMessagesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? chatId});
+}
+
+/// @nodoc
+class __$$GetAllMessagesImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$GetAllMessagesImpl>
+    implements _$$GetAllMessagesImplCopyWith<$Res> {
+  __$$GetAllMessagesImplCopyWithImpl(
+      _$GetAllMessagesImpl _value, $Res Function(_$GetAllMessagesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chatId = freezed,
+  }) {
+    return _then(_$GetAllMessagesImpl(
+      chatId: freezed == chatId
+          ? _value.chatId
+          : chatId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetAllMessagesImpl implements _GetAllMessages {
+  _$GetAllMessagesImpl({required this.chatId});
+
+  @override
+  final String? chatId;
+
+  @override
+  String toString() {
+    return 'ChatEvent.getAllMessages(chatId: $chatId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetAllMessagesImpl &&
+            (identical(other.chatId, chatId) || other.chatId == chatId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, chatId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAllMessagesImplCopyWith<_$GetAllMessagesImpl> get copyWith =>
+      __$$GetAllMessagesImplCopyWithImpl<_$GetAllMessagesImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChatUsers,
+    required TResult Function(String? chatId) getAllMessages,
+  }) {
+    return getAllMessages(chatId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChatUsers,
+    TResult? Function(String? chatId)? getAllMessages,
+  }) {
+    return getAllMessages?.call(chatId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChatUsers,
+    TResult Function(String? chatId)? getAllMessages,
+    required TResult orElse(),
+  }) {
+    if (getAllMessages != null) {
+      return getAllMessages(chatId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetChatUsers value) getChatUsers,
+    required TResult Function(_GetAllMessages value) getAllMessages,
+  }) {
+    return getAllMessages(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetChatUsers value)? getChatUsers,
+    TResult? Function(_GetAllMessages value)? getAllMessages,
+  }) {
+    return getAllMessages?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetChatUsers value)? getChatUsers,
+    TResult Function(_GetAllMessages value)? getAllMessages,
+    required TResult orElse(),
+  }) {
+    if (getAllMessages != null) {
+      return getAllMessages(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllMessages implements ChatEvent {
+  factory _GetAllMessages({required final String? chatId}) =
+      _$GetAllMessagesImpl;
+
+  String? get chatId;
+  @JsonKey(ignore: true)
+  _$$GetAllMessagesImplCopyWith<_$GetAllMessagesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ChatState {
   bool get chatUserisLoading => throw _privateConstructorUsedError;
   bool get chatUserHasError => throw _privateConstructorUsedError;
+  bool get msgisLoading => throw _privateConstructorUsedError;
+  bool get msgHasEroor => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   ChatUsersModel? get chatUsersModel => throw _privateConstructorUsedError;
+  GetMessages? get getMessages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatStateCopyWith<ChatState> get copyWith =>
@@ -183,8 +333,11 @@ abstract class $ChatStateCopyWith<$Res> {
   $Res call(
       {bool chatUserisLoading,
       bool chatUserHasError,
+      bool msgisLoading,
+      bool msgHasEroor,
       String? message,
-      ChatUsersModel? chatUsersModel});
+      ChatUsersModel? chatUsersModel,
+      GetMessages? getMessages});
 }
 
 /// @nodoc
@@ -202,8 +355,11 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
   $Res call({
     Object? chatUserisLoading = null,
     Object? chatUserHasError = null,
+    Object? msgisLoading = null,
+    Object? msgHasEroor = null,
     Object? message = freezed,
     Object? chatUsersModel = freezed,
+    Object? getMessages = freezed,
   }) {
     return _then(_value.copyWith(
       chatUserisLoading: null == chatUserisLoading
@@ -214,6 +370,14 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
           ? _value.chatUserHasError
           : chatUserHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      msgisLoading: null == msgisLoading
+          ? _value.msgisLoading
+          : msgisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msgHasEroor: null == msgHasEroor
+          ? _value.msgHasEroor
+          : msgHasEroor // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -222,6 +386,10 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
           ? _value.chatUsersModel
           : chatUsersModel // ignore: cast_nullable_to_non_nullable
               as ChatUsersModel?,
+      getMessages: freezed == getMessages
+          ? _value.getMessages
+          : getMessages // ignore: cast_nullable_to_non_nullable
+              as GetMessages?,
     ) as $Val);
   }
 }
@@ -237,8 +405,11 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {bool chatUserisLoading,
       bool chatUserHasError,
+      bool msgisLoading,
+      bool msgHasEroor,
       String? message,
-      ChatUsersModel? chatUsersModel});
+      ChatUsersModel? chatUsersModel,
+      GetMessages? getMessages});
 }
 
 /// @nodoc
@@ -254,8 +425,11 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? chatUserisLoading = null,
     Object? chatUserHasError = null,
+    Object? msgisLoading = null,
+    Object? msgHasEroor = null,
     Object? message = freezed,
     Object? chatUsersModel = freezed,
+    Object? getMessages = freezed,
   }) {
     return _then(_$InitialImpl(
       chatUserisLoading: null == chatUserisLoading
@@ -266,6 +440,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.chatUserHasError
           : chatUserHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      msgisLoading: null == msgisLoading
+          ? _value.msgisLoading
+          : msgisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      msgHasEroor: null == msgHasEroor
+          ? _value.msgHasEroor
+          : msgHasEroor // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -274,6 +456,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.chatUsersModel
           : chatUsersModel // ignore: cast_nullable_to_non_nullable
               as ChatUsersModel?,
+      getMessages: freezed == getMessages
+          ? _value.getMessages
+          : getMessages // ignore: cast_nullable_to_non_nullable
+              as GetMessages?,
     ));
   }
 }
@@ -284,21 +470,30 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.chatUserisLoading,
       required this.chatUserHasError,
+      required this.msgisLoading,
+      required this.msgHasEroor,
       this.message,
-      this.chatUsersModel});
+      this.chatUsersModel,
+      this.getMessages});
 
   @override
   final bool chatUserisLoading;
   @override
   final bool chatUserHasError;
   @override
+  final bool msgisLoading;
+  @override
+  final bool msgHasEroor;
+  @override
   final String? message;
   @override
   final ChatUsersModel? chatUsersModel;
+  @override
+  final GetMessages? getMessages;
 
   @override
   String toString() {
-    return 'ChatState(chatUserisLoading: $chatUserisLoading, chatUserHasError: $chatUserHasError, message: $message, chatUsersModel: $chatUsersModel)';
+    return 'ChatState(chatUserisLoading: $chatUserisLoading, chatUserHasError: $chatUserHasError, msgisLoading: $msgisLoading, msgHasEroor: $msgHasEroor, message: $message, chatUsersModel: $chatUsersModel, getMessages: $getMessages)';
   }
 
   @override
@@ -310,14 +505,27 @@ class _$InitialImpl implements _Initial {
                 other.chatUserisLoading == chatUserisLoading) &&
             (identical(other.chatUserHasError, chatUserHasError) ||
                 other.chatUserHasError == chatUserHasError) &&
+            (identical(other.msgisLoading, msgisLoading) ||
+                other.msgisLoading == msgisLoading) &&
+            (identical(other.msgHasEroor, msgHasEroor) ||
+                other.msgHasEroor == msgHasEroor) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.chatUsersModel, chatUsersModel) ||
-                other.chatUsersModel == chatUsersModel));
+                other.chatUsersModel == chatUsersModel) &&
+            (identical(other.getMessages, getMessages) ||
+                other.getMessages == getMessages));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, chatUserisLoading,
-      chatUserHasError, message, chatUsersModel);
+  int get hashCode => Object.hash(
+      runtimeType,
+      chatUserisLoading,
+      chatUserHasError,
+      msgisLoading,
+      msgHasEroor,
+      message,
+      chatUsersModel,
+      getMessages);
 
   @JsonKey(ignore: true)
   @override
@@ -330,17 +538,26 @@ abstract class _Initial implements ChatState {
   const factory _Initial(
       {required final bool chatUserisLoading,
       required final bool chatUserHasError,
+      required final bool msgisLoading,
+      required final bool msgHasEroor,
       final String? message,
-      final ChatUsersModel? chatUsersModel}) = _$InitialImpl;
+      final ChatUsersModel? chatUsersModel,
+      final GetMessages? getMessages}) = _$InitialImpl;
 
   @override
   bool get chatUserisLoading;
   @override
   bool get chatUserHasError;
   @override
+  bool get msgisLoading;
+  @override
+  bool get msgHasEroor;
+  @override
   String? get message;
   @override
   ChatUsersModel? get chatUsersModel;
+  @override
+  GetMessages? get getMessages;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

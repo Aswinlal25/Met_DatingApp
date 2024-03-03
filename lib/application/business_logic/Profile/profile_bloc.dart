@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dating_app/domain/modules/profile/edit_profile_model/edit_profile_model.dart';
 import 'package:dating_app/domain/modules/profile/edit_profile_picture_response/edit_profile_picture_response.dart';
@@ -5,6 +7,10 @@ import 'package:dating_app/domain/modules/profile/edit_profile_response/edit_pro
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_make_response_model/profile_make_response_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_model/profile_model.dart';
+import 'package:dating_app/domain/modules/profile/updated_phone_number_model/updated_phone_number_model.dart';
+import 'package:dating_app/domain/modules/profile/updeted_phone_number_response/updeted_phone_number_response.dart';
+import 'package:dating_app/domain/modules/profile/verify_updated_number/verify_updated_number.dart';
+import 'package:dating_app/domain/modules/profile/verify_updated_number_response/verify_updated_number_response.dart';
 import 'package:dating_app/domain/repositories/user_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -79,6 +85,38 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         emit(state.copyWith(
             userdataisLoading: false,
             editProfilePictureResponse: editProfilePictureResponse));
+      });
+    });
+
+    on<_EditPhoneNumber>((event, emit) async {
+      emit(state.copyWith(dataIsLoading: true));
+
+      final result = await profileRepository.editphoneNumber(
+          updatedPhoneNumberModel: event.updatedPhoneNumberModel);
+
+      result.fold((errorMssg) {
+        emit(state.copyWith(dataIsLoading: false, message: errorMssg.message));
+      }, (updatedPhoneNumberResponse) {
+        emit(state.copyWith(
+            dataIsLoading: false,
+            updetedPhoneNumberResponse: updatedPhoneNumberResponse));
+      });
+    });
+
+    on<_VerifyNewNumber>((event, emit) async {
+      print('function is ok');
+      emit(state.copyWith(verifyisLoading: true));
+      log("code------------------${event.verifyUpdatedNumber.code.toString()}");
+      final result = await profileRepository.verifyNewNumbe(
+          verifyUpdatedNumber: event.verifyUpdatedNumber);
+
+      result.fold((errorMssg) {
+        emit(
+            state.copyWith(verifyisLoading: false, message: errorMssg.message));
+      }, (verifyUpdatedNumberResponse) {
+        emit(state.copyWith(
+            verifyisLoading: false,
+            verifyUpdatedNumberResponse: verifyUpdatedNumberResponse));
       });
     });
   }

@@ -4,10 +4,14 @@ import 'package:dating_app/application/presentation/utils/constant.dart';
 
 import 'package:flutter/material.dart';
 
-class BlockDialog extends StatelessWidget {
-  static const IconData heart_broken_sharp =
-      IconData(0xf0421, fontFamily: 'MaterialIcons');
+class BlockDialog extends StatefulWidget {
+  final int? id;
+  BlockDialog({required this.id});
+  @override
+  State<BlockDialog> createState() => _BlockDialogState();
+}
 
+class _BlockDialogState extends State<BlockDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(

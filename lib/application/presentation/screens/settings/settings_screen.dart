@@ -7,6 +7,7 @@ import 'package:dating_app/application/presentation/screens/settings/widgets/ran
 import 'package:dating_app/application/presentation/screens/settings/widgets/slider_setting.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/application/presentation/utils/dialog_box/account_delete.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/custom_dialog.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/user_details.dart';
@@ -322,7 +323,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       onTap: () {
                         showDialog(
                             context: context, builder: (_) => CustomDialog());
-                        CustomDialog();
                       },
                       child: Container(
                         decoration: BackgroundBoxStyle(),
@@ -343,19 +343,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     kheight15,
                     InkWell(
-                      child: Container(
-                        decoration: BackgroundBoxStyle(),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Center(
-                            child: Text(
-                              'Delete Account',
-                              style: TextStyle(
-                                  letterSpacing: 0.6,
-                                  color:
-                                      const Color.fromARGB(169, 255, 255, 255),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
+                      child: InkWell(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => AccountDeleteDialog());
+                        },
+                        child: Container(
+                          decoration: BackgroundBoxStyle(),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Center(
+                              child: Text(
+                                'Delete Account',
+                                style: TextStyle(
+                                    letterSpacing: 0.6,
+                                    color: const Color.fromARGB(
+                                        169, 255, 255, 255),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17),
+                              ),
                             ),
                           ),
                         ),

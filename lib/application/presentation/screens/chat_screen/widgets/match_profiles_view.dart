@@ -300,7 +300,9 @@ class _OtherUsersScreenState extends State<MatchUsersProfileView> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return BlockDialog();
+                    return BlockDialog(
+                      id: widget.matchUser.id,
+                    );
                   },
                 );
               },
@@ -326,7 +328,9 @@ class _OtherUsersScreenState extends State<MatchUsersProfileView> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ReportDialog();
+                      return ReportDialog(
+                        id: widget.matchUser.id,
+                      );
                     });
               },
               child: Container(

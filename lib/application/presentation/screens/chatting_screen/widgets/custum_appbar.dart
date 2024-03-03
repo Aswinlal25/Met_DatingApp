@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/chatting_screen/widgets/image_view_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/domain/modules/chat/chat_users_model/datum.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,10 +47,20 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 SizedBox(
                   width: 15,
                 ),
-                CircleAvatar(
-                  radius: 22,
-                  backgroundImage:
-                      NetworkImage(widget.chatUsersModel!.user!.image ?? ''),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => ImageViewScreen(
+                                  picture: widget.chatUsersModel!.user!.image,
+                                )));
+                  },
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundImage:
+                        NetworkImage(widget.chatUsersModel!.user!.image ?? ''),
+                  ),
                 ),
                 SizedBox(
                   width: 15,

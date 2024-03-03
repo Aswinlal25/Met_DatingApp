@@ -16,6 +16,10 @@ import 'package:dating_app/domain/modules/profile/edit_profile_response/edit_pro
 import 'package:dating_app/domain/modules/profile/profile_details/profile_details.dart';
 import 'package:dating_app/domain/modules/profile/profile_details_model/profile_details_model.dart';
 import 'package:dating_app/domain/modules/profile/profile_make_response_model/profile_make_response_model.dart';
+import 'package:dating_app/domain/modules/profile/updated_phone_number_model/updated_phone_number_model.dart';
+import 'package:dating_app/domain/modules/profile/updeted_phone_number_response/updeted_phone_number_response.dart';
+import 'package:dating_app/domain/modules/profile/verify_updated_number/verify_updated_number.dart';
+import 'package:dating_app/domain/modules/profile/verify_updated_number_response/verify_updated_number_response.dart';
 import 'package:dating_app/domain/repositories/user_repository.dart';
 import 'package:dio/dio.dart';
 
@@ -224,6 +228,87 @@ class ProfileApi implements ProfileRepository {
     } catch (e) {
       print('msg ---------------------->${e.toString()}');
       return Left(Failure.serverFailure().copyWith(message: e.toString()));
+    }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, VerifyUpdatedNumberResponse>> verifyNewNumbe(
+      {required VerifyUpdatedNumber verifyUpdatedNumber}) async {
+    final accessToken = await SharedPref.getToken();
+    final accesskey = accessToken.accessToken;
+    final refreshkey = accessToken.refreshToken;
+    final Dio dio = Dio(
+      BaseOptions(
+        baseUrl: ApiEndPoints.baseUrl,
+        headers: <String, dynamic>{
+          "accept": "application/json",
+          "Content-Type": "application/json",
+          "Cookie": 'accessToken=$accesskey; refreshToken=$refreshkey',
+        },
+      ),
+    );
+    try {
+      final verifyNumber = verifyUpdatedNumber.toJson();
+
+      final response =
+          await dio.patch(ApiEndPoints.verifynewphNo, data: verifyNumber);
+      print('--------------verifyed-----${response.data.toString()}');
+      if (response.statusCode == 200) {
+        return Right(VerifyUpdatedNumberResponse.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return Left(Failure.clientFailure().copyWith(
+            message:
+                VerifyUpdatedNumberResponse.fromJson(response.data).message));
+      } else if (response.statusCode == 401) {
+        return Left(Failure.tokenExpire());
+      } else if (response.statusCode == 500) {
+        return Left(Failure.serverFailure().copyWith(
+            message:
+                '-----------------Error--------${VerifyUpdatedNumberResponse.fromJson(response.data).error.toString()}'));
+      }
+    } on DioException catch (dioError) {
+      print('Dio - Error${dioError.toString()}');
+    } catch (e) {
+      print(e.toString());
+    }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, UpdetedPhoneNumberResponse>> editphoneNumber(
+      {required UpdatedPhoneNumberModel updatedPhoneNumberModel}) async {
+    final accessToken = await SharedPref.getToken();
+    final accesskey = accessToken.accessToken;
+    final refreshkey = accessToken.refreshToken;
+    final Dio dio = Dio(
+      BaseOptions(
+        baseUrl: ApiEndPoints.baseUrl,
+        headers: <String, dynamic>{
+          "accept": "application/json",
+          "Content-Type": "application/json",
+          "Cookie": 'accessToken=$accesskey; refreshToken=$refreshkey',
+        },
+      ),
+    );
+    try {
+      final newphNo = updatedPhoneNumberModel.toJson();
+      final response = await dio.post(ApiEndPoints.newphNo, data: newphNo);
+      if (response.statusCode == 200) {
+        return Right(UpdetedPhoneNumberResponse.fromJson(response.data));
+      } else if (response.statusCode == 400) {
+        return Left(Failure.clientFailure().copyWith(
+            message:
+                UpdetedPhoneNumberResponse.fromJson(response.data).message));
+      } else if (response.statusCode == 401) {
+        return Left(Failure.tokenExpire());
+      } else if (response.statusCode == 500) {
+        return Left(Failure.serverFailure());
+      }
+    } on DioException catch (dioError) {
+      print('Dio - Error${dioError.toString()}');
+    } catch (e) {
+      print(e.toString());
     }
     throw UnimplementedError();
   }

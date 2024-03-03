@@ -13,6 +13,7 @@ class Like {
   String? country;
   String? bio;
   String? image;
+  List<String>? interests;
 
   Like({
     this.id,
@@ -24,6 +25,7 @@ class Like {
     this.country,
     this.bio,
     this.image,
+    this.interests,
   });
 
   factory Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);

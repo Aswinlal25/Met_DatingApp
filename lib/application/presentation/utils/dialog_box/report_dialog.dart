@@ -1,13 +1,21 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/domain/modules/features/block_reson_model/Report_reson_model.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ReportDialog extends StatelessWidget {
-  static const IconData heart_broken_sharp =
-      IconData(0xf0421, fontFamily: 'MaterialIcons');
+class ReportDialog extends StatefulWidget {
+  final int? id;
+  ReportDialog({required this.id});
 
+  @override
+  State<ReportDialog> createState() => _ReportDialogState();
+}
+
+class _ReportDialogState extends State<ReportDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -44,7 +52,18 @@ class ReportDialog extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         try {
-                          {}
+                          {
+                            setState(() {
+                              ReportResonModel reportResonModel =
+                                  ReportResonModel(
+                                      message: "I did n't like this user");
+
+                              context.read<FeaturesBloc>().add(
+                                  FeaturesEvent.reportUsers(
+                                      reportResonModel: reportResonModel,
+                                      id: widget.id));
+                            });
+                          }
                         } catch (e) {
                           print('Error: $e');
                           // Handle any exceptions here

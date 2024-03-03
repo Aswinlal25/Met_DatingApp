@@ -20,4 +20,5 @@ class Routes {
   static const callingScreen = '/calling_page';
   static const ProfileScreen = '/profile_page';
   static const editProfileScreen = '/editprofile_page';
+  static const numbereditscreen = '/editnumbepage';
 }

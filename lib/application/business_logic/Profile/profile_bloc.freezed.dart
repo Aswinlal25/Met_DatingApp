@@ -23,6 +23,10 @@ mixin _$ProfileEvent {
     required TResult Function(EditProfileModel editProfileModel)
         editprofileDetails,
     required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +35,9 @@ mixin _$ProfileEvent {
     TResult? Function()? getprofileDetails,
     TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +46,9 @@ mixin _$ProfileEvent {
     TResult Function()? getprofileDetails,
     TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +58,8 @@ mixin _$ProfileEvent {
     required TResult Function(_GetprofileDetails value) getprofileDetails,
     required TResult Function(_EditprofileDetails value) editprofileDetails,
     required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +68,8 @@ mixin _$ProfileEvent {
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
     TResult? Function(_EditprofileDetails value)? editprofileDetails,
     TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +78,8 @@ mixin _$ProfileEvent {
     TResult Function(_GetprofileDetails value)? getprofileDetails,
     TResult Function(_EditprofileDetails value)? editprofileDetails,
     TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +146,10 @@ class _$MakeprofileImpl implements _Makeprofile {
     required TResult Function(EditProfileModel editProfileModel)
         editprofileDetails,
     required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
   }) {
     return makeprofile();
   }
@@ -141,6 +161,9 @@ class _$MakeprofileImpl implements _Makeprofile {
     TResult? Function()? getprofileDetails,
     TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
   }) {
     return makeprofile?.call();
   }
@@ -152,6 +175,9 @@ class _$MakeprofileImpl implements _Makeprofile {
     TResult Function()? getprofileDetails,
     TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
@@ -167,6 +193,8 @@ class _$MakeprofileImpl implements _Makeprofile {
     required TResult Function(_GetprofileDetails value) getprofileDetails,
     required TResult Function(_EditprofileDetails value) editprofileDetails,
     required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
   }) {
     return makeprofile(this);
   }
@@ -178,6 +206,8 @@ class _$MakeprofileImpl implements _Makeprofile {
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
     TResult? Function(_EditprofileDetails value)? editprofileDetails,
     TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
   }) {
     return makeprofile?.call(this);
   }
@@ -189,6 +219,8 @@ class _$MakeprofileImpl implements _Makeprofile {
     TResult Function(_GetprofileDetails value)? getprofileDetails,
     TResult Function(_EditprofileDetails value)? editprofileDetails,
     TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (makeprofile != null) {
@@ -245,6 +277,10 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     required TResult Function(EditProfileModel editProfileModel)
         editprofileDetails,
     required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
   }) {
     return getprofileDetails();
   }
@@ -256,6 +292,9 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     TResult? Function()? getprofileDetails,
     TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
   }) {
     return getprofileDetails?.call();
   }
@@ -267,6 +306,9 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     TResult Function()? getprofileDetails,
     TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (getprofileDetails != null) {
@@ -282,6 +324,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     required TResult Function(_GetprofileDetails value) getprofileDetails,
     required TResult Function(_EditprofileDetails value) editprofileDetails,
     required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
   }) {
     return getprofileDetails(this);
   }
@@ -293,6 +337,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
     TResult? Function(_EditprofileDetails value)? editprofileDetails,
     TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
   }) {
     return getprofileDetails?.call(this);
   }
@@ -304,6 +350,8 @@ class _$GetprofileDetailsImpl implements _GetprofileDetails {
     TResult Function(_GetprofileDetails value)? getprofileDetails,
     TResult Function(_EditprofileDetails value)? editprofileDetails,
     TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (getprofileDetails != null) {
@@ -388,6 +436,10 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     required TResult Function(EditProfileModel editProfileModel)
         editprofileDetails,
     required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
   }) {
     return editprofileDetails(editProfileModel);
   }
@@ -399,6 +451,9 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     TResult? Function()? getprofileDetails,
     TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
   }) {
     return editprofileDetails?.call(editProfileModel);
   }
@@ -410,6 +465,9 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     TResult Function()? getprofileDetails,
     TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (editprofileDetails != null) {
@@ -425,6 +483,8 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     required TResult Function(_GetprofileDetails value) getprofileDetails,
     required TResult Function(_EditprofileDetails value) editprofileDetails,
     required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
   }) {
     return editprofileDetails(this);
   }
@@ -436,6 +496,8 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
     TResult? Function(_EditprofileDetails value)? editprofileDetails,
     TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
   }) {
     return editprofileDetails?.call(this);
   }
@@ -447,6 +509,8 @@ class _$EditprofileDetailsImpl implements _EditprofileDetails {
     TResult Function(_GetprofileDetails value)? getprofileDetails,
     TResult Function(_EditprofileDetails value)? editprofileDetails,
     TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (editprofileDetails != null) {
@@ -510,6 +574,10 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     required TResult Function(EditProfileModel editProfileModel)
         editprofileDetails,
     required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
   }) {
     return editProfilePicture();
   }
@@ -521,6 +589,9 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     TResult? Function()? getprofileDetails,
     TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
   }) {
     return editProfilePicture?.call();
   }
@@ -532,6 +603,9 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     TResult Function()? getprofileDetails,
     TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
     TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (editProfilePicture != null) {
@@ -547,6 +621,8 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     required TResult Function(_GetprofileDetails value) getprofileDetails,
     required TResult Function(_EditprofileDetails value) editprofileDetails,
     required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
   }) {
     return editProfilePicture(this);
   }
@@ -558,6 +634,8 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     TResult? Function(_GetprofileDetails value)? getprofileDetails,
     TResult? Function(_EditprofileDetails value)? editprofileDetails,
     TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
   }) {
     return editProfilePicture?.call(this);
   }
@@ -569,6 +647,8 @@ class _$EditProfilePictureImpl implements _EditProfilePicture {
     TResult Function(_GetprofileDetails value)? getprofileDetails,
     TResult Function(_EditprofileDetails value)? editprofileDetails,
     TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
     required TResult orElse(),
   }) {
     if (editProfilePicture != null) {
@@ -583,11 +663,346 @@ abstract class _EditProfilePicture implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$EditPhoneNumberImplCopyWith<$Res> {
+  factory _$$EditPhoneNumberImplCopyWith(_$EditPhoneNumberImpl value,
+          $Res Function(_$EditPhoneNumberImpl) then) =
+      __$$EditPhoneNumberImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UpdatedPhoneNumberModel updatedPhoneNumberModel});
+}
+
+/// @nodoc
+class __$$EditPhoneNumberImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$EditPhoneNumberImpl>
+    implements _$$EditPhoneNumberImplCopyWith<$Res> {
+  __$$EditPhoneNumberImplCopyWithImpl(
+      _$EditPhoneNumberImpl _value, $Res Function(_$EditPhoneNumberImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? updatedPhoneNumberModel = null,
+  }) {
+    return _then(_$EditPhoneNumberImpl(
+      updatedPhoneNumberModel: null == updatedPhoneNumberModel
+          ? _value.updatedPhoneNumberModel
+          : updatedPhoneNumberModel // ignore: cast_nullable_to_non_nullable
+              as UpdatedPhoneNumberModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditPhoneNumberImpl implements _EditPhoneNumber {
+  const _$EditPhoneNumberImpl({required this.updatedPhoneNumberModel});
+
+  @override
+  final UpdatedPhoneNumberModel updatedPhoneNumberModel;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.editPhoneNumber(updatedPhoneNumberModel: $updatedPhoneNumberModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditPhoneNumberImpl &&
+            (identical(
+                    other.updatedPhoneNumberModel, updatedPhoneNumberModel) ||
+                other.updatedPhoneNumberModel == updatedPhoneNumberModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, updatedPhoneNumberModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditPhoneNumberImplCopyWith<_$EditPhoneNumberImpl> get copyWith =>
+      __$$EditPhoneNumberImplCopyWithImpl<_$EditPhoneNumberImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
+  }) {
+    return editPhoneNumber(updatedPhoneNumberModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
+  }) {
+    return editPhoneNumber?.call(updatedPhoneNumberModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
+    required TResult orElse(),
+  }) {
+    if (editPhoneNumber != null) {
+      return editPhoneNumber(updatedPhoneNumberModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
+  }) {
+    return editPhoneNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
+  }) {
+    return editPhoneNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
+    required TResult orElse(),
+  }) {
+    if (editPhoneNumber != null) {
+      return editPhoneNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditPhoneNumber implements ProfileEvent {
+  const factory _EditPhoneNumber(
+          {required final UpdatedPhoneNumberModel updatedPhoneNumberModel}) =
+      _$EditPhoneNumberImpl;
+
+  UpdatedPhoneNumberModel get updatedPhoneNumberModel;
+  @JsonKey(ignore: true)
+  _$$EditPhoneNumberImplCopyWith<_$EditPhoneNumberImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$VerifyNewNumberImplCopyWith<$Res> {
+  factory _$$VerifyNewNumberImplCopyWith(_$VerifyNewNumberImpl value,
+          $Res Function(_$VerifyNewNumberImpl) then) =
+      __$$VerifyNewNumberImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VerifyUpdatedNumber verifyUpdatedNumber});
+}
+
+/// @nodoc
+class __$$VerifyNewNumberImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$VerifyNewNumberImpl>
+    implements _$$VerifyNewNumberImplCopyWith<$Res> {
+  __$$VerifyNewNumberImplCopyWithImpl(
+      _$VerifyNewNumberImpl _value, $Res Function(_$VerifyNewNumberImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? verifyUpdatedNumber = null,
+  }) {
+    return _then(_$VerifyNewNumberImpl(
+      verifyUpdatedNumber: null == verifyUpdatedNumber
+          ? _value.verifyUpdatedNumber
+          : verifyUpdatedNumber // ignore: cast_nullable_to_non_nullable
+              as VerifyUpdatedNumber,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyNewNumberImpl implements _VerifyNewNumber {
+  const _$VerifyNewNumberImpl({required this.verifyUpdatedNumber});
+
+  @override
+  final VerifyUpdatedNumber verifyUpdatedNumber;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.verifyNewNumber(verifyUpdatedNumber: $verifyUpdatedNumber)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyNewNumberImpl &&
+            (identical(other.verifyUpdatedNumber, verifyUpdatedNumber) ||
+                other.verifyUpdatedNumber == verifyUpdatedNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, verifyUpdatedNumber);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyNewNumberImplCopyWith<_$VerifyNewNumberImpl> get copyWith =>
+      __$$VerifyNewNumberImplCopyWithImpl<_$VerifyNewNumberImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() makeprofile,
+    required TResult Function() getprofileDetails,
+    required TResult Function(EditProfileModel editProfileModel)
+        editprofileDetails,
+    required TResult Function() editProfilePicture,
+    required TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)
+        editPhoneNumber,
+    required TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)
+        verifyNewNumber,
+  }) {
+    return verifyNewNumber(verifyUpdatedNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? makeprofile,
+    TResult? Function()? getprofileDetails,
+    TResult? Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult? Function()? editProfilePicture,
+    TResult? Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult? Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
+  }) {
+    return verifyNewNumber?.call(verifyUpdatedNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? makeprofile,
+    TResult Function()? getprofileDetails,
+    TResult Function(EditProfileModel editProfileModel)? editprofileDetails,
+    TResult Function()? editProfilePicture,
+    TResult Function(UpdatedPhoneNumberModel updatedPhoneNumberModel)?
+        editPhoneNumber,
+    TResult Function(VerifyUpdatedNumber verifyUpdatedNumber)? verifyNewNumber,
+    required TResult orElse(),
+  }) {
+    if (verifyNewNumber != null) {
+      return verifyNewNumber(verifyUpdatedNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Makeprofile value) makeprofile,
+    required TResult Function(_GetprofileDetails value) getprofileDetails,
+    required TResult Function(_EditprofileDetails value) editprofileDetails,
+    required TResult Function(_EditProfilePicture value) editProfilePicture,
+    required TResult Function(_EditPhoneNumber value) editPhoneNumber,
+    required TResult Function(_VerifyNewNumber value) verifyNewNumber,
+  }) {
+    return verifyNewNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Makeprofile value)? makeprofile,
+    TResult? Function(_GetprofileDetails value)? getprofileDetails,
+    TResult? Function(_EditprofileDetails value)? editprofileDetails,
+    TResult? Function(_EditProfilePicture value)? editProfilePicture,
+    TResult? Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult? Function(_VerifyNewNumber value)? verifyNewNumber,
+  }) {
+    return verifyNewNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Makeprofile value)? makeprofile,
+    TResult Function(_GetprofileDetails value)? getprofileDetails,
+    TResult Function(_EditprofileDetails value)? editprofileDetails,
+    TResult Function(_EditProfilePicture value)? editProfilePicture,
+    TResult Function(_EditPhoneNumber value)? editPhoneNumber,
+    TResult Function(_VerifyNewNumber value)? verifyNewNumber,
+    required TResult orElse(),
+  }) {
+    if (verifyNewNumber != null) {
+      return verifyNewNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyNewNumber implements ProfileEvent {
+  const factory _VerifyNewNumber(
+          {required final VerifyUpdatedNumber verifyUpdatedNumber}) =
+      _$VerifyNewNumberImpl;
+
+  VerifyUpdatedNumber get verifyUpdatedNumber;
+  @JsonKey(ignore: true)
+  _$$VerifyNewNumberImplCopyWith<_$VerifyNewNumberImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   bool get dataHasError => throw _privateConstructorUsedError;
   bool get dataIsLoading => throw _privateConstructorUsedError;
   bool get userdataisLoading => throw _privateConstructorUsedError;
   bool get userdataHasError => throw _privateConstructorUsedError;
+  bool get verifyHasError => throw _privateConstructorUsedError;
+  bool get verifyisLoading => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   ProfileModel? get profileModel => throw _privateConstructorUsedError;
   ProfileMakeResponseModel? get profileMakeResponseModel =>
@@ -598,6 +1013,14 @@ mixin _$ProfileState {
   EditProfileResponse? get editProfileResponse =>
       throw _privateConstructorUsedError;
   EditProfilePictureResponse? get editProfilePictureResponse =>
+      throw _privateConstructorUsedError;
+  UpdatedPhoneNumberModel? get updatedPhoneNumberModel =>
+      throw _privateConstructorUsedError;
+  UpdetedPhoneNumberResponse? get updetedPhoneNumberResponse =>
+      throw _privateConstructorUsedError;
+  VerifyUpdatedNumber? get verifyUpdatedNumber =>
+      throw _privateConstructorUsedError;
+  VerifyUpdatedNumberResponse? get verifyUpdatedNumberResponse =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -616,13 +1039,19 @@ abstract class $ProfileStateCopyWith<$Res> {
       bool dataIsLoading,
       bool userdataisLoading,
       bool userdataHasError,
+      bool verifyHasError,
+      bool verifyisLoading,
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
       ProfileDetailsModel? profileDetailsModel,
       EditProfileModel? editProfileModel,
       EditProfileResponse? editProfileResponse,
-      EditProfilePictureResponse? editProfilePictureResponse});
+      EditProfilePictureResponse? editProfilePictureResponse,
+      UpdatedPhoneNumberModel? updatedPhoneNumberModel,
+      UpdetedPhoneNumberResponse? updetedPhoneNumberResponse,
+      VerifyUpdatedNumber? verifyUpdatedNumber,
+      VerifyUpdatedNumberResponse? verifyUpdatedNumberResponse});
 }
 
 /// @nodoc
@@ -642,6 +1071,8 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? dataIsLoading = null,
     Object? userdataisLoading = null,
     Object? userdataHasError = null,
+    Object? verifyHasError = null,
+    Object? verifyisLoading = null,
     Object? message = freezed,
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
@@ -649,6 +1080,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? editProfileModel = freezed,
     Object? editProfileResponse = freezed,
     Object? editProfilePictureResponse = freezed,
+    Object? updatedPhoneNumberModel = freezed,
+    Object? updetedPhoneNumberResponse = freezed,
+    Object? verifyUpdatedNumber = freezed,
+    Object? verifyUpdatedNumberResponse = freezed,
   }) {
     return _then(_value.copyWith(
       dataHasError: null == dataHasError
@@ -667,6 +1102,14 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.userdataHasError
           : userdataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      verifyHasError: null == verifyHasError
+          ? _value.verifyHasError
+          : verifyHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verifyisLoading: null == verifyisLoading
+          ? _value.verifyisLoading
+          : verifyisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -695,6 +1138,22 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.editProfilePictureResponse
           : editProfilePictureResponse // ignore: cast_nullable_to_non_nullable
               as EditProfilePictureResponse?,
+      updatedPhoneNumberModel: freezed == updatedPhoneNumberModel
+          ? _value.updatedPhoneNumberModel
+          : updatedPhoneNumberModel // ignore: cast_nullable_to_non_nullable
+              as UpdatedPhoneNumberModel?,
+      updetedPhoneNumberResponse: freezed == updetedPhoneNumberResponse
+          ? _value.updetedPhoneNumberResponse
+          : updetedPhoneNumberResponse // ignore: cast_nullable_to_non_nullable
+              as UpdetedPhoneNumberResponse?,
+      verifyUpdatedNumber: freezed == verifyUpdatedNumber
+          ? _value.verifyUpdatedNumber
+          : verifyUpdatedNumber // ignore: cast_nullable_to_non_nullable
+              as VerifyUpdatedNumber?,
+      verifyUpdatedNumberResponse: freezed == verifyUpdatedNumberResponse
+          ? _value.verifyUpdatedNumberResponse
+          : verifyUpdatedNumberResponse // ignore: cast_nullable_to_non_nullable
+              as VerifyUpdatedNumberResponse?,
     ) as $Val);
   }
 }
@@ -712,13 +1171,19 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool dataIsLoading,
       bool userdataisLoading,
       bool userdataHasError,
+      bool verifyHasError,
+      bool verifyisLoading,
       String? message,
       ProfileModel? profileModel,
       ProfileMakeResponseModel? profileMakeResponseModel,
       ProfileDetailsModel? profileDetailsModel,
       EditProfileModel? editProfileModel,
       EditProfileResponse? editProfileResponse,
-      EditProfilePictureResponse? editProfilePictureResponse});
+      EditProfilePictureResponse? editProfilePictureResponse,
+      UpdatedPhoneNumberModel? updatedPhoneNumberModel,
+      UpdetedPhoneNumberResponse? updetedPhoneNumberResponse,
+      VerifyUpdatedNumber? verifyUpdatedNumber,
+      VerifyUpdatedNumberResponse? verifyUpdatedNumberResponse});
 }
 
 /// @nodoc
@@ -736,6 +1201,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? dataIsLoading = null,
     Object? userdataisLoading = null,
     Object? userdataHasError = null,
+    Object? verifyHasError = null,
+    Object? verifyisLoading = null,
     Object? message = freezed,
     Object? profileModel = freezed,
     Object? profileMakeResponseModel = freezed,
@@ -743,6 +1210,10 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? editProfileModel = freezed,
     Object? editProfileResponse = freezed,
     Object? editProfilePictureResponse = freezed,
+    Object? updatedPhoneNumberModel = freezed,
+    Object? updetedPhoneNumberResponse = freezed,
+    Object? verifyUpdatedNumber = freezed,
+    Object? verifyUpdatedNumberResponse = freezed,
   }) {
     return _then(_$InitialImpl(
       dataHasError: null == dataHasError
@@ -761,6 +1232,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.userdataHasError
           : userdataHasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      verifyHasError: null == verifyHasError
+          ? _value.verifyHasError
+          : verifyHasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verifyisLoading: null == verifyisLoading
+          ? _value.verifyisLoading
+          : verifyisLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -789,6 +1268,22 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.editProfilePictureResponse
           : editProfilePictureResponse // ignore: cast_nullable_to_non_nullable
               as EditProfilePictureResponse?,
+      updatedPhoneNumberModel: freezed == updatedPhoneNumberModel
+          ? _value.updatedPhoneNumberModel
+          : updatedPhoneNumberModel // ignore: cast_nullable_to_non_nullable
+              as UpdatedPhoneNumberModel?,
+      updetedPhoneNumberResponse: freezed == updetedPhoneNumberResponse
+          ? _value.updetedPhoneNumberResponse
+          : updetedPhoneNumberResponse // ignore: cast_nullable_to_non_nullable
+              as UpdetedPhoneNumberResponse?,
+      verifyUpdatedNumber: freezed == verifyUpdatedNumber
+          ? _value.verifyUpdatedNumber
+          : verifyUpdatedNumber // ignore: cast_nullable_to_non_nullable
+              as VerifyUpdatedNumber?,
+      verifyUpdatedNumberResponse: freezed == verifyUpdatedNumberResponse
+          ? _value.verifyUpdatedNumberResponse
+          : verifyUpdatedNumberResponse // ignore: cast_nullable_to_non_nullable
+              as VerifyUpdatedNumberResponse?,
     ));
   }
 }
@@ -801,13 +1296,19 @@ class _$InitialImpl implements _Initial {
       required this.dataIsLoading,
       required this.userdataisLoading,
       required this.userdataHasError,
+      required this.verifyHasError,
+      required this.verifyisLoading,
       this.message,
       this.profileModel,
       this.profileMakeResponseModel,
       this.profileDetailsModel,
       this.editProfileModel,
       this.editProfileResponse,
-      this.editProfilePictureResponse});
+      this.editProfilePictureResponse,
+      this.updatedPhoneNumberModel,
+      this.updetedPhoneNumberResponse,
+      this.verifyUpdatedNumber,
+      this.verifyUpdatedNumberResponse});
 
   @override
   final bool dataHasError;
@@ -817,6 +1318,10 @@ class _$InitialImpl implements _Initial {
   final bool userdataisLoading;
   @override
   final bool userdataHasError;
+  @override
+  final bool verifyHasError;
+  @override
+  final bool verifyisLoading;
   @override
   final String? message;
   @override
@@ -831,10 +1336,18 @@ class _$InitialImpl implements _Initial {
   final EditProfileResponse? editProfileResponse;
   @override
   final EditProfilePictureResponse? editProfilePictureResponse;
+  @override
+  final UpdatedPhoneNumberModel? updatedPhoneNumberModel;
+  @override
+  final UpdetedPhoneNumberResponse? updetedPhoneNumberResponse;
+  @override
+  final VerifyUpdatedNumber? verifyUpdatedNumber;
+  @override
+  final VerifyUpdatedNumberResponse? verifyUpdatedNumberResponse;
 
   @override
   String toString() {
-    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, userdataisLoading: $userdataisLoading, userdataHasError: $userdataHasError, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, profileDetailsModel: $profileDetailsModel, editProfileModel: $editProfileModel, editProfileResponse: $editProfileResponse, editProfilePictureResponse: $editProfilePictureResponse)';
+    return 'ProfileState(dataHasError: $dataHasError, dataIsLoading: $dataIsLoading, userdataisLoading: $userdataisLoading, userdataHasError: $userdataHasError, verifyHasError: $verifyHasError, verifyisLoading: $verifyisLoading, message: $message, profileModel: $profileModel, profileMakeResponseModel: $profileMakeResponseModel, profileDetailsModel: $profileDetailsModel, editProfileModel: $editProfileModel, editProfileResponse: $editProfileResponse, editProfilePictureResponse: $editProfilePictureResponse, updatedPhoneNumberModel: $updatedPhoneNumberModel, updetedPhoneNumberResponse: $updetedPhoneNumberResponse, verifyUpdatedNumber: $verifyUpdatedNumber, verifyUpdatedNumberResponse: $verifyUpdatedNumberResponse)';
   }
 
   @override
@@ -850,6 +1363,10 @@ class _$InitialImpl implements _Initial {
                 other.userdataisLoading == userdataisLoading) &&
             (identical(other.userdataHasError, userdataHasError) ||
                 other.userdataHasError == userdataHasError) &&
+            (identical(other.verifyHasError, verifyHasError) ||
+                other.verifyHasError == verifyHasError) &&
+            (identical(other.verifyisLoading, verifyisLoading) ||
+                other.verifyisLoading == verifyisLoading) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.profileModel, profileModel) ||
                 other.profileModel == profileModel) &&
@@ -865,7 +1382,20 @@ class _$InitialImpl implements _Initial {
             (identical(other.editProfilePictureResponse,
                     editProfilePictureResponse) ||
                 other.editProfilePictureResponse ==
-                    editProfilePictureResponse));
+                    editProfilePictureResponse) &&
+            (identical(
+                    other.updatedPhoneNumberModel, updatedPhoneNumberModel) ||
+                other.updatedPhoneNumberModel == updatedPhoneNumberModel) &&
+            (identical(other.updetedPhoneNumberResponse,
+                    updetedPhoneNumberResponse) ||
+                other.updetedPhoneNumberResponse ==
+                    updetedPhoneNumberResponse) &&
+            (identical(other.verifyUpdatedNumber, verifyUpdatedNumber) ||
+                other.verifyUpdatedNumber == verifyUpdatedNumber) &&
+            (identical(other.verifyUpdatedNumberResponse,
+                    verifyUpdatedNumberResponse) ||
+                other.verifyUpdatedNumberResponse ==
+                    verifyUpdatedNumberResponse));
   }
 
   @override
@@ -875,13 +1405,19 @@ class _$InitialImpl implements _Initial {
       dataIsLoading,
       userdataisLoading,
       userdataHasError,
+      verifyHasError,
+      verifyisLoading,
       message,
       profileModel,
       profileMakeResponseModel,
       profileDetailsModel,
       editProfileModel,
       editProfileResponse,
-      editProfilePictureResponse);
+      editProfilePictureResponse,
+      updatedPhoneNumberModel,
+      updetedPhoneNumberResponse,
+      verifyUpdatedNumber,
+      verifyUpdatedNumberResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -896,13 +1432,19 @@ abstract class _Initial implements ProfileState {
           required final bool dataIsLoading,
           required final bool userdataisLoading,
           required final bool userdataHasError,
+          required final bool verifyHasError,
+          required final bool verifyisLoading,
           final String? message,
           final ProfileModel? profileModel,
           final ProfileMakeResponseModel? profileMakeResponseModel,
           final ProfileDetailsModel? profileDetailsModel,
           final EditProfileModel? editProfileModel,
           final EditProfileResponse? editProfileResponse,
-          final EditProfilePictureResponse? editProfilePictureResponse}) =
+          final EditProfilePictureResponse? editProfilePictureResponse,
+          final UpdatedPhoneNumberModel? updatedPhoneNumberModel,
+          final UpdetedPhoneNumberResponse? updetedPhoneNumberResponse,
+          final VerifyUpdatedNumber? verifyUpdatedNumber,
+          final VerifyUpdatedNumberResponse? verifyUpdatedNumberResponse}) =
       _$InitialImpl;
 
   @override
@@ -913,6 +1455,10 @@ abstract class _Initial implements ProfileState {
   bool get userdataisLoading;
   @override
   bool get userdataHasError;
+  @override
+  bool get verifyHasError;
+  @override
+  bool get verifyisLoading;
   @override
   String? get message;
   @override
@@ -927,6 +1473,14 @@ abstract class _Initial implements ProfileState {
   EditProfileResponse? get editProfileResponse;
   @override
   EditProfilePictureResponse? get editProfilePictureResponse;
+  @override
+  UpdatedPhoneNumberModel? get updatedPhoneNumberModel;
+  @override
+  UpdetedPhoneNumberResponse? get updetedPhoneNumberResponse;
+  @override
+  VerifyUpdatedNumber? get verifyUpdatedNumber;
+  @override
+  VerifyUpdatedNumberResponse? get verifyUpdatedNumberResponse;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

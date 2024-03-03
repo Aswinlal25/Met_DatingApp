@@ -7,6 +7,8 @@ class ProfileState with _$ProfileState {
     required bool dataIsLoading,
     required bool userdataisLoading,
     required bool userdataHasError,
+    required bool verifyHasError,
+    required bool verifyisLoading,
     String? message,
     ProfileModel? profileModel,
     ProfileMakeResponseModel? profileMakeResponseModel,
@@ -14,6 +16,10 @@ class ProfileState with _$ProfileState {
     EditProfileModel? editProfileModel,
     EditProfileResponse? editProfileResponse,
     EditProfilePictureResponse? editProfilePictureResponse,
+    UpdatedPhoneNumberModel? updatedPhoneNumberModel,
+    UpdetedPhoneNumberResponse? updetedPhoneNumberResponse,
+    VerifyUpdatedNumber? verifyUpdatedNumber,
+    VerifyUpdatedNumberResponse? verifyUpdatedNumberResponse,
   }) = _Initial;
 
   factory ProfileState.initial() => ProfileState(
@@ -21,5 +27,7 @@ class ProfileState with _$ProfileState {
         dataIsLoading: false,
         userdataisLoading: false,
         userdataHasError: false,
+        verifyHasError: false,
+        verifyisLoading: false,
       );
 }

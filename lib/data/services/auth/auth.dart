@@ -6,6 +6,7 @@ import 'package:dating_app/domain/core/failures/error_msg.dart';
 import 'package:dating_app/domain/modules/Logout/logout_model/logout_model.dart';
 import 'package:dating_app/domain/modules/phone_number_model/phone_number_model.dart';
 import 'package:dating_app/domain/modules/phone_number_response_model/phone_number_response_model.dart';
+import 'package:dating_app/domain/modules/profile/account_delete_model/account_delete_model.dart';
 import 'package:dating_app/domain/modules/verify_otp_model/verify_otp_model.dart';
 import 'package:dating_app/domain/modules/verify_otp_response/verify_otp_response.dart';
 import 'package:dating_app/domain/repositories/auth_repository.dart';
@@ -81,6 +82,26 @@ class AuthApi implements AuthRepository {
     } catch (e) {
       print('${e.toString()}');
     }
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<ErrorMsg, AccountDeleteModel>> accountDelete() async {
+    try {
+      final response = await dio.delete(ApiEndPoints.Userprofile);
+      if (response.statusCode == 200) {
+        return Right(AccountDeleteModel.fromJson(response.data));
+      } else if (response.statusCode == 401) {
+        return Left(ErrorMsg(
+            message: AccountDeleteModel.fromJson(response.data).message!));
+      } else if (response.statusCode == 500) {
+        return Left(ErrorMsg(
+            message: AccountDeleteModel.fromJson(response.data).message!));
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+
     throw UnimplementedError();
   }
 }

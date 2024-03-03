@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dating_app/domain/modules/chat/chat_users_model/chat_users_model.dart';
+import 'package:dating_app/domain/modules/chat/get_messages/get_messages.dart';
 import 'package:dating_app/domain/repositories/chat_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,6 +28,30 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
             emit(state.copyWith(
               chatUserisLoading: false,
               chatUsersModel: ChatUsers,
+            ));
+          },
+        );
+      },
+    );
+
+    on<_GetAllMessages>(
+      (event, emit) async {
+        emit(state.copyWith(msgisLoading: true));
+        emit(state.copyWith());
+        final result =
+            await chatRepository.getAllMessages(chatid: event.chatId);
+
+        result.fold(
+          (failure) {
+            emit(state.copyWith(
+              msgisLoading: false,
+              message: 'something went wrong',
+            ));
+          },
+          (ChatUsers) {
+            emit(state.copyWith(
+              msgisLoading: false,
+              getMessages: ChatUsers,
             ));
           },
         );

@@ -12,10 +12,17 @@ class Data {
   bool? isSubscribed;
   @JsonKey(name: 'see_like')
   bool? seeLike;
-  @JsonKey(name: 'likes')
+  @JsonKey(name: 'like_count')
+  int? likeCount;
   List<Like>? likes;
 
-  Data({this.userId, this.isSubscribed, this.seeLike, this.likes});
+  Data({
+    this.userId,
+    this.isSubscribed,
+    this.seeLike,
+    this.likeCount,
+    this.likes,
+  });
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 

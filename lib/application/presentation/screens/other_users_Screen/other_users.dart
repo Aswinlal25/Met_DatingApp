@@ -304,7 +304,9 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return BlockDialog();
+                          return BlockDialog(
+                            id: widget.user.id,
+                          );
                         },
                       );
                     },
@@ -330,7 +332,9 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return ReportDialog();
+                            return ReportDialog(
+                              id: widget.user.id,
+                            );
                           });
                     },
                     child: Text('Report  ${widget.user.name}',

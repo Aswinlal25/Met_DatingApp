@@ -11,6 +11,9 @@ const String loginbackground =
 const String numberinputbacakground =
     'assets/images/background_images/number_background.jpeg';
 
+const kheight5 = SizedBox(
+  height: 5,
+);
 const kheight10 = SizedBox(
   height: 10,
 );
@@ -29,6 +32,18 @@ const kheight50 = SizedBox(
 
 const kheight80 = SizedBox(
   height: 80,
+);
+
+const kheight70 = SizedBox(
+  height: 70,
+);
+
+const kheight60 = SizedBox(
+  height: 60,
+);
+
+const kheight90 = SizedBox(
+  height: 90,
 );
 
 BoxDecoration gradientBackground() {
@@ -74,6 +89,13 @@ Container LogoContainer() {
 }
 
 BoxDecoration BackgroundBoxStyle() {
+  return BoxDecoration(
+    color: Color.fromARGB(133, 51, 51, 51),
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+  );
+}
+
+BoxDecoration MsgCardStyle() {
   return BoxDecoration(
     color: Color.fromARGB(133, 51, 51, 51),
     borderRadius: BorderRadius.all(Radius.circular(20)),

@@ -7,4 +7,9 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.editprofileDetails(
       {required EditProfileModel editProfileModel}) = _EditprofileDetails;
   const factory ProfileEvent.editProfilePicture() = _EditProfilePicture;
+  const factory ProfileEvent.editPhoneNumber(
+          {required UpdatedPhoneNumberModel updatedPhoneNumberModel}) =
+      _EditPhoneNumber;
+  const factory ProfileEvent.verifyNewNumber(
+      {required VerifyUpdatedNumber verifyUpdatedNumber}) = _VerifyNewNumber;
 }

@@ -301,7 +301,9 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return BlockDialog();
+                    return BlockDialog(
+                      id: widget.homeuser.id,
+                    );
                   },
                 );
               },
@@ -327,7 +329,9 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ReportDialog();
+                      return ReportDialog(
+                        id: widget.homeuser.id,
+                      );
                     });
               },
               child: Container(

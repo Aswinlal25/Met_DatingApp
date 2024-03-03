@@ -18,6 +18,7 @@ import 'package:dating_app/application/presentation/screens/profile_screen/profi
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_one.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_three.dart';
 import 'package:dating_app/application/presentation/screens/quotes_screens/pages/page_two.dart';
+import 'package:dating_app/application/presentation/screens/settings/update_number.dart';
 import 'package:dating_app/application/presentation/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +68,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (ctx) => ProfileScreen());
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (ctx) => EditProfileScreen());
+      case Routes.numbereditscreen:
+        return MaterialPageRoute(builder: (ctx) => NumberEditScreen());
       default:
         return _errorScreen();
     }

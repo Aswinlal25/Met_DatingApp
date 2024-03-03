@@ -1,7 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
-import 'package:dating_app/application/presentation/utils/constant.dart';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -11,65 +7,69 @@ class SuccessDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.pop(context); // Close dialog after 2 seconds
+    });
+
     return Dialog(
-        shape: RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Color.fromARGB(255, 28, 28, 28),
           borderRadius: BorderRadius.circular(16),
         ),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: Color.fromARGB(255, 28, 28, 28),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 200,
-                      child: LottieBuilder.asset(
-                        'assets/animations/Checkmark.json',
-                        fit: BoxFit.fill,
-                      ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: Column(
+                children: [
+                  Container(
+                    width: 200,
+                    child: LottieBuilder.asset(
+                      'assets/animations/Checkmark.json',
+                      fit: BoxFit.fill,
                     ),
-                    SizedBox(height: 28),
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.white60,
-                          letterSpacing: 0.4,
-                          wordSpacing: 1,
+                  ),
+                  SizedBox(height: 28),
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.white60,
+                        letterSpacing: 0.4,
+                        wordSpacing: 1,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "Verification is successful.\n",
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
-                        children: [
-                          TextSpan(
-                            text: "Verification is successful.\n",
-                            style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17),
-                          ),
-                          TextSpan(
-                            text:
-                                "\nYou can now log in using your\n updated phone number. !",
-                          ),
-                        ],
-                      ),
+                        // TextSpan(
+                        //   text:
+                        //       "\nYou can now log in using your\n updated phone number. !",
+                        // ),
+                      ],
                     ),
-                    SizedBox(height: 22),
-                    kheight10,
-                    kheight10,
-                  ],
-                ),
-              )
-            ],
-          ),
-        ));
+                  ),
+                  SizedBox(height: 22),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

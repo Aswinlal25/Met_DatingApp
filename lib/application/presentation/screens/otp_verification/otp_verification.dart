@@ -68,10 +68,10 @@ class OTPScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '+91 9207209856',
-                          style: TextStyle(color: kwhite, fontSize: 16),
-                        ),
+                        // Text(
+                        //   '+91 9207209856',
+                        //   style: TextStyle(color: kwhite, fontSize: 16),
+                        // ),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(context, Routes.quotesScreen1);

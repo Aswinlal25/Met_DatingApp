@@ -2,11 +2,12 @@
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
+import 'package:dating_app/data/services/features/features.dart';
 import 'package:dating_app/domain/modules/get_likes/like.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:like_button/like_button.dart';
 
 import '../../../utils/dialog_box/user_block_dialog.dart';
 
@@ -20,7 +21,7 @@ class LikedUsersProfileView extends StatefulWidget {
 
 class _OtherUsersScreenState extends State<LikedUsersProfileView> {
   List<String>? imageUrls = [];
-
+  bool isLiked = false;
   int activeIndex = 0;
   @override
   void initState() {
@@ -76,9 +77,6 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                     top: 500,
                     left: 15,
                     child: GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
                         child: Text(
                             '${widget.likedUsers.name} (${widget.likedUsers.age})',
                             style: TextStyle(
@@ -88,15 +86,23 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                 Positioned(
                     top: 500,
                     right: 20,
-                    child: GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 44, 43, 43),
-                            radius: 30,
-                            child: LikeButton()))),
+                    child: CircleAvatar(
+                        backgroundColor: const Color.fromARGB(255, 44, 43, 43),
+                        radius: 30,
+                        child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                isLiked = true;
+                                FeaturesApi featuresApi = FeaturesApi();
+                                featuresApi.postlike(widget.likedUsers.id);
+                              });
+                            },
+                            child: Icon(
+                              Icons.favorite,
+                              color: isLiked ? kred : kgrey,
+                            )
+                            // LikeButton()
+                            ))),
                 //     Positioned(top: 15,left: 15,
                 // child: GestureDetector(onTap: () {Navigator.pop(context);} ,
                 //   child: CircleAvatar(backgroundColor: Colors.transparent,
@@ -301,7 +307,9 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return BlockDialog();
+                    return BlockDialog(
+                      id: widget.likedUsers.id,
+                    );
                   },
                 );
               },
@@ -327,7 +335,9 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return ReportDialog();
+                      return ReportDialog(
+                        id: widget.likedUsers.id,
+                      );
                     });
               },
               child: Container(

@@ -1,9 +1,13 @@
+import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/screens/settings/widgets/otp_screen.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
+import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 import 'package:dating_app/application/presentation/utils/show_snackbar/snackbar.dart';
+import 'package:dating_app/domain/modules/profile/updated_phone_number_model/updated_phone_number_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NumberEditScreen extends StatefulWidget {
   const NumberEditScreen({Key? key}) : super(key: key);
@@ -18,6 +22,7 @@ class _NumberEditScreenState extends State<NumberEditScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool isnewnumber = false;
+  late String newNumber;
 
   @override
   void initState() {
@@ -183,51 +188,75 @@ class _NumberEditScreenState extends State<NumberEditScreen> {
                   ),
                 ),
                 kheight80,
-                ElevatedButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      final newNumber = numberController.text;
-                      RegExp phoneNumberRegExp =
-                          RegExp(r'^(?!([0-9])\1{9}$)[0-9]{10}$');
+                BlocConsumer<ProfileBloc, ProfileState>(
+                    listener: (context, state) {
+                  if (state.dataHasError) {
+                    showSnack(
+                      context: context,
+                      message: 'Enter valid number',
+                    );
+                  } else if (state.updetedPhoneNumberResponse != null) {
+                    showOtpBottomSheet(context, newNumber);
+                  }
+                }, builder: (context, state) {
+                  if (state.dataHasError) {
+                    return LoadingAnimation(width: 20);
+                  } else {
+                    return ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          newNumber = numberController.text;
+                          RegExp phoneNumberRegExp =
+                              RegExp(r'^(?!([0-9])\1{9}$)[0-9]{10}$');
 
-                      if (phoneNumberRegExp.hasMatch(newNumber)) {
-                        print('Valid phone number');
-                        showOtpBottomSheet(context, newNumber);
-                      } else {
-                        showSnack(
-                            message: 'Invalid phone number',
-                            context: context,
-                            color: kblack);
-                        print('invalid number');
-                      }
-                      if (numberController.text.length == 10) {}
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: numberController.text.length == 10
-                        ? kred
-                        : Color.fromARGB(133, 51, 51, 51),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: SizedBox(
-                      height: screenSize.height * 0.045,
-                      width: screenSize.width * 0.75,
-                      child: Center(
-                        child: Text(
-                          'Continue',
-                          style: TextStyle(
-                            fontSize: screenSize.width * 0.043,
-                            color: kwhite,
+                          if (phoneNumberRegExp.hasMatch(newNumber)) {
+                            print('Valid phone number');
+                            print(numberController.text);
+                            showOtpBottomSheet(context, newNumber);
+                            UpdatedPhoneNumberModel updatedPhoneNumberModel =
+                                UpdatedPhoneNumberModel(
+                                    phNo: numberController.text);
+                            context.read<ProfileBloc>().add(
+                                ProfileEvent.editPhoneNumber(
+                                    updatedPhoneNumberModel:
+                                        updatedPhoneNumberModel));
+                          } else {
+                            showSnack(
+                                message: 'Invalid phone number',
+                                context: context,
+                                color: kblack);
+                            print('invalid number');
+                          }
+                          if (numberController.text.length == 10) {}
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: numberController.text.length == 10
+                            ? kred
+                            : Color.fromARGB(133, 51, 51, 51),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: SizedBox(
+                          height: screenSize.height * 0.045,
+                          width: screenSize.width * 0.75,
+                          child: Center(
+                            child: Text(
+                              'Continue',
+                              style: TextStyle(
+                                fontSize: screenSize.width * 0.043,
+                                color: kwhite,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                )
+                    );
+                  }
+                })
               ],
             ),
           ),

@@ -48,17 +48,38 @@ class _InterersUsersScreenState extends State<InterersUsersScreen> {
               ),
             ),
           ),
-          BlocBuilder<UsersBloc, UsersState>(
+          BlocConsumer<UsersBloc, UsersState>(
+            listener: (context, state) {},
             builder: (context, state) {
-              if (state.recommentedModel == null ||
-                  state.recommentedModel!.data == null) {
+              if (state.homedataisLoading) {
+                // Show loading indicator if data is loading
                 return Container(
                   height: 600,
                   width: double.infinity,
                   child: Align(
                       alignment: Alignment.center,
-                      child: LoadingAnimation(width: 10)),
-                ); // Show loading indicator if data is not available yet
+                      child: LoadingAnimation(width: 20)),
+                );
+              } else if (state.recommentedModel?.data == null ||
+                  state.recommentedModel!.data!.isEmpty) {
+                return Container(
+                  height: 600,
+                  width: double.infinity,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 300,
+                        ),
+                        Text(
+                          'No profiles available on your interest',
+                          style: TextStyle(color: fkwhite, letterSpacing: 1.2),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
               }
 
               return Expanded(
