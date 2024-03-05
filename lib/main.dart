@@ -22,6 +22,9 @@ class DatingApp extends StatelessWidget {
 
   final RouteGenerator routeGenerator = RouteGenerator();
 
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -37,6 +40,7 @@ class DatingApp extends StatelessWidget {
         BlocProvider(create: (context) => ChatBloc(ChatApi())),
       ],
       child: MaterialApp(
+        navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: 'Met',
         theme: ThemeData(

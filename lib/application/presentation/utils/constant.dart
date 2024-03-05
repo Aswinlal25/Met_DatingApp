@@ -101,3 +101,20 @@ BoxDecoration MsgCardStyle() {
     borderRadius: BorderRadius.all(Radius.circular(20)),
   );
 }
+
+TextStyle InterestPagetitleStyle() {
+  return TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w800,
+      fontSize: 21,
+      letterSpacing: 0.5);
+}
+
+TextStyle InterestPageSubtittleStyle() {
+  return TextStyle(
+    color: Colors.white60,
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
+    letterSpacing: 1.5,
+  );
+}

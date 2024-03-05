@@ -1,12 +1,14 @@
-import 'dart:ui';
 import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
+import 'package:dating_app/application/presentation/screens/notification_screen/widgets/blure_box.dart';
 import 'package:dating_app/application/presentation/screens/notification_screen/widgets/liked_prifiles_view.dart';
+import 'package:dating_app/application/presentation/screens/notification_screen/widgets/likes_empty_box.dart';
+import 'package:dating_app/application/presentation/screens/notification_screen/widgets/profile_box.dart';
+import 'package:dating_app/application/presentation/screens/notification_screen/widgets/static.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 
 class NotificationScreen extends StatefulWidget {
   NotificationScreen({Key? key});
@@ -21,7 +23,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   void initState() {
     context.read<FeaturesBloc>().add(FeaturesEvent.getLikes());
-
     super.initState();
   }
 
@@ -38,57 +39,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
             color: kwhite,
           ),
         ),
-        title: Text(
-          'Likes',
-          style: TextStyle(
-            color: kwhite,
-            fontSize: 24,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 1,
-          ),
-        ),
+        title: TitleText(),
       ),
       body: BlocConsumer<FeaturesBloc, FeaturesState>(
           listener: (context, state) {},
           builder: (context, state) {
             final likesState = context.watch<FeaturesBloc>().state.getLikes;
-
             //final likes = state.getLikes.data;
-
             // Check if likesState is null or if likes data is null
             if (likesState == null ||
                 likesState.data == null ||
                 likesState.data!.likeCount == 0) {
-              return Container(
-                height: 700,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 160,
-                        child: LottieBuilder.asset(
-                          'assets/animations/nRrkDCahyG.json',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Text(
-                        'No likes available',
-                        style: TextStyle(
-                          color: kwhite,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w200,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return LikesEmptyContainer();
             } else {
               final likes = likesState.data!.likes!;
               bool? isSubscribed = state.getLikes!.data!.isSubscribed;
               bool? isPlan2 = state.getLikes!.data!.seeLike;
+              final likescount = likesState.data?.likeCount;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -99,28 +66,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         SizedBox(height: 10),
                         likesState.data!.likes != null
-                            ? Text(
-                                'Your profile liked by ${likesState.data?.likeCount} peoples',
-                                style: TextStyle(
-                                  color: Colors.white60,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 1,
-                                ),
-                              )
+                            ? LikeCountText(likescount)
                             : SizedBox(),
                         SizedBox(height: 5),
                         likesState.data!.likes!.isNotEmpty
                             ? likesState.data!.seeLike == false
-                                ? Text(
-                                    'Get the Premium to see their profiles',
-                                    style: TextStyle(
-                                      color: kwhite,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w200,
-                                      letterSpacing: 1,
-                                    ),
-                                  )
+                                ? PremiumText()
                                 : SizedBox()
                             : SizedBox()
                       ],
@@ -140,6 +91,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       itemBuilder: (context, index) {
                         List<String>? imageUrls =
                             likesState.data?.likes![index].image!.split(", ");
+                        final name = likes[index].name ?? '';
                         return GestureDetector(
                           onTap: () {
                             if (isSubscribed! && isPlan2!) {
@@ -168,60 +120,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                         isSubscribed &&
                                         isSubscribed &&
                                         isPlan2!
-                                    ? Container(
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              Color.fromARGB(255, 22, 22, 22),
-                                              Colors.transparent,
-                                              Colors.transparent,
-                                              Colors.black.withOpacity(0.4),
-                                            ],
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter,
-                                          ),
-                                        ),
-                                        child: Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              SizedBox(height: 10),
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    : BackdropFilter(
-                                        filter: ImageFilter.blur(
-                                          sigmaX: 6.0,
-                                          sigmaY: 6.0,
-                                        ),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(255, 22, 22, 22),
-                                                Colors.transparent,
-                                                Colors.transparent,
-                                                Colors.black.withOpacity(0.4),
-                                              ],
-                                              begin: Alignment.bottomCenter,
-                                              end: Alignment.topCenter,
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.bottomCenter,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                SizedBox(height: 10),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      )),
+                                    ? ProfileContainer(name: name)
+                                    : BlureContainer()),
                           ),
                         );
                       },

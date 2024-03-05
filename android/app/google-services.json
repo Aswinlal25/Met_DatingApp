@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868253715625",
+    "project_id": "meetup-dating-app",
+    "storage_bucket": "meetup-dating-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868253715625:android:a75ed4c4b099a90ea5adb8",
+        "android_client_info": {
+          "package_name": "com.example.dating_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOSJ63cESH8AuuXvGbhQ9EabxsKquEHMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

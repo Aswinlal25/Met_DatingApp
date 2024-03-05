@@ -24,6 +24,7 @@ class _ChatScreenState extends State<ChatScreen> {
     super.initState();
     context.read<FeaturesBloc>().add(FeaturesEvent.getMatches());
     context.read<ChatBloc>().add(ChatEvent.getChatUsers());
+
     // _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -35,35 +36,18 @@ class _ChatScreenState extends State<ChatScreen> {
         preferredSize: Size.fromHeight(150),
         child: AppBar(
           backgroundColor: Colors.black,
-
-          // bottom: TabBar(
-          //   indicator: UnderlineTabIndicator(
-          //       insets: EdgeInsets.only(
-          //         left: 20,
-          //         right: 20,
-          //       ),
-          //       borderSide: BorderSide(color: Colors.red, width: 2)),
-          //   // BoxDecoration(shape: BoxShape.rectangle,color: Color.fromARGB(255, 58, 58, 58),borderRadius: BorderRadius.circular(20)),
-          //   controller: _tabController,
-          //   tabs: [
-          //     Tab(text: 'Messages'),
-          //     //Tab(text: 'Calls'),
-          //   ],
-          // ),
           flexibleSpace: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Matches',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                  ),
-                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 17, vertical: 8),
+                child: Text('Matches',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 20,
+                        letterSpacing: 0.5)),
               ),
               BlocBuilder<FeaturesBloc, FeaturesState>(
                   builder: (context, state) {
@@ -152,15 +136,6 @@ class _ChatScreenState extends State<ChatScreen> {
                                                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc0V1a7P8AYy3QBSO1AgldcqV9H37AtK3_aQ&usqp=CAU')
                                               as ImageProvider<Object>?),
                                 ),
-                                // Positioned(
-                                //     top: 50,
-                                //     bottom: 0,
-                                //     left: 50,
-                                //     child: Icon(
-                                //       Icons.favorite_rounded,
-                                //       color: const Color.fromARGB(
-                                //           255, 244, 67, 54),
-                                //     )),
                               ],
                             ),
                           ),
@@ -192,14 +167,29 @@ class _ChatScreenState extends State<ChatScreen> {
               children: [
                 Text(
                   "Messages",
-                  style: TextStyle(color: fkwhite),
+                  style: TextStyle(
+                      color: fkwhite,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1),
                 ),
                 Container(
                   child: Expanded(
                     child: ListView.builder(
                       itemCount: chatUsers.length,
                       itemBuilder: (context, index) {
+                        context.read<ChatBloc>().add(ChatEvent.getAllMessages(
+                            chatId: context
+                                .read<ChatBloc>()
+                                .state
+                                .chatUsersModel
+                                ?.data![index]
+                                .chat!
+                                .id));
                         final chatuser = state.chatUsersModel!.data![index];
+                        // final length = state.getMessages?.data?[index]
+                        //         .messageContent?.length ??
+                        //     0;
                         // final chatId =
                         state.chatUsersModel!.data![index].chat!.id;
                         return GestureDetector(
@@ -249,7 +239,7 @@ class _ChatScreenState extends State<ChatScreen> {
                               ),
                             ),
                             subtitle: Text(
-                              'Helloo',
+                              chatUsers[index].user?.name ?? '',
                               style: TextStyle(
                                 color: Colors.white54,
                                 fontSize: 13,
@@ -293,44 +283,17 @@ class _ChatScreenState extends State<ChatScreen> {
 
 
 
- // ListView.builder(
-          //   itemBuilder: (context, index) {
-          //     return ListTile(
-          //         leading: CircleAvatar(
-          //           radius: 33,
-          //           backgroundImage: AssetImage(
-          //               'assets/users/photo_2023-11-30_14-06-26.jpg'),
-          //           //  backgroundColor: Colors.blue,
-          //         ),
-          //         title: Text(
-          //           '',
-          //           style: TextStyle(
-          //             color: Colors.white,
-          //             fontSize: 16,
-          //             fontWeight: FontWeight.w400,
-          //             letterSpacing: 1,
-          //           ),
-          //         ),
-          //         subtitle: Row(
-          //           children: [
-          //             Icon(
-          //               CupertinoIcons.arrow_up_right,
-          //               color: Colors.green,
-          //             ),
-          //             Text(
-          //               'Today 10:30',
-          //               style: TextStyle(
-          //                 color: Colors.white54,
-          //                 fontSize: 13,
-          //                 fontWeight: FontWeight.w400,
-          //                 letterSpacing: 1,
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //         trailing: Icon(
-          //           CupertinoIcons.phone_fill,
-          //           color: Colors.white60,
-          //         ));
-          //   },
+ // bottom: TabBar(
+          //   indicator: UnderlineTabIndicator(
+          //       insets: EdgeInsets.only(
+          //         left: 20,
+          //         right: 20,
+          //       ),
+          //       borderSide: BorderSide(color: Colors.red, width: 2)),
+          //   // BoxDecoration(shape: BoxShape.rectangle,color: Color.fromARGB(255, 58, 58, 58),borderRadius: BorderRadius.circular(20)),
+          //   controller: _tabController,
+          //   tabs: [
+          //     Tab(text: 'Messages'),
+          //     //Tab(text: 'Calls'),
+          //   ],
           // ),
