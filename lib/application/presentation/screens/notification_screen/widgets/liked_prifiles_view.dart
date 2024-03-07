@@ -1,4 +1,5 @@
 // import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/interst_container.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
@@ -103,10 +104,6 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                             )
                             // LikeButton()
                             ))),
-                //     Positioned(top: 15,left: 15,
-                // child: GestureDetector(onTap: () {Navigator.pop(context);} ,
-                //   child: CircleAvatar(backgroundColor: Colors.transparent,
-                //     child: Icon(CupertinoIcons.back,color: kwhite,))))
               ],
             ),
             SizedBox(
@@ -286,15 +283,15 @@ class _OtherUsersScreenState extends State<LikedUsersProfileView> {
                     SizedBox(
                       height: 10,
                     ),
-                    // Align(
-                    //     alignment: Alignment.centerLeft,
-                    //     child: Wrap(
-                    //       children: List.generate(
-                    //         widget.likedUsers.interests!.length,
-                    //         (index) => InterestsBoxs(
-                    //             chipName: widget.homeuser.interests![index]),
-                    //       ),
-                    //     )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          children: List.generate(
+                            widget.likedUsers.interests!.length,
+                            (index) => InterestsBoxs(
+                                chipName: widget.likedUsers.interests![index]),
+                          ),
+                        )),
                   ],
                 ),
               ),

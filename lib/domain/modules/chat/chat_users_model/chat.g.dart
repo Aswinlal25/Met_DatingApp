@@ -9,13 +9,15 @@ part of 'chat.dart';
 Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
       id: json['id'] as String?,
       users: (json['users'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      createdAt: json['created_at'] == null
+      lastMessage: json['last_message'] as String?,
+      lastMessageTime: json['last_message_time'] == null
           ? null
-          : DateTime.parse(json['created_at'] as String),
+          : DateTime.parse(json['last_message_time'] as String),
     );
 
 Map<String, dynamic> _$ChatToJson(Chat instance) => <String, dynamic>{
       'id': instance.id,
       'users': instance.users,
-      'created_at': instance.createdAt?.toIso8601String(),
+      'last_message': instance.lastMessage,
+      'last_message_time': instance.lastMessageTime?.toIso8601String(),
     };

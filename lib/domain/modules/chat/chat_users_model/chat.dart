@@ -6,10 +6,12 @@ part 'chat.g.dart';
 class Chat {
   String? id;
   List<int>? users;
-  @JsonKey(name: 'created_at')
-  DateTime? createdAt;
+  @JsonKey(name: 'last_message')
+  String? lastMessage;
+  @JsonKey(name: 'last_message_time')
+  DateTime? lastMessageTime;
 
-  Chat({this.id, this.users, this.createdAt});
+  Chat({this.id, this.users, this.lastMessage, this.lastMessageTime});
 
   factory Chat.fromJson(Map<String, dynamic> json) => _$ChatFromJson(json);
 

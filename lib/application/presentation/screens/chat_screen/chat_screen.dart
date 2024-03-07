@@ -1,7 +1,9 @@
 import 'package:dating_app/application/business_logic/Chat/chat_bloc.dart';
 import 'package:dating_app/application/business_logic/Features/features_bloc.dart';
 import 'package:dating_app/application/presentation/screens/chat_screen/widgets/match_profiles_view.dart';
+import 'package:dating_app/application/presentation/screens/chat_screen/widgets/static.dart';
 import 'package:dating_app/application/presentation/screens/chatting_screen/chatting_screen.dart';
+import 'package:dating_app/application/presentation/screens/chatting_screen/widgets/image_view_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/loading_indicator.dart/loading.dart';
 
@@ -42,12 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 17, vertical: 8),
-                child: Text('Matches',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 20,
-                        letterSpacing: 0.5)),
+                child: Text('Matches', style: TitleTextStyle()),
               ),
               BlocBuilder<FeaturesBloc, FeaturesState>(
                   builder: (context, state) {
@@ -61,7 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 if (matches == null || matches.isEmpty) {
                   return Center(
                     child: Text(
-                      'No Matches',
+                      '        No Matches',
                       style: TextStyle(
                           fontWeight: FontWeight.w500, letterSpacing: 1),
                     ),
@@ -94,7 +91,6 @@ class _ChatScreenState extends State<ChatScreen> {
                                 Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    //color: Color.fromARGB(255, 244, 67, 54),
                                     gradient: LinearGradient(
                                       colors: [
                                         const Color.fromARGB(255, 244, 67, 54),
@@ -158,39 +154,36 @@ class _ChatScreenState extends State<ChatScreen> {
         builder: (context, state) {
           final chatUsers = state.chatUsersModel?.data;
           if (chatUsers == null || chatUsers.isEmpty) {
-            return Text(
-              'No Chats Available',
-              style: TextStyle(color: kwhite, letterSpacing: 1),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'No Chats Available',
+                    style: TextStyle(color: kwhite, letterSpacing: 1),
+                  ),
+                ),
+              ],
             );
           } else {
             return Column(
               children: [
                 Text(
                   "Messages",
-                  style: TextStyle(
-                      color: fkwhite,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1),
+                  style: chatHeaderText(),
                 ),
                 Container(
                   child: Expanded(
                     child: ListView.builder(
                       itemCount: chatUsers.length,
                       itemBuilder: (context, index) {
-                        context.read<ChatBloc>().add(ChatEvent.getAllMessages(
-                            chatId: context
-                                .read<ChatBloc>()
-                                .state
-                                .chatUsersModel
-                                ?.data![index]
-                                .chat!
-                                .id));
                         final chatuser = state.chatUsersModel!.data![index];
-                        // final length = state.getMessages?.data?[index]
-                        //         .messageContent?.length ??
-                        //     0;
-                        // final chatId =
+                        final timestamp =
+                            chatUsers[index].chat?.lastMessageTime;
+                        final formattedtime =
+                            getFormattedTime(timestamp.toString());
                         state.chatUsersModel!.data![index].chat!.id;
                         return GestureDetector(
                           onTap: () {
@@ -209,52 +202,48 @@ class _ChatScreenState extends State<ChatScreen> {
                                         )));
                           },
                           child: ListTile(
-                            leading: CircleAvatar(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 40, 40, 40),
-                              radius: 28,
-                              child: ClipOval(
-                                child: FadeInImage(
-                                  placeholder: AssetImage(
-                                      'assets/images/palce_holder_images/PlaceHolder.jpg'),
-                                  image: chatUsers[index].user?.image != null
-                                      ? NetworkImage(
-                                          chatUsers[index].user?.image ?? '')
-                                      : AssetImage(
-                                              'assets/images/palce_holder_images/PlaceHolder.jpg')
-                                          as ImageProvider,
-                                  fit: BoxFit.cover,
-                                  width: 160,
-                                  height: 160,
+                            leading: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => ImageViewScreen(
+                                              picture:
+                                                  chatUsers[index].user?.image,
+                                            )));
+                              },
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 40, 40, 40),
+                                radius: 28,
+                                child: ClipOval(
+                                  child: FadeInImage(
+                                    placeholder: AssetImage(
+                                        'assets/images/palce_holder_images/PlaceHolder.jpg'),
+                                    image: chatUsers[index].user?.image != null
+                                        ? NetworkImage(
+                                            chatUsers[index].user?.image ?? '')
+                                        : AssetImage(
+                                                'assets/images/palce_holder_images/PlaceHolder.jpg')
+                                            as ImageProvider,
+                                    fit: BoxFit.cover,
+                                    width: 160,
+                                    height: 160,
+                                  ),
                                 ),
                               ),
                             ),
                             title: Text(
                               chatUsers[index].user?.name ?? '',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1,
-                              ),
+                              style: chatTitleStyle(),
                             ),
                             subtitle: Text(
-                              chatUsers[index].user?.name ?? '',
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1,
-                              ),
+                              chatUsers[index].chat?.lastMessage ?? '',
+                              style: subtitileStyle(),
                             ),
                             trailing: Text(
-                              'Now',
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1,
-                              ),
+                              formattedtime,
+                              style: subtitileStyle(),
                             ),
                           ),
                         );
@@ -271,29 +260,17 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
- // bottom: TabBar(
-          //   indicator: UnderlineTabIndicator(
-          //       insets: EdgeInsets.only(
-          //         left: 20,
-          //         right: 20,
-          //       ),
-          //       borderSide: BorderSide(color: Colors.red, width: 2)),
-          //   // BoxDecoration(shape: BoxShape.rectangle,color: Color.fromARGB(255, 58, 58, 58),borderRadius: BorderRadius.circular(20)),
-          //   controller: _tabController,
-          //   tabs: [
-          //     Tab(text: 'Messages'),
-          //     //Tab(text: 'Calls'),
-          //   ],
-          // ),
+// bottom: TabBar(
+//   indicator: UnderlineTabIndicator(
+//       insets: EdgeInsets.only(
+//         left: 20,
+//         right: 20,
+//       ),
+//       borderSide: BorderSide(color: Colors.red, width: 2)),
+//   // BoxDecoration(shape: BoxShape.rectangle,color: Color.fromARGB(255, 58, 58, 58),borderRadius: BorderRadius.circular(20)),
+//   controller: _tabController,
+//   tabs: [
+//     Tab(text: 'Messages'),
+//     //Tab(text: 'Calls'),
+//   ],
+// ),

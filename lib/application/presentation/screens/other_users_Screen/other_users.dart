@@ -4,6 +4,7 @@ import 'package:dating_app/application/presentation/screens/other_users_Screen/w
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/user_block_dialog.dart';
+import 'package:dating_app/data/services/features/features.dart';
 import 'package:dating_app/domain/modules/recommented_model/datum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class OtherUsersScreen extends StatefulWidget {
 
 class _OtherUsersScreenState extends State<OtherUsersScreen> {
   List<String>? images = [];
-
+  bool isLiked = false;
   int activeIndex = 0;
   @override
   void initState() {
@@ -85,15 +86,24 @@ class _OtherUsersScreenState extends State<OtherUsersScreen> {
                       Positioned(
                           top: 490,
                           right: 20,
-                          child: InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: CircleAvatar(
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 44, 43, 43),
-                                  radius: 30,
-                                  child: LikeButton()))),
+                          child: CircleAvatar(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 44, 43, 43),
+                              radius: 30,
+                              child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      isLiked = true;
+                                      FeaturesApi featuresApi = FeaturesApi();
+                                      featuresApi.postlike(widget.user.id);
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: isLiked ? kred : kgrey,
+                                  )
+                                  // LikeButton()
+                                  ))),
                     ],
                   ),
                 ),

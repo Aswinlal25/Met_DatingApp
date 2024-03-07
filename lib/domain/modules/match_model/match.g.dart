@@ -16,6 +16,9 @@ Match _$MatchFromJson(Map<String, dynamic> json) => Match(
       country: json['country'] as String?,
       bio: json['bio'] as String?,
       image: json['image'] as String?,
+      interests: (json['interests'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$MatchToJson(Match instance) => <String, dynamic>{
@@ -28,4 +31,5 @@ Map<String, dynamic> _$MatchToJson(Match instance) => <String, dynamic>{
       'country': instance.country,
       'bio': instance.bio,
       'image': instance.image,
+      'interests': instance.interests,
     };

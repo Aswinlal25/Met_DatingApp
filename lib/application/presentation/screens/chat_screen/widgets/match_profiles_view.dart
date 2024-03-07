@@ -1,4 +1,5 @@
 // import 'package:dating_app/application/presentation/routes/routes.dart';
+import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/interst_container.dart';
 import 'package:dating_app/application/presentation/screens/other_users_Screen/widgets/photo_container.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
@@ -279,15 +280,15 @@ class _OtherUsersScreenState extends State<MatchUsersProfileView> {
                     SizedBox(
                       height: 10,
                     ),
-                    // Align(
-                    //     alignment: Alignment.centerLeft,
-                    //     child: Wrap(
-                    //       children: List.generate(
-                    //         widget.likedUsers.interests!.length,
-                    //         (index) => InterestsBoxs(
-                    //             chipName: widget.homeuser.interests![index]),
-                    //       ),
-                    //     )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          children: List.generate(
+                            widget.matchUser.interests!.length,
+                            (index) => InterestsBoxs(
+                                chipName: widget.matchUser.interests![index]),
+                          ),
+                        )),
                   ],
                 ),
               ),

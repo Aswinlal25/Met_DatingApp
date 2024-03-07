@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:dating_app/application/presentation/routes/routes.dart';
+// import 'package:dating_app/application/presentation/routes/routes.dart';
 import 'package:dating_app/application/presentation/screens/chatting_screen/widgets/image_view_page.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/domain/modules/chat/chat_users_model/datum.dart';
@@ -75,26 +75,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   ),
                 ),
                 Spacer(),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.callingScreen);
-                  },
-                  child: Icon(
-                    CupertinoIcons.phone_fill,
-                    color: kwhite,
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Icon(
-                  CupertinoIcons.videocam_fill,
-                  color: kwhite,
-                  size: 27,
-                ),
-                SizedBox(
-                  width: 15,
-                ),
+                // InkWell(
+                //   onTap: () {
+                //     Navigator.pushNamed(context, Routes.callingScreen);
+                //   },
+                //   child: Icon(
+                //     CupertinoIcons.phone_fill,
+                //     color: kwhite,
+                //   ),
+                // ),
+                // SizedBox(
+                //   width: 15,
+                // ),
+                // Icon(
+                //   CupertinoIcons.videocam_fill,
+                //   color: kwhite,
+                //   size: 27,
+                // ),
+                // SizedBox(
+                //   width: 15,
+                // ),
               ],
             ),
           ],

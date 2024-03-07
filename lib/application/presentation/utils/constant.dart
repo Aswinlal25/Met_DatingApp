@@ -118,3 +118,6 @@ TextStyle InterestPageSubtittleStyle() {
     letterSpacing: 1.5,
   );
 }
+
+// style: GoogleFonts.dmSerifDisplay(
+//     textStyle: TextStyle(color: Colors.white, fontSize: 22)),

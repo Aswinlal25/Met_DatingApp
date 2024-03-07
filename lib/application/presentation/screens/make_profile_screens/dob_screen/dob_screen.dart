@@ -42,7 +42,7 @@ class _DobScreenState extends State<DobScreen> {
           ),
         ),
         title: Text(
-          'Your Birthday',
+          'Date of Birth',
           style: TextStyle(color: kwhite, letterSpacing: 1, fontSize: 21),
         ),
       ),

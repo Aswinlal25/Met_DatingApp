@@ -8,7 +8,6 @@ part 'data.g.dart';
 class Data {
   @JsonKey(name: 'user_id')
   int? userId;
-  @JsonKey(name: 'matches')
   List<Match>? matches;
 
   Data({this.userId, this.matches});

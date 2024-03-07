@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:dating_app/application/business_logic/Profile/profile_bloc.dart';
 import 'package:dating_app/application/presentation/screens/edit_profile_screen/widgets/choice_chip.dart';
 import 'package:dating_app/application/presentation/utils/colors.dart';
@@ -268,6 +270,9 @@ class _InterestScreenState extends State<EditInterestScreen> {
                         );
                       } else {
                         Navigator.pop(context);
+                        context
+                            .read<ProfileBloc>()
+                            .add(ProfileEvent.getprofileDetails());
                       }
                     } else {
                       showSnack(

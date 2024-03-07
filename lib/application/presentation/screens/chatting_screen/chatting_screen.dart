@@ -226,7 +226,9 @@ class ChattingScreenState extends State<ChattingScreen> {
                               ),
                               child: Row(
                                 children: [
-                                  kheight20,
+                                  SizedBox(
+                                    width: 20,
+                                  ),
                                   Expanded(
                                     child: msgInputStyle(msgController),
                                   ),
@@ -251,6 +253,9 @@ class ChattingScreenState extends State<ChattingScreen> {
                                                   chatId: widget.chatUsersModel
                                                       ?.chat?.id));
                                         }
+                                        context
+                                            .read<ChatBloc>()
+                                            .add(ChatEvent.getChatUsers());
                                       },
                                       child: Icon(
                                         Icons.send,

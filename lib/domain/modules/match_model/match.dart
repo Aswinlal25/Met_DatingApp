@@ -13,6 +13,7 @@ class Match {
   String? country;
   String? bio;
   String? image;
+  List<String>? interests;
 
   Match({
     this.id,
@@ -24,6 +25,7 @@ class Match {
     this.country,
     this.bio,
     this.image,
+    this.interests,
   });
 
   factory Match.fromJson(Map<String, dynamic> json) => _$MatchFromJson(json);

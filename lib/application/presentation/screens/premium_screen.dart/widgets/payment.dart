@@ -180,6 +180,8 @@
 //         fontSize: 16.0);
 //   }
 
+// ignore_for_file: deprecated_member_use
+
 //   void _handleExternalWallet(ExternalWalletResponse response) {
 //     log('external handler');
 //   }

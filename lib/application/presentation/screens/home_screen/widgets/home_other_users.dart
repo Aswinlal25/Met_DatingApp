@@ -4,6 +4,7 @@ import 'package:dating_app/application/presentation/screens/other_users_Screen/w
 import 'package:dating_app/application/presentation/utils/colors.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/report_dialog.dart';
 import 'package:dating_app/application/presentation/utils/dialog_box/user_block_dialog.dart';
+import 'package:dating_app/data/services/features/features.dart';
 import 'package:dating_app/domain/modules/home_response/datum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class HomeOtherUsers extends StatefulWidget {
 
 class _OtherUsersScreenState extends State<HomeOtherUsers> {
   List<String>? images = [];
-
+  bool isLiked = false;
   int activeIndex = 0;
   @override
   void initState() {
@@ -88,19 +89,23 @@ class _OtherUsersScreenState extends State<HomeOtherUsers> {
                 Positioned(
                     top: 500,
                     right: 20,
-                    child: GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 44, 43, 43),
-                            radius: 30,
-                            child: LikeButton()))),
-                //     Positioned(top: 15,left: 15,
-                // child: GestureDetector(onTap: () {Navigator.pop(context);} ,
-                //   child: CircleAvatar(backgroundColor: Colors.transparent,
-                //     child: Icon(CupertinoIcons.back,color: kwhite,))))
+                    child: CircleAvatar(
+                        backgroundColor: const Color.fromARGB(255, 44, 43, 43),
+                        radius: 30,
+                        child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                isLiked = true;
+                                FeaturesApi featuresApi = FeaturesApi();
+                                featuresApi.postlike(widget.homeuser.id);
+                              });
+                            },
+                            child: Icon(
+                              Icons.favorite,
+                              color: isLiked ? kred : kgrey,
+                            )
+                            // LikeButton()
+                            ))),
               ],
             ),
             SizedBox(
