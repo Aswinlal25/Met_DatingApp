@@ -9,7 +9,7 @@ import 'package:dating_app/domain/modules/recommented_model/datum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:like_button/like_button.dart';
+//import 'package:like_button/like_button.dart';
 
 class OtherUsersScreen extends StatefulWidget {
   final Datum user;

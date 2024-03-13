@@ -30,6 +30,7 @@ class HomeContents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
         Stack(
@@ -46,7 +47,7 @@ class HomeContents extends StatelessWidget {
               ),
               child: Container(
                 width: double.infinity,
-                height: 600,
+                height: screenSize.height * 0.7,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

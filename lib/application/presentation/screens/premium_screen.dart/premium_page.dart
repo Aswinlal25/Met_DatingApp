@@ -56,6 +56,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final screenSize = MediaQuery.of(context).size;
     return Stack(
       children: [
         Scaffold(
@@ -136,9 +137,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
                                       selectCard(1);
                                     },
                                   ),
-                                  SizedBox(
-                                    width: 17,
-                                  ),
+                                  Spacer(),
                                   SubscriptionCard(
                                     planName: plans[1].name,
                                     price: 'Rs.${plans[1].amount}/mo',
@@ -412,12 +411,13 @@ class _SubscriptionCardState extends State<SubscriptionCard> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
         height: 210,
         child: Container(
-          width: 170,
+          width: screenSize.width * 0.43,
           decoration: BoxDecoration(
             border: Border.all(
               color: widget.isSelected

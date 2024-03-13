@@ -21,7 +21,7 @@ class OptionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //  final Size screensize = MediaQuery.of(context).size;
+    final Size screensize = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.all(8.0),
       child: BlocBuilder<ProfileBloc, ProfileState>(
@@ -29,12 +29,12 @@ class OptionsList extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 10,
-              ),
               Center(
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: screensize.height * 0.01,
+                    ),
                     UserPictureAvatar(edit_sharp: edit_sharp),
                     SizedBox(
                       height: 5,
@@ -66,7 +66,7 @@ class OptionsList extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: screensize.height * 0.04,
               ),
               InkWell(
                 onTap: () {
@@ -128,6 +128,7 @@ class OptionsList extends StatelessWidget {
                   };
 
                   // Convert interests from string to int based on the mapping
+
                   List<int> convertedInterests = state
                           .profileDetailsModel!.data!.interests
                           ?.map((interest) =>
@@ -193,7 +194,7 @@ class OptionsList extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: screensize.height * 0.01,
               ),
               PremiumCard(),
             ],
